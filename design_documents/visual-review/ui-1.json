@@ -1,0 +1,77 @@
+{
+  "version": "1.0.0",
+  "unit": "ui",
+  "round": 1,
+  "model": "gemini-2.5-pro",
+  "location": "us-central1",
+  "generated_at": "2026-10-05T19:27:32.994563+00:00",
+  "threshold": 8.0,
+  "score": 8.5,
+  "verdict": "pass",
+  "degraded": false,
+  "defects": [
+    {
+      "rank": 1,
+      "severity": "high",
+      "area": "hierarchy",
+      "problem": "All items in the 'Review the week' checklist have identical typographic treatment, making the list difficult to scan.",
+      "fix_hint": "Use a different text color, like --text-muted, for completed items to visually separate them from pending items.",
+      "spec_ref": "§2"
+    },
+    {
+      "rank": 2,
+      "severity": "medium",
+      "area": "typography",
+      "problem": "In the 'DEVICES' list, the device name (subject) and its description (support) have almost identical styling, weakening the hierarchy.",
+      "fix_hint": "Style the support text ('Doorbell', '2 cameras') using a smaller size and the --text-muted color token, per the canonical stack.",
+      "spec_ref": "§2"
+    },
+    {
+      "rank": 3,
+      "severity": "medium",
+      "area": "state-clarity",
+      "problem": "The 'Open an incident' action is styled as plain text, which does not clearly communicate that it is a clickable element.",
+      "fix_hint": "Restyle 'Open an incident' as an underlined link or a ghost button to afford clickability.",
+      "spec_ref": "§1.1"
+    },
+    {
+      "rank": 4,
+      "severity": "low",
+      "area": "legibility",
+      "problem": "The line-height on the multi-line warning message is tight, making the text block appear dense and slightly harder to read.",
+      "fix_hint": "Increase the line-height for multi-line body copy to approximately 1.5 to improve readability and visual comfort.",
+      "spec_ref": "brief"
+    },
+    {
+      "rank": 5,
+      "severity": "low",
+      "area": "consistency",
+      "problem": "The 'Sample week - synthetic' label is plain text, inconsistent with other status indicators like the 'ONLINE' chip.",
+      "fix_hint": "Style the label as a chip, perhaps using the `--degraded` token, to create a consistent visual language for statuses.",
+      "spec_ref": "§3"
+    }
+  ],
+  "strengths": [
+    "The design successfully realizes the 'paper and ink' concept from the brief through its color palette, typography, and layout.",
+    "Contextual help is exemplary, with a global 'How this works' button and specific '?' popovers on all result regions as per §7.",
+    "System status and warnings are communicated clearly using well-structured banners and callouts with distinct visual treatments."
+  ],
+  "inputs": {
+    "screenshots": [
+      {
+        "path": "design_documents\\ui-screenshots\\home-paper.png",
+        "sha256": "1d185647f8bd51aa8e70d3bc56822029d3cbf35c9300ef1a1b5a9468e4055cc7"
+      },
+      {
+        "path": "design_documents\\ui-screenshots\\incident-selected-paper.png",
+        "sha256": "4040b51293b7c951806ed649c057282ddadee33efabde1d1b66746c28f7479ca"
+      },
+      {
+        "path": "design_documents\\ui-screenshots\\home-390-paper.png",
+        "sha256": "5618aa97ecd937dd04501eeb150fb16f2e46f97c2d3609f1a08567229ef32606"
+      }
+    ],
+    "brief_sha256": "146e9bfe1ce186e0ddbf8034432b4adbd738438eedf9888b5738edd93d4d2063",
+    "rules_sha256": "bc0d91be28e15cf464c1fcf96562378519becbd7b315f4b243eb90566d875977"
+  }
+}

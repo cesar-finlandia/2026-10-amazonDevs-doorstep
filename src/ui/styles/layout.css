@@ -1,0 +1,146 @@
+/* src/ui/styles/layout.css — the page grid of §5.7 (DP-UI §6.2). */
+/* Requirement IDs: FR-19 */
+body { margin: 0; background: var(--bg); color: var(--text); font: 400 var(--text-body)/var(--lh-body) var(--font-text); }
+body, .page, .rail, .main, .workbench, [data-surface] { transition: background-color var(--dur-fast) var(--ease-inout), color var(--dur-fast) var(--ease-inout), border-color var(--dur-fast) var(--ease-inout); }
+.page { max-width: var(--container-max); margin: 0 auto; padding: var(--space-5) var(--gutter) var(--space-8); display: grid;
+  grid-template-columns: var(--rail-w) minmax(0, 1fr) var(--workbench-w); gap: var(--gutter); align-items: start; }
+.rail { position: sticky; top: calc(var(--appbar-h) + var(--gutter)); max-height: calc(100vh - var(--appbar-h) - var(--space-6)); overflow: auto; display: flex; flex-direction: column; gap: var(--space-4); }
+.rail__footer { margin-top: auto; position: sticky; bottom: 0; background: var(--bg); padding-top: var(--space-3); }
+.main, .workbench { min-width: 0; display: flex; flex-direction: column; gap: var(--space-4); }
+.appbar { height: var(--appbar-h); background: var(--bg-elevated); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: var(--space-4); padding: 0 var(--gutter); position: sticky; top: 0; z-index: 20; }
+.appbar__spacer { flex: 1; min-width: var(--space-2); }
+.appbar__cluster { display: flex; align-items: center; gap: var(--space-3); }
+.status-chip { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 0; padding: var(--space-1) var(--space-3); border: 1px solid var(--border); border-radius: var(--radius-control); background: transparent; line-height: 1.25; }
+.status-chip[data-degraded="true"] { background: var(--bg-degraded); border-color: var(--degraded); }
+.status-chip .subject { font-size: var(--text-support); line-height: var(--lh-support); }
+.theme-toggle { display: inline-flex; border: 1px solid var(--border-strong); border-radius: var(--radius-control); overflow: hidden; }
+.theme-toggle button { border: none; border-radius: 0; min-height: 36px; }
+.theme-toggle button[aria-checked="true"] { background: var(--bg-accent); color: var(--accent); box-shadow: inset 0 -2px 0 var(--accent); }
+
+/* Week ribbon — the paper calendar (§6.5). */
+.ribbon { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--space-2); }
+.day-col { position: relative; min-width: 0; }
+.day-btn { display: flex; flex-direction: column; width: 100%; min-height: 0; padding: 0; background: transparent; border: none; border-bottom: 2px solid transparent; border-radius: 0; }
+.day-btn[aria-pressed="true"] { border-bottom: 2px solid var(--accent); }
+.day-head { display: flex; flex-direction: column; align-items: center; gap: var(--space-1); padding: var(--space-2); border-radius: var(--radius-control) var(--radius-control) 0 0; }
+.day-btn[aria-pressed="true"] .day-head { background: var(--bg-accent); }
+.day-num { font-family: var(--font-text); font-size: var(--text-subject); line-height: var(--lh-subject); font-weight: 650; color: var(--pencil); font-variant-numeric: tabular-nums; }
+.day-body { position: relative; display: block; height: 200px; border-left: 1px solid var(--border); border-right: 1px solid var(--border); }
+@media (min-width: 1440px) { .day-body { height: 240px; } }
+.hour-line { position: absolute; left: 0; right: 0; display: block; height: 1px; background: var(--border); }
+.quiet-band { position: absolute; left: 0; right: 0; display: block; background: var(--bg-sunken); }
+.visit { position: absolute; left: 68%; width: 6px; min-height: 2px; display: block; background: var(--pencil); border-radius: 3px; }
+.tick { position: absolute; left: 22%; width: 14px; height: 2px; display: block; border-radius: 2px; background: var(--pencil); }
+.tick[data-dup="true"] { background: var(--degraded); }
+.tick[data-dup="true"]::after { content: ""; position: absolute; top: 3px; left: 0; width: 14px; height: 2px; border-radius: 2px; background: var(--degraded); }
+.outage-band { position: absolute; left: 0; right: 0; display: block; background: repeating-linear-gradient(135deg, var(--degraded) 0 2px, transparent 2px 6px); opacity: 0.4; }
+/* The band label must stay inside its day column: absolute text without a
+   right edge spills the column and trips craft §11 assertion 2 (the button's
+   scrollWidth). Clamped to two lines, it reads in full on desktop columns
+   and truncates instead of spilling on phones. */
+.outage-text { position: absolute; top: 2px; left: 4px; right: 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+@media (max-width: 479px) { .outage-text { display: none; } }
+.seam { position: absolute; left: 0; right: 0; display: block; border-top: 1px dashed var(--degraded); }
+.seam .eyebrow { position: absolute; top: 2px; left: 4px; right: 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.pencil-circle { position: absolute; left: 2%; width: 96%; min-height: 44px; display: block; padding: 0; background: transparent; border: none; border-radius: 0; }
+.pencil-circle svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.pencil-circle ellipse { fill: none; stroke-width: 2.5; }
+.pencil-circle[data-status="open"] ellipse, .pencil-circle[data-status="explained"] ellipse { stroke: var(--warning); }
+.pencil-circle[data-status="resolved"] ellipse { stroke: var(--success); }
+.pencil-circle[data-status="dismissed"] ellipse { stroke: var(--border-strong); }
+
+/* Check, incident and summary panels (§6.4). */
+.summary-flex { display: flex; gap: var(--space-5); align-items: center; flex-wrap: wrap; }
+.lead { font-size: var(--text-body); line-height: var(--lh-body); margin: 0; flex: 1; min-width: 200px; }
+.panel-count { display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-3); }
+.panel-count .tnum { font-size: var(--metric-md); font-weight: 700; font-variant-numeric: tabular-nums; }
+.issue-row { display: flex; gap: var(--space-3); align-items: flex-start; padding: var(--space-3) var(--space-4); border: 1px solid var(--border); border-left-width: 3px; border-radius: var(--radius-control); margin-bottom: var(--space-2); }
+.issue-row[data-severity="error"] { background: var(--bg-danger); border-left-color: var(--danger); }
+.issue-row[data-severity="warning"] { background: var(--bg-warning); border-left-color: var(--warning); }
+.incident-title { font-family: var(--font-display); font-size: var(--text-h2); line-height: var(--lh-h2); font-weight: 650; letter-spacing: var(--track-heading); color: var(--text); margin: 0 0 var(--space-3); }
+.evidence { margin: 0 0 var(--space-3); }
+.evidence img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: var(--bg-sunken); border-radius: var(--radius-control); }
+.evidence video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: var(--bg-sunken); border-radius: var(--radius-control); }
+
+/* Agent phase list (§6.3 item 8). */
+.phase-list { list-style: none; margin: var(--space-3) 0 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.phase-list li { display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-support); line-height: var(--lh-support); color: var(--text-muted); }
+.phase-list li svg { color: var(--success); }
+.phase-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex: none; }
+@media (max-width: 719px) {
+  .ribbon { grid-template-columns: repeat(7, minmax(0, 1fr)); overflow-x: auto; scroll-snap-type: x mandatory; }
+  .day-col { scroll-snap-align: start; }
+  /* No element may force the 390 px viewport wider: every flex/grid item
+     in the single-column layout must be allowed to shrink (ui-04 check 13,
+     craft §11 assertion 1). The 72 px fixed columns of the first draft
+     (7 × 72 px + gaps ≈ 550 px > 358 px content) contradict that rule, so
+     the columns share the available width instead; the container keeps its
+     scrollability for genuine overflow (e.g. larger text). */
+  .page > *, [data-slot] { min-width: 0; }
+}
+/* Rail rows: devices, consent switches, quiet-hours editor (§6.9). */
+.device-list, .consent-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.device-row, .consent-row { display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-2) var(--space-3); border: 1px solid transparent; border-radius: var(--radius-control); }
+.device-row--offline { background: var(--bg-danger); border-left: 3px solid var(--danger); }
+.device-row__body, .consent-row__body { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; flex: 1; }
+/* The device name carries the subject role at a larger step than the
+   support lines beneath it (visual review round 1, defect 2). */
+.device-row__body .subject { font-size: var(--text-h3); line-height: var(--lh-h3); }
+[role="switch"] { position: relative; flex: none; width: 44px; height: 24px; border-radius: var(--radius-chip); border: 1px solid var(--border-strong); background: var(--bg-sunken); cursor: pointer; margin-top: var(--space-1); }
+[role="switch"][data-switch="on"] { background: var(--bg-accent); border-color: var(--accent); }
+[role="switch"] .switch__knob { position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; border-radius: 50%; background: var(--text-muted); }
+[role="switch"][data-switch="on"] .switch__knob { left: 22px; background: var(--accent); }
+.quiet-grid { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+.quiet-grid label { display: flex; flex-direction: column; gap: var(--space-1); font-size: var(--text-support); color: var(--text-muted); }
+.quiet-margin { display: flex; align-items: center; gap: var(--space-2); }
+.field { display: flex; flex-direction: column; gap: var(--space-1); font-size: var(--text-support); color: var(--text-muted); margin: var(--space-3) 0; }
+.mono { font-family: var(--font-mono); }
+.toggle-rail { display: block; }
+/* Hero stage: the 3D doorway slot (DP-UI §6.9). Fixed 16:5 aspect; the
+   min-height wins below ~960 px of width, as CSS specifies. */
+.scene-stage { aspect-ratio: 16 / 5; min-height: 240px; display: flex; flex-direction: column; gap: var(--space-2); }
+@media (min-width: 1440px) { .scene-stage { min-height: 300px; } }
+/* The 16:5 aspect with a 240 px min-height would force a 768 px-wide
+   stage (240 × 16/5) and spill the 390 px viewport (ui-04 check 13).
+   On phones the stage sizes to its content instead; the specified
+   aspect and min-heights still hold at 1280/1440 (ui-12 check 1).
+   This override sits after the base rule so it wins the cascade. */
+@media (max-width: 719px) { .scene-stage { aspect-ratio: auto; min-height: 0; } }
+.scene-toolbar { display: flex; gap: var(--space-2); flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+.scene-toolbar [data-shot] { border-bottom: 2px solid transparent; margin-bottom: -1px; padding-bottom: var(--space-2); }
+.scene-toolbar [aria-pressed="true"] { border-bottom-color: var(--accent); color: var(--accent); font-weight: 600; }
+/* The active shot is a third accent role on the screen (visual review
+   round 1, defect 8): accent word plus semibold weight, never colour alone. */
+.scene-toolbar [aria-pressed="true"] { color: var(--accent); font-weight: 600; }
+.scene-fallback, .scene-live { flex: 1; min-height: 0; }
+.scene-host__canvas { width: 100%; height: 100%; display: block; }
+.household-btn { display: none; }
+@media (max-width: 1023px) {
+  .household-btn { display: inline-flex; }
+}
+.toggle-bar { display: none; }
+@media (max-width: 1023px) {
+  .page { grid-template-columns: minmax(0, 1fr) 340px; }
+  .rail { display: none; }
+  .rail[data-open="true"] { display: flex; position: fixed; z-index: 30; top: var(--appbar-h); bottom: 0; left: 0; width: 280px; padding: var(--space-4); background: var(--bg-overlay); box-shadow: var(--elev-3); }
+  .toggle-rail { display: none; }
+  .toggle-bar { display: block; }
+}
+@media (max-width: 719px) {
+  .page { display: flex; flex-direction: column; gap: var(--space-4); }
+  .appbar__cluster { flex-wrap: wrap; row-gap: var(--space-2); }
+  .main, .workbench { display: contents; }
+  [data-slot="title"] { order: 10; } [data-slot="summary"] { order: 20; } [data-slot="ribbon"] { order: 30; } [data-slot="stage"] { order: 40; }
+  [data-slot="agent"] { order: 50; } [data-slot="approval"] { order: 55; } [data-slot="check"] { order: 60; } [data-slot="incident"] { order: 70; }
+  [data-slot="nudge"] { order: 80; } [data-slot="feed"] { order: 90; } [data-slot="manual"] { order: 95; } [data-slot="live"] { order: 45; }
+  .agent-primary { position: sticky; bottom: var(--space-3); z-index: 5; }
+  .appbar { flex-wrap: wrap; height: auto; min-height: var(--appbar-h); padding-top: var(--space-2); padding-bottom: var(--space-2); row-gap: var(--space-2); }
+  /* A 37 px day column cannot hold 8 px side padding plus tracked-out
+     capitals: the head spills the day button (craft §11 assertion 2). */
+  .day-head { padding: var(--space-1) 2px; }
+  .day-head .eyebrow { font-size: 10px; letter-spacing: 0.04em; }
+  .day-num { font-size: var(--text-support); line-height: var(--lh-support); }
+  /* The fix button must drop below the text instead of forcing the row
+     past the viewport (craft §11 assertion 1). */
+  .issue-row { flex-wrap: wrap; }
+}

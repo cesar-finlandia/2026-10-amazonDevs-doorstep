@@ -1,0 +1,28 @@
+/* src/ui/styles/motion.css — the thirteen motions of §5.5 (DP-UI §6.2). */
+/* Requirement IDs: FR-19, NFR-06 */
+@keyframes section-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.page > *, .theme-block > * { animation: section-enter var(--dur-base) var(--ease-out); }
+@keyframes feed-in { from { opacity: 0; } to { opacity: 1; } }
+li.feed-in { animation: feed-in var(--dur-base) var(--ease-out); }
+@keyframes changed-flash-bg { from { background-color: var(--bg-accent); } to { background-color: transparent; } }
+.changed-flash { animation: changed-flash-bg var(--dur-slow) var(--ease-inout); }
+@keyframes tick-in { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+.tick { transform-origin: bottom; animation: tick-in var(--dur-base) var(--ease-out); }
+@keyframes pencil-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+.pencil-circle ellipse { stroke-dasharray: 1; animation: pencil-draw 360ms var(--ease-out); }
+@keyframes work-pulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+.work-indicator__tick { width: 14px; height: 3px; border-radius: 2px; background: var(--pencil); animation: work-pulse 1200ms var(--ease-inout) infinite; }
+.work-indicator__tick:nth-child(2) { animation-delay: 200ms; }
+.work-indicator__tick:nth-child(3) { animation-delay: 400ms; }
+.work-indicator { display: inline-flex; align-items: center; gap: var(--space-2); }
+@keyframes confirm-tint { 0% { background-color: var(--bg-success); border-color: var(--success); } 100% { background-color: transparent; } }
+.confirm-flash { animation: confirm-tint var(--dur-slow) var(--ease-inout); }
+@keyframes error-tint { 0% { background-color: var(--bg-danger); border-color: var(--danger); } 100% { background-color: transparent; } }
+.error-flash { animation: error-tint var(--dur-base) var(--ease-inout); }
+@keyframes dialog-enter { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+.dialog__panel { animation: dialog-enter var(--dur-base) var(--ease-out); }
+.dialog__backdrop { animation: feed-in var(--dur-base) var(--ease-out); }
+@keyframes popover-enter { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+.help-popover { animation: popover-enter var(--dur-fast) var(--ease-out); }
+.scene-rise { transition: height var(--dur-slow) var(--ease-out); }
+@media (prefers-reduced-motion: reduce) { :root { --dur-fast: 1ms; --dur-base: 1ms; --dur-slow: 1ms; } .work-indicator__tick { animation: none; } .pencil-circle ellipse { stroke-dashoffset: 0 !important; animation: none !important; } }

@@ -1,0 +1,28 @@
+/* src/ui/styles/platform-skin.css — skins the unstyled kit components through
+   wrappers and descendant selectors only (DP-UI §6.2, §6.6). Never copies or
+   edits the platform component. */
+/* Requirement IDs: FR-07, FR-08, FR-09 */
+.ui-step-status { background: var(--bg-sunken); border: 1px solid var(--border); border-radius: var(--radius-control); padding: var(--space-3); }
+.ui-step-status__title { font-size: var(--text-eyebrow); line-height: var(--lh-eyebrow); font-weight: 700; letter-spacing: var(--track-eyebrow); text-transform: uppercase; color: var(--text-muted); }
+.ui-step-status__steps { display: flex; flex-direction: column; gap: var(--space-2); margin: var(--space-2) 0 0; padding: 0; list-style: none; }
+.ui-step { font-size: var(--text-support); line-height: var(--lh-support); color: var(--text-muted); display: flex; align-items: center; gap: var(--space-2); }
+.ui-step--current { color: var(--accent); font-weight: 650; }
+.ui-step--done { color: var(--success); }
+.ui-step--error { color: var(--danger); }
+.ui-badge--skeleton { display: inline-block; border: 1px solid var(--border); border-radius: var(--radius-chip); padding: 2px 10px; }
+
+/* Approval wrapper: the kit's pending line becomes the warning band. */
+[data-result-region="approval-bar"] > div > div { background: var(--bg-warning); border: 1px solid var(--warning); border-radius: var(--radius-control); padding: var(--space-3) var(--space-4); margin: var(--space-2) 0; }
+[data-result-region="approval-bar"] > div > div > span:first-child { font-size: var(--text-subject); line-height: var(--lh-subject); font-weight: 650; color: var(--text); display: block; margin-bottom: var(--space-2); }
+[data-result-region="approval-bar"] label { display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-support); color: var(--text-muted); }
+[data-result-region="approval-bar"] label input { min-height: 0; width: 18px; accent-color: var(--accent); }
+.approval-pending { position: sticky; bottom: var(--space-3); z-index: 5; }
+.approval-head { display: flex; align-items: center; gap: var(--space-2); color: var(--warning); }
+
+/* Activity feed: the kit's unstyled ol/li becomes eyebrow/subject/support rows. */
+[data-result-region="activity-feed"] ol { list-style: none; margin: 0; padding: 0; }
+[data-result-region="activity-feed"] li { display: grid; grid-template-columns: auto 1fr; gap: var(--space-1) var(--space-2); padding: var(--space-2) 0; border-bottom: 1px solid var(--border); max-height: 56px; overflow: hidden; }
+[data-result-region="activity-feed"] li > span:first-child { font-size: var(--text-eyebrow); line-height: var(--lh-eyebrow); font-weight: 700; letter-spacing: var(--track-eyebrow); border: 1px solid var(--border-strong); border-radius: var(--radius-chip); padding: 2px 8px; color: var(--text-muted); white-space: nowrap; align-self: start; }
+[data-result-region="activity-feed"] li > strong { font-size: var(--text-subject); line-height: var(--lh-subject); font-weight: 650; color: var(--text); }
+[data-result-region="activity-feed"] li > span:not(:first-child) { grid-column: 2; font-size: var(--text-support); line-height: var(--lh-support); color: var(--text-muted); }
+[data-result-region="activity-feed"] li > button { grid-column: 2; justify-self: start; }

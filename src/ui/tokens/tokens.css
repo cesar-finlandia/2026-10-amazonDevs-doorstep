@@ -1,0 +1,133 @@
+:root {
+  /* typography — families */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-text: "Atkinson Hyperlegible Next", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  /* typography — sizes and line heights */
+  --text-eyebrow: 12px;  --lh-eyebrow: 16px;
+  --text-support: 14px;  --lh-support: 20px;
+  --text-body: 18px;     --lh-body: 28px;
+  --text-subject: 18px;  --lh-subject: 24px;
+  --text-h3: 22px;       --lh-h3: 30px;
+  --text-h2: 28px;       --lh-h2: 36px;
+  --text-h1: 36px;       --lh-h1: 44px;
+  --text-display: 56px;  --lh-display: 60px;
+  --metric-md: 28px;     --metric-lg: 40px;   --metric-xl: 64px;
+  --track-eyebrow: 0.07em;  --track-heading: -0.01em;  --track-metric: -0.02em;
+  /* spacing scale */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px;
+  /* radius */
+  --radius-control: 8px;  --radius-card: 14px;  --radius-dialog: 18px;  --radius-chip: 999px;
+  /* motion */
+  --dur-fast: 200ms;  --dur-base: 280ms;  --dur-slow: 400ms;
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+  --ease-inout: cubic-bezier(0.4, 0, 0.2, 1);
+  /* layout */
+  --rail-w: 208px;  --workbench-w: 360px;  --gutter: 16px;  --container-max: 1680px;
+  --appbar-h: 64px;
+  /* focus */
+  --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+}
+@media (min-width: 1440px) { :root { --rail-w: 240px; --workbench-w: 380px; --gutter: 24px; } }
+@media (prefers-reduced-motion: reduce) { :root { --dur-fast: 1ms; --dur-base: 1ms; --dur-slow: 1ms; } }
+
+:root {   /* light "paper" */
+  color-scheme: light;
+  --bg: #F6F1E7;
+  --bg-elevated: #FFFDF8;
+  --bg-sunken: #EBE4D3;
+  --bg-overlay: #FFFEFB;
+  --border: #D8CDB6;
+  --border-strong: #857758;
+  --pencil: #3D372D;
+  --text: #221D16;
+  --text-muted: #5B5142;
+  --text-inverse: #FFFDF8;
+  --accent: #1B6A62;
+  --accent-hover: #145650;
+  --accent-contrast: #FFFDF8;
+  --success: #3B6A2B;
+  --warning: #8F4B00;
+  --danger: #A32D2A;
+  --degraded: #3F5E85;
+  --bg-accent: #D9EAE6;
+  --bg-success: #E4EEDC;
+  --bg-warning: #F8E7CC;
+  --bg-danger: #F6DCD8;
+  --bg-degraded: #DDE5F0;
+  --chart-1: #0B6FA8;
+  --chart-2: #B84F00;
+  --chart-3: #00735A;
+  --chart-4: #9C4F7D;
+  --chart-5: #8A6A00;
+  --chart-6: #4B4B9C;
+  --scene-bg: #EBE4D3;
+  --scene-ground: #D8CDB6;
+  --scene-accent: #1B6A62;
+  --scene-text: #221D16;
+  --scene-mat-wall: #FFFDF8;
+  --scene-mat-door: #857758;
+  --scene-mat-stoop: #D8CDB6;
+  --scene-mat-frustum: #3F5E85;
+  --scene-mat-pillar: #3D372D;
+  --scene-mat-pillar-warn: #8F4B00;
+  --scene-mat-pillar-danger: #A32D2A;
+  --scene-mat-pillar-dup: #3F5E85;
+  --scene-mat-gap: #857758;
+  --scene-mat-resolved: #3B6A2B;
+  --scene-mat-arc: #1B6A62;
+  --elev-1: 0 1px 2px rgba(34,29,22,0.06);
+  --elev-2: 0 4px 14px rgba(34,29,22,0.10), 0 1px 3px rgba(34,29,22,0.08);
+  --elev-3: 0 18px 44px rgba(34,29,22,0.20), 0 2px 8px rgba(34,29,22,0.10);
+}
+
+[data-theme="dark"] {   /* dark "dusk" */
+  color-scheme: dark;
+  --bg: #12171A;
+  --bg-elevated: #1B2226;
+  --bg-sunken: #0C1012;
+  --bg-overlay: #222B30;
+  --border: #2A343A;
+  --border-strong: #6C7F8A;
+  --pencil: #CFC8B8;
+  --text: #EFE9DC;
+  --text-muted: #A8A190;
+  --text-inverse: #12171A;
+  --accent: #5CC0B3;
+  --accent-hover: #7ED3C8;
+  --accent-contrast: #0C1012;
+  --success: #8CC274;
+  --warning: #F0A24A;
+  --danger: #F08077;
+  --degraded: #8FB0DC;
+  --bg-accent: #183B38;
+  --bg-success: #1F3320;
+  --bg-warning: #3A2A12;
+  --bg-danger: #3C1F1D;
+  --bg-degraded: #1D2C42;
+  --chart-1: #56B4E9;
+  --chart-2: #F08A3C;
+  --chart-3: #3FC9A0;
+  --chart-4: #E08FBF;
+  --chart-5: #E6C84A;
+  --chart-6: #A6A6F2;
+  --scene-bg: #0C1012;
+  --scene-ground: #2A343A;
+  --scene-accent: #5CC0B3;
+  --scene-text: #EFE9DC;
+  --scene-mat-wall: #1B2226;
+  --scene-mat-door: #6C7F8A;
+  --scene-mat-stoop: #2A343A;
+  --scene-mat-frustum: #8FB0DC;
+  --scene-mat-pillar: #CFC8B8;
+  --scene-mat-pillar-warn: #F0A24A;
+  --scene-mat-pillar-danger: #F08077;
+  --scene-mat-pillar-dup: #8FB0DC;
+  --scene-mat-gap: #6C7F8A;
+  --scene-mat-resolved: #8CC274;
+  --scene-mat-arc: #5CC0B3;
+  --elev-1: 0 1px 2px rgba(0,0,0,0.40);
+  --elev-2: 0 6px 18px rgba(0,0,0,0.50);
+  --elev-3: 0 20px 48px rgba(0,0,0,0.60);
+}

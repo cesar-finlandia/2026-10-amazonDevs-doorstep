@@ -1,16 +1,18 @@
 <!doctype html>
-<!-- Requirement IDs: UI-03, UI-06, UI-AC-02 | DP-B §10.8 item 1 -->
-<!-- Minimal dev shell for the platform UI library: THEME env selects the
-     theme at bootstrap (single config change); layout is single-focus per
-     docs/ui-layout.md. Not a product app — demo/smoke surface only. -->
+<!-- Requirement IDs: FR-19, FR-23 | DP-UI WU-UI-04 -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Platform UI — dev shell</title>
+    <script>try{var t=localStorage.getItem("dr-theme");if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.dataset.theme=t}catch(e){try{document.documentElement.dataset.theme=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}catch(e2){document.documentElement.dataset.theme="light"}}</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Doorstep Rhythm</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/fraunces-latin-wght-normal.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" />
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/examples/ui/dev-main.tsx"></script>
+    <script type="module" src="/src/ui/main.tsx"></script>
   </body>
 </html>

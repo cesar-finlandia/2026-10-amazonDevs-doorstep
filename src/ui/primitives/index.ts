@@ -1,0 +1,13 @@
+// src/ui/primitives/index.ts — barrel (DP-UI WU-UI-05).
+export { Surface } from "./Surface.js";
+export { Metric } from "./Metric.js";
+export { HelpTip } from "./HelpTip.js";
+export { Button } from "./Button.js";
+export { Message } from "./Message.js";
+export { StatusChip } from "./StatusChip.js";
+export { SourceBadge } from "./SourceBadge.js";
+export { SyntheticBadge } from "./SyntheticBadge.js";
+export { WorkIndicator } from "./WorkIndicator.js";
+export { EmptyState } from "./EmptyState.js";
+export { Dialog } from "./Dialog.js";
+export { Explainer } from "./Explainer.js";

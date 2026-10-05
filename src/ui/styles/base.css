@@ -1,0 +1,51 @@
+/* src/ui/styles/base.css — lockup, surface, metric, text roles (DP-UI §5.2A.6, §5.4, §6.4). */
+/* Requirement IDs: FR-19, FR-23 */
+.brandmark { display: inline-flex; align-items: center; gap: 0.5em; line-height: 1;
+  color: var(--accent); white-space: nowrap; }
+.brandmark__mark { width: 2.05em; height: 2.05em; flex: none; display: block; }
+.brandmark__stack { display: flex; flex-direction: column; gap: 0.18em;
+  padding-left: 0.5em; border-left: 1px solid var(--border-strong); }
+.brandmark__word { font-family: var(--font-display); font-size: 1em; font-weight: 700;
+  letter-spacing: -0.012em; color: var(--text); }
+.brandmark__slogan { font-family: var(--font-text); font-size: 0.62em; font-weight: 500;
+  letter-spacing: 0.01em; color: var(--text-muted); }
+.brandmark--header { font-size: 22px; }
+.brandmark--slide { font-size: 34px; }
+.brandmark--cover { font-size: 64px; }
+@media (max-width: 479px) {
+  .brandmark--header .brandmark__word, .brandmark--header .brandmark__slogan { display: none; }
+}
+
+[data-surface] { background: var(--bg-elevated); border: 1px solid var(--border);
+  border-radius: var(--radius-card); padding: var(--space-5); box-shadow: var(--elev-1);
+  min-width: 0; }
+[data-surface] > header { display: flex; align-items: center; gap: var(--space-2);
+  padding-bottom: var(--space-3); margin-bottom: var(--space-4); border-bottom: 1px solid var(--border); }
+/* The eyebrow and the subject are two words, not one ("AGENTManual"): the
+   title wrapper keeps its own gap (visual review round 1, defect 3). */
+[data-surface] > header > span:first-child { display: inline-flex; align-items: baseline; gap: var(--space-2); min-width: 0; }
+[data-surface][data-well] { background: var(--bg-sunken); border-radius: var(--radius-control);
+  padding: var(--space-4); box-shadow: none; }
+[data-surface][data-elevation="2"] { background: var(--bg-overlay); box-shadow: var(--elev-2); }
+[data-surface][data-elevation="3"] { background: var(--bg-overlay); box-shadow: var(--elev-3);
+  border-radius: var(--radius-dialog); }
+[data-surface][data-emphasis="primary"] { border-left: 3px solid var(--accent); }
+
+.metric{display:flex;flex-direction:column;gap:var(--space-1);min-width:0}
+.metric__value{font-family:var(--font-text);font-variant-numeric:tabular-nums;white-space:nowrap;
+  font-size:var(--metric-lg);font-weight:700;letter-spacing:var(--track-metric);line-height:1.05;color:var(--text)}
+.metric__value--xl{font-size:var(--metric-xl)} .metric__value--md{font-size:var(--metric-md)} .metric__value--lg{font-size:var(--metric-lg)}
+.metric__sep{color:var(--text-muted);font-weight:400;padding:0 0.25em}
+.metric__unit{font-size:var(--text-support);font-weight:500;letter-spacing:0;color:var(--text-muted);margin-left:var(--space-2)}
+[data-metric]{font-variant-numeric:tabular-nums;white-space:nowrap}
+.metric__value[data-tone="accent"]{color:var(--accent)}
+.metric__value[data-tone="warning"]{color:var(--warning)}
+.metric__value[data-tone="danger"]{color:var(--danger)}
+.metric__value[data-tone="success"]{color:var(--success)}
+
+.eyebrow { font-size: var(--text-eyebrow); line-height: var(--lh-eyebrow); font-weight: 700; letter-spacing: var(--track-eyebrow); text-transform: uppercase; color: var(--text-muted); }
+.subject { font-size: var(--text-subject); line-height: var(--lh-subject); font-weight: 650; letter-spacing: var(--track-heading); color: var(--text); }
+.support { font-size: var(--text-support); line-height: var(--lh-support); font-weight: 400; color: var(--text-muted); }
+.clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.well-mono { font-family: var(--font-mono); font-size: 14px; line-height: 20px; max-height: 220px; overflow: auto; }
+.tnum { font-variant-numeric: tabular-nums; }
