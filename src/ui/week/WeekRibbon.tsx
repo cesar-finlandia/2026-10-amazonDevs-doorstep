@@ -19,11 +19,14 @@ export function WeekRibbon(): React.JSX.Element {
   const titles = useMemo(() => new Map(model.incidents.map((i) => [i.id, i.title])), [model]);
   const empty = model.events.every((e) => e.tsMs < model.window.baselineEndMs);
   const select = (day: RibbonDay): void => {
-    actions.selectDay(dayIndexOf(model, day.dayStartMs));
+    // Ribbon index (0..6): matches data-day and the 3D scene's day ids. (The
+    // agent's focus_day/focus_incident continue to write absolute indices;
+    // the pressed comparison below accepts both.)
+    actions.selectDay(day.dayIndex);
   };
   const open = (day: RibbonDay, id: string): void => {
     actions.selectIncident(id);
-    actions.selectDay(dayIndexOf(model, day.dayStartMs));
+    actions.selectDay(day.dayIndex);
   };
   return (
     <Surface title="Week calendar" eyebrow="Seven days" help="week-ribbon" resultRegion="week-ribbon">
@@ -34,7 +37,10 @@ export function WeekRibbon(): React.JSX.Element {
             day={day}
             model={model}
             titles={titles}
-            pressed={model.ui.selectedDay === dayIndexOf(model, day.dayStartMs)}
+            pressed={
+              model.ui.selectedDay === day.dayIndex ||
+              model.ui.selectedDay === dayIndexOf(model, day.dayStartMs)
+            }
             onSelect={select}
             onOpenIncident={open}
           />

@@ -19,15 +19,30 @@ export function pickScene(glob: Record<string, SceneLoader>): SceneLoader | null
   return (glob[hit as string] as SceneLoader | undefined) ?? null;
 }
 
-/** True when a canvas can open a GL context. A factory may be injected (tests). */
+/** True when a canvas can open a GL context. A factory may be injected (tests).
+ *  The no-factory result is computed once per page: probing creates a real GL
+ *  context, so probing on every render would leak contexts until the browser
+ *  starts losing them (DP-3D integration fix; factory calls stay uncached). */
+let cachedWebGL: boolean | null = null;
 export function canWebGL(
   canvasFactory?: () => { getContext: (kind: string) => unknown } | null,
 ): boolean {
+  if (canvasFactory) {
+    try {
+      const canvas = canvasFactory();
+      if (!canvas) return false;
+      return canvas.getContext("webgl") !== null;
+    } catch {
+      return false;
+    }
+  }
+  if (cachedWebGL !== null) return cachedWebGL;
   try {
-    const canvas = canvasFactory ? canvasFactory() : document.createElement("canvas");
-    if (!canvas) return false;
-    return canvas.getContext("webgl") !== null;
+    const canvas = document.createElement("canvas");
+    cachedWebGL = canvas.getContext("webgl") !== null;
+    return cachedWebGL;
   } catch {
+    cachedWebGL = false;
     return false;
   }
 }
