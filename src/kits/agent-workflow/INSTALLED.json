@@ -1,0 +1,144 @@
+{
+  "kit": "agent-workflow",
+  "version": "1.0.0",
+  "variant": "react",
+  "installed_at": "2026-10-05T13:10:12.706Z",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "57c3483344d34d93b53a089c21b645bdb82f60223642a246bb382867878a4b78"
+    },
+    {
+      "path": "README.md",
+      "sha256": "fe5f1cee07dbab5fc529951b8deb1967db96f907afd2622ad4176eae91f2cbda"
+    },
+    {
+      "path": "UPSTREAM-NOTICE.md",
+      "sha256": "f17725880503f70356565b2292ae9618fd3fd62b86861b02f4b64df782056522"
+    },
+    {
+      "path": "src/adapters/externalAgent.ts",
+      "sha256": "0bdca5459cf0c2cac7334cc3b0ba00eaf6125bbd95da317bdbe0a25ee639ca2a"
+    },
+    {
+      "path": "src/adapters/inApp.ts",
+      "sha256": "916194edf956fa0c54c4ddfbb4996ceab8c22606a51dad23b8d36d0b50865c97"
+    },
+    {
+      "path": "src/demo/main.tsx",
+      "sha256": "47773dfd2bdf91e2698a42b49dfb4cb1ac731609b8f1cff8d3c48460e5f25436"
+    },
+    {
+      "path": "src/demo/scriptedAgent.ts",
+      "sha256": "5bb8eb4b36e55a2e2f989b838613021b855c963c0c7cc4ecf5c47fd9152f2f4b"
+    },
+    {
+      "path": "src/demo/shelfDomain.ts",
+      "sha256": "2ec4e9ab936ab633f621a784c5395ff645e4fb882eb196e1127b7e457145024f"
+    },
+    {
+      "path": "src/gate/approvalGate.ts",
+      "sha256": "87a4464e8d4ca81f1d13963a3dfbd7f9a130f9aa9b7170342dde4f4efd702c27"
+    },
+    {
+      "path": "src/llm/client.ts",
+      "sha256": "069d8821d0ef8b59ebe9b99de085993aab2bf27644e517e74ffc757a00bebb09"
+    },
+    {
+      "path": "src/llm/jsonMode.ts",
+      "sha256": "ca73342c6c5d85c2be01c222e7256d7a5558461fbdb297073a65b289e24901ce"
+    },
+    {
+      "path": "src/llm/models.ts",
+      "sha256": "b66a5535a696a2e57dc8f045f4194f8d6099dab73e164d1d51d190845033cc0b"
+    },
+    {
+      "path": "src/llm/types.ts",
+      "sha256": "11cf0c52cfedbfceca71e37ac4608b8d8eb3269639a8641a7b7f2c27e83da368"
+    },
+    {
+      "path": "src/llm/vertexSchema.ts",
+      "sha256": "a95013877021f7f77441e8d6e2d9a4b5079a297a74f8fee4be0a36d8d4809810"
+    },
+    {
+      "path": "src/node/saveTrace.ts",
+      "sha256": "134c9686386ff073f48feb9bddc9374ab7090181676513ac859bca571dafa923"
+    },
+    {
+      "path": "src/prompts/agent-system.md",
+      "sha256": "c0a48d6f899d6b3a5d9dbad021761ae13bf6331cb91648e3edfdc7c4ee346110"
+    },
+    {
+      "path": "src/prompts/index.ts",
+      "sha256": "5d2aed966e562d62ff4e9a4bfda8a4558698a2ba396f49a5f498bcd71b672635"
+    },
+    {
+      "path": "src/react/ActivityFeed.tsx",
+      "sha256": "7685fe16a09d289ec959e09f51b3ce8bcc7c97302cd447f609b9fe3fe68f72b7"
+    },
+    {
+      "path": "src/react/ApprovalBar.tsx",
+      "sha256": "34b1faef739869ee99da7332063c96a6d2552083a457dcfdac55bae4c57cf4e0"
+    },
+    {
+      "path": "src/react/ChangedFlash.tsx",
+      "sha256": "e233ead269462210f4f9228a1fc8936804f9e066d35fe6b2603dd7bf00db3b86"
+    },
+    {
+      "path": "src/react/ManualRunner.tsx",
+      "sha256": "70ceb354a1d1dd649b4085e123cf76c48b5eaefbae5a708efdfc87d34e64a4db"
+    },
+    {
+      "path": "src/react/index.ts",
+      "sha256": "b130e56edb7b506411df0f440b28f1edd25974b1ec1bb90d6207cee59b5544e1"
+    },
+    {
+      "path": "src/react/schemaToFields.ts",
+      "sha256": "1b5fb50fa15bf2d2b45c62b5e5d3b014f5709a857e85f35d342f861d0650ac95"
+    },
+    {
+      "path": "src/registry/capabilities.ts",
+      "sha256": "a99a6aed9260f4d919584566877696bc04d5bef773c1f13c83e612e55d7a6149"
+    },
+    {
+      "path": "src/registry/lint.ts",
+      "sha256": "787ddf55e2863c8dd7d8d569a5939edb91c63431e161704736564c1ac69fb8b3"
+    },
+    {
+      "path": "src/registry/manifest.ts",
+      "sha256": "e9e25e6b2bb686848b345fbd0c8752aff89fb2175c5ea1cdadaf9ea521eea26d"
+    },
+    {
+      "path": "src/registry/registry.ts",
+      "sha256": "8cde270df711a2c3745eed7e764ba271260eeb1337781190e095b11139028d37"
+    },
+    {
+      "path": "src/registry/types.ts",
+      "sha256": "aa44667ba544e9918c9e6235f48e3d490cfaa8969f9f04ab21a0746eaefd6c30"
+    },
+    {
+      "path": "src/server/stepHandler.ts",
+      "sha256": "e9ebdfc9454a09983d31d88499b00438cc5dffd3386faba0a13ae3ab3ca745fa"
+    },
+    {
+      "path": "src/store/domainStore.ts",
+      "sha256": "38e2e4f12ff577ea6e8651c50c38bb230d849a0954a6b08cd097d798542034f8"
+    },
+    {
+      "path": "src/trace/summarize.ts",
+      "sha256": "bba72fa538449871de290f44168ad73ff25a7f5eb457f2d6ced134603893bdfa"
+    },
+    {
+      "path": "src/trace/traceWriter.ts",
+      "sha256": "f7e78567de48eae5a9f2a7f9a1b50de4fa32c609999b967e7bda765260e91989"
+    },
+    {
+      "path": "src/trace/types.ts",
+      "sha256": "18cbfa1af9d980d789692066b31aab32393f1146ba27d751835415ead27bc680"
+    },
+    {
+      "path": "src/truth/truthEngine.ts",
+      "sha256": "21ca20a6be1775ed92bcbd10206070331bf94023b1ff58c62e4e412144c81c81"
+    }
+  ]
+}

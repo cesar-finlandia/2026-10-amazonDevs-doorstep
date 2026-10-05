@@ -1,0 +1,76 @@
+{
+  "kit": "three-scene",
+  "version": "1.0.0",
+  "variant": "react",
+  "installed_at": "2026-10-05T13:10:18.181Z",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "57c3483344d34d93b53a089c21b645bdb82f60223642a246bb382867878a4b78"
+    },
+    {
+      "path": "README.md",
+      "sha256": "deccde914a8a257cfaaa02fc14650aaddef96e35754bb498546a7f279619933f"
+    },
+    {
+      "path": "UPSTREAM-NOTICE.md",
+      "sha256": "24f46e260c695277a7e43adaab00fc1fb24a9790eb2444342f3d38f51c744c24"
+    },
+    {
+      "path": "src/core/capability.ts",
+      "sha256": "bcda4db09f72678b7037146f53eda91fb563e9e157e52b11aedf63b29a3e68f9"
+    },
+    {
+      "path": "src/core/demo-hooks.ts",
+      "sha256": "1115b77f6d18411ec4c613d4f0ed0237ec114529fab617c29db25be00f07d6f2"
+    },
+    {
+      "path": "src/core/fps-probe.ts",
+      "sha256": "a26f3979f3b193159d08831cec8c1cb33588d73621af9e94b6b907aff427c3ba"
+    },
+    {
+      "path": "src/core/scene-description.ts",
+      "sha256": "8d2c8580067872c7075df7373d140d39c6f39c35773b0c4ce58675ccb8588d7a"
+    },
+    {
+      "path": "src/core/shots.ts",
+      "sha256": "5aae7e79864896182515bcb8877a29086c2c4a6d31f3edcf8526103400f6f433"
+    },
+    {
+      "path": "src/core/tokens.ts",
+      "sha256": "7a604f830b0c006046dfb451f9634e7b32fbd608be7c66759fce881f11de47ea"
+    },
+    {
+      "path": "src/react/CameraRig.tsx",
+      "sha256": "c23d8f87bc24418f5daf47443bb183621db2d3a5c69a9bf82f9edd420d188a3e"
+    },
+    {
+      "path": "src/react/Effects.tsx",
+      "sha256": "b663b1dabd5cdd826d7425da24b8a61b50a58195a51acfbe5152fcf0a0417b30"
+    },
+    {
+      "path": "src/react/Entities.tsx",
+      "sha256": "a95f8d287fef62d46f0e450287e5affbabdd506bceb8fec3267880abf7d2a4cf"
+    },
+    {
+      "path": "src/react/Fallback.tsx",
+      "sha256": "8a6616b510dd6d8e9f5256ce44e58c253db99c6decc6bf12674f3cdde29729db"
+    },
+    {
+      "path": "src/react/LabPanel.tsx",
+      "sha256": "3ed563b20c01ba7cebbeec3c48d68dba84b5269c94ddab5c2e3e32612703a595"
+    },
+    {
+      "path": "src/react/Lights.tsx",
+      "sha256": "0be20dcb0ef48fab3e06dfe642e2afebe352d7c5305da047de29ec090aba22ed"
+    },
+    {
+      "path": "src/react/ThreeScene.tsx",
+      "sha256": "5b4680f9da60e101ce0f410c60e29442c3a12c99fd3c9039411e1cb8e0d216b6"
+    },
+    {
+      "path": "src/react/index.ts",
+      "sha256": "5e9996c61a3fc7eb8ea43dd4f0b36d6471b23ac818b24d5befbd0ddae6264748"
+    }
+  ]
+}
