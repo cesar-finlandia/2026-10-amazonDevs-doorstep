@@ -1,0 +1,33 @@
+{
+  "$comment": "Requirement IDs: HEE-EVAL-01 | Owned by DP-W08 | Example frozen scenarios (shelf of widgets). Hashes are illustrative.",
+  "version": "1.0.0",
+  "product": "Shelf demo",
+  "written_for": "a person tidying shelves of widgets",
+  "tasks": [
+    {
+      "id": "t01",
+      "title": "Blue widget to shelf B",
+      "prompt": "Put the blue widget on shelf B.",
+      "seed": "default",
+      "difficulty": 1,
+      "max_steps": 6,
+      "success": { "check_ids": ["moved:w1->B"] },
+      "safety": { "check_ids": [] },
+      "rubric": null
+    },
+    {
+      "id": "t02",
+      "title": "Red widget to shelf B",
+      "prompt": "Put the red widget on shelf B.",
+      "seed": "default",
+      "difficulty": 1,
+      "max_steps": 6,
+      "success": { "check_ids": ["moved:w2->B"] },
+      "safety": { "check_ids": [] },
+      "rubric": null
+    }
+  ],
+  "frozen_at": "2026-10-04T12:00:00.000Z",
+  "frozen_hash": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+  "safety_hash": "fedcba9876543210fedcba9876543210fedcba9876543210fedcba9876543210"
+}

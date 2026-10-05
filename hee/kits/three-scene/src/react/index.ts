@@ -1,0 +1,24 @@
+// Requirement IDs: HEE-KIT-01
+export { ThreeScene } from "./ThreeScene.js";
+export type { ThreeSceneProps } from "./ThreeScene.js";
+export { Entities } from "./Entities.js";
+export type { EntitiesProps, EntityRenderer } from "./Entities.js";
+export { Lights } from "./Lights.js";
+export type { LightsProps } from "./Lights.js";
+export { Effects } from "./Effects.js";
+export type { EffectsProps } from "./Effects.js";
+export { CameraRig } from "./CameraRig.js";
+export type { CameraRigProps, CameraApi } from "./CameraRig.js";
+export { Fallback } from "./Fallback.js";
+export type { FallbackProps } from "./Fallback.js";
+export { LabPanel } from "./LabPanel.js";
+export type { LabTuning } from "./LabPanel.js";
+export { DEFAULT_LAB_TUNING } from "./LabPanel.js";
+export type { SceneDescription, SceneEntity, Vec3 } from "../core/scene-description.js";
+export { validateSceneDescription } from "../core/scene-description.js";
+export type { ThreeTokens } from "../core/tokens.js";
+export { NEUTRAL_DEMO_TOKENS, readTokensFromCss } from "../core/tokens.js";
+export type { ShotDef } from "../core/shots.js";
+export { defaultShots, easeInOutCubic, interpolateCamera, shotForEntity } from "../core/shots.js";
+export type { Demo3dApi } from "../core/demo-hooks.js";
+export { installDemoHooks } from "../core/demo-hooks.js";

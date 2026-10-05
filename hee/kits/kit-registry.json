@@ -1,0 +1,9 @@
+{
+  "$comment": "Requirement IDs: HEE-KIT-01",
+  "version": "1.0.0",
+  "kits": [
+    { "name": "three-scene", "path": "kits/three-scene" },
+    { "name": "agent-workflow", "path": "kits/agent-workflow" },
+    { "name": "showcase-replay", "path": "kits/showcase-replay" }
+  ]
+}

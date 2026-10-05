@@ -1,0 +1,94 @@
+{
+  "$comment": "Requirement IDs: HEE-EVAL-01, HEE-EVAL-02, HEE-EVAL-03 | Owned by DP-W08 | Agent-surface evaluation report comparing the product's action surface against generic screen actions.",
+  "$id": "https://chassis/contracts/hee-eval-report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HeeEvalReport",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "generated_at", "product", "scenarios_hash", "tasks", "repetitions", "model", "chosen_iteration", "control_iteration", "comparable", "comparable_reasons", "treatment", "control", "per_task", "iterations", "sessions_used", "sessions_cap", "replayed", "headline", "ceiling", "caveats"],
+  "properties": {
+    "$comment": { "type": "string" },
+    "version": { "const": "1.0.0" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "product": { "type": "string", "minLength": 1 },
+    "scenarios_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "tasks": { "type": "integer", "minimum": 1 },
+    "repetitions": { "type": "integer", "minimum": 1 },
+    "model": { "type": "string", "minLength": 1 },
+    "chosen_iteration": { "type": "integer", "minimum": 1 },
+    "control_iteration": { "type": ["integer", "null"], "minimum": 1 },
+    "comparable": { "type": "boolean" },
+    "comparable_reasons": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "treatment": { "$ref": "#/$defs/armMetrics" },
+    "control": { "$ref": "#/$defs/armMetrics" },
+    "per_task": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["task_id", "title", "treatment", "control"],
+        "properties": {
+          "task_id": { "type": "string", "minLength": 1 },
+          "title": { "type": "string", "minLength": 1 },
+          "treatment": { "$ref": "#/$defs/passCount" },
+          "control": { "$ref": "#/$defs/passCount" }
+        }
+      }
+    },
+    "iterations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["n", "aspect", "note", "pass_rate", "first_pass_valid_rate", "tokens_per_run", "wall_s_per_run", "safety_violations", "kept"],
+        "properties": {
+          "n": { "type": "integer", "minimum": 1 },
+          "aspect": { "type": "string", "minLength": 1 },
+          "note": { "type": "string" },
+          "pass_rate": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+          "first_pass_valid_rate": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+          "tokens_per_run": { "type": ["number", "null"], "minimum": 0 },
+          "wall_s_per_run": { "type": ["number", "null"], "minimum": 0 },
+          "safety_violations": { "type": ["number", "null"], "minimum": 0 },
+          "kept": { "type": "boolean" }
+        }
+      }
+    },
+    "sessions_used": { "type": "integer", "minimum": 0 },
+    "sessions_cap": { "type": "integer", "minimum": 1 },
+    "replayed": { "type": "boolean" },
+    "headline": { "type": "string", "minLength": 1 },
+    "ceiling": { "type": "string", "minLength": 1 },
+    "caveats": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+  },
+  "$defs": {
+    "armMetrics": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["runs", "passed", "pass_rate", "first_pass_valid_rate", "failed_calls", "retries", "tokens_per_run", "wall_s_per_run", "safety_violations", "calls_per_run"],
+      "properties": {
+        "runs": { "type": "integer", "minimum": 0 },
+        "passed": { "type": "integer", "minimum": 0 },
+        "pass_rate": { "type": "number", "minimum": 0, "maximum": 100 },
+        "first_pass_valid_rate": { "type": "number", "minimum": 0, "maximum": 1 },
+        "failed_calls": { "type": "integer", "minimum": 0 },
+        "retries": { "type": "integer", "minimum": 0 },
+        "tokens_per_run": { "type": "number", "minimum": 0 },
+        "wall_s_per_run": { "type": "number", "minimum": 0 },
+        "safety_violations": { "type": "integer", "minimum": 0 },
+        "calls_per_run": { "type": "number", "minimum": 0 }
+      }
+    },
+    "passCount": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["passed", "runs"],
+      "properties": {
+        "passed": { "type": "integer", "minimum": 0 },
+        "runs": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

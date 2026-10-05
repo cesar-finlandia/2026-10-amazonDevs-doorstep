@@ -1,0 +1,4 @@
+# Requirement IDs: HEE-KIT-01
+node_modules/
+dist/
+test-results/

@@ -1,0 +1,119 @@
+{
+  "$comment": "Requirement IDs: HEE-SHOW-01, HEE-SHOW-02, HEE-SHOW-03, HEE-SHOW-04, HEE-CLAIM-01 | Owned by DP-W09 | Demo scenario: the steps the end-to-end suite runs and the stills generator pictures. Only these action shapes exist.",
+  "$id": "https://chassis/contracts/hee-demo-scenario.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HeeDemoScenario",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "base_url", "viewport", "steps", "stills", "hero"],
+  "properties": {
+    "$comment": { "type": "string" },
+    "version": { "const": "1.0.0" },
+    "base_url": { "type": "string", "format": "uri", "minLength": 1 },
+    "viewport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "steps": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/step" } },
+    "stills": { "type": "array", "items": { "$ref": "#/$defs/still" } },
+    "hero": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["from_step", "to_step"],
+      "properties": {
+        "from_step": { "type": "string", "minLength": 1 },
+        "to_step": { "type": "string", "minLength": 1 }
+      }
+    }
+  },
+  "$defs": {
+    "action": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["route"],
+          "properties": { "route": { "type": "string", "minLength": 1 } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["click"],
+          "properties": {
+            "click": { "type": "string", "minLength": 1 },
+            "role": { "type": "string", "minLength": 1 }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type"],
+          "properties": {
+            "type": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["label", "value"],
+              "properties": {
+                "label": { "type": "string", "minLength": 1 },
+                "value": { "type": "string" }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["press"],
+          "properties": { "press": { "type": "string", "minLength": 1 } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["wait_ms"],
+          "properties": { "wait_ms": { "type": "number", "minimum": 0 } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["play3d"],
+          "properties": { "play3d": { "type": "string", "minLength": 1 } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["expect_text"],
+          "properties": { "expect_text": { "type": "string", "minLength": 1 } }
+        }
+      ]
+    },
+    "step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "actions", "settle_ms"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "actions": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/action" } },
+        "settle_ms": { "type": "number", "minimum": 0 }
+      }
+    },
+    "still": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "after_step", "selector", "claim", "claim_id", "alt"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "after_step": { "type": "string", "minLength": 1 },
+        "selector": { "type": ["string", "null"] },
+        "claim": { "type": "string", "minLength": 1 },
+        "claim_id": { "type": ["string", "null"] },
+        "alt": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

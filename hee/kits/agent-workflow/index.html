@@ -1,0 +1,20 @@
+<!doctype html>
+<!-- Requirement IDs: HEE-KIT-02 -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>agent-workflow kit demo</title>
+    <style>
+      html, body, #root { margin: 0; min-height: 100%; }
+      .feed-in { animation: feed-in 240ms ease-out; }
+      @keyframes feed-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+      .changed-flash { animation: changed-flash 900ms ease-out; }
+      @keyframes changed-flash { 0% { outline: 2px solid #6f9fd8; } 100% { outline: 2px solid transparent; } }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/demo/main.tsx"></script>
+  </body>
+</html>

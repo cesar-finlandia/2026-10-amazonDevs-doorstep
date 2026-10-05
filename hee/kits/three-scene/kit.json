@@ -1,0 +1,28 @@
+{
+  "$comment": "Requirement IDs: HEE-KIT-01",
+  "name": "three-scene",
+  "version": "1.0.0",
+  "license": "MIT",
+  "variants": ["react", "vanilla"],
+  "dest": "src/kits/three-scene",
+  "files": {
+    "common": ["src/core/**", "LICENSE", "UPSTREAM-NOTICE.md", "README.md"],
+    "react": ["src/react/**"],
+    "vanilla": ["src/vanilla/**"],
+    "tests": ["tests/unit/**"]
+  },
+  "dependencies": {
+    "common": { "three": "0.186.1" },
+    "react": {
+      "@react-three/fiber": "9.8.1",
+      "@react-three/drei": "10.7.9",
+      "@react-three/postprocessing": "3.1.3",
+      "postprocessing": "6.39.5",
+      "leva": "0.10.1",
+      "react": "19.3.0",
+      "react-dom": "19.3.0"
+    },
+    "vanilla": {}
+  },
+  "devDependencies": { "@types/three": "0.186.0" }
+}

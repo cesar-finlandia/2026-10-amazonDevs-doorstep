@@ -1,0 +1,28 @@
+{
+  "$comment": "Requirement IDs: HEE-SHOW-01, HEE-SHOW-02, HEE-SHOW-03, HEE-SHOW-04, HEE-CLAIM-01 | Owned by DP-W09 | Worked example: one artifact-backed number claim and one url-backed superlative claim.",
+  "version": "1.0.0",
+  "generated_at": "2026-10-04T12:10:00.000Z",
+  "surfaces": ["README.md", "JUDGES.md", "shots/showcase/captions.json"],
+  "claims": [
+    {
+      "id": "c01",
+      "match": "93.3%",
+      "text": "93.3% task success on the frozen set",
+      "kind": "number",
+      "source": { "type": "artifact", "path": "evals/report.json", "pointer": "/treatment/pass_rate", "format": "{v:1}%" },
+      "ceiling": "measured on 8 tasks only",
+      "status": "verified",
+      "verified_at": "2026-10-04T12:10:00.000Z"
+    },
+    {
+      "id": "c02",
+      "match": "first",
+      "text": "the first shelf demo that replays its own run trace",
+      "kind": "superlative",
+      "source": { "type": "url", "url": "https://example.com/shelf-demo", "evidence_quote": "the first shelf demo with a replayable run trace", "checked_at": "2026-10-04" },
+      "ceiling": "to the author's knowledge among hackathon entries",
+      "status": "verified",
+      "verified_at": "2026-10-04T12:10:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "file": "gallery-shelf-b.png",
+    "caption": "The shelf after the agent moves the blue widget to shelf B.",
+    "alt": "Shelf B holding the blue widget",
+    "claim_id": null,
+    "size": "gallery"
+  },
+  {
+    "file": "readme-shelf-b.png",
+    "caption": "The shelf after the agent moves the blue widget to shelf B.",
+    "alt": "Shelf B holding the blue widget",
+    "claim_id": null,
+    "size": "readme"
+  },
+  {
+    "file": "hero.gif",
+    "caption": "A recorded run of the product doing its job.",
+    "alt": "Recorded run of the shelf demo",
+    "claim_id": null,
+    "size": "hero"
+  }
+]
