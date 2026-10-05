@@ -1,0 +1,26 @@
+{
+  "via": "recorded",
+  "value": {
+    "text": "Trying the chime.",
+    "functionCalls": [
+      {
+        "name": "play_chime_announcement",
+        "args": {
+          "deviceId": "dev-door",
+          "audioRef": "gentle_hello"
+        }
+      }
+    ],
+    "usage": {
+      "promptTokens": 0,
+      "outputTokens": 0,
+      "totalTokens": 0
+    },
+    "model": "scripted",
+    "latencyMs": 0
+  },
+  "inputHash": "3e982f20875260cf60d43095cc8f96feee7ccc2159f9393b65118d5801704b8e",
+  "model": "synthetic-deterministic",
+  "provider": "vertex-fallback",
+  "promptVersion": "doorstep-prompts-1"
+}

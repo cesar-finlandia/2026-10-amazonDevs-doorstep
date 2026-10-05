@@ -1,0 +1,23 @@
+{
+  "via": "recorded",
+  "value": {
+    "text": "Verifying repairs.",
+    "functionCalls": [
+      {
+        "name": "check_week_model",
+        "args": {}
+      }
+    ],
+    "usage": {
+      "promptTokens": 0,
+      "outputTokens": 0,
+      "totalTokens": 0
+    },
+    "model": "scripted",
+    "latencyMs": 0
+  },
+  "inputHash": "418466e9711895f9f29f3ed4aedb51ae69a377339f4cc3f873517f3a97f894b6",
+  "model": "synthetic-deterministic",
+  "provider": "vertex-fallback",
+  "promptVersion": "doorstep-prompts-1"
+}

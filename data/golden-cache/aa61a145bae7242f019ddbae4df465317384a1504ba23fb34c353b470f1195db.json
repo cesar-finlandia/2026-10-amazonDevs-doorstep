@@ -1,0 +1,23 @@
+{
+  "via": "recorded",
+  "value": {
+    "text": "Verifying.",
+    "functionCalls": [
+      {
+        "name": "check_week_model",
+        "args": {}
+      }
+    ],
+    "usage": {
+      "promptTokens": 0,
+      "outputTokens": 0,
+      "totalTokens": 0
+    },
+    "model": "scripted",
+    "latencyMs": 0
+  },
+  "inputHash": "1d8e11f52398dd3bb673a038e208f0326f9b95a43a05ce430d7fc97aa09d4585",
+  "model": "synthetic-deterministic",
+  "provider": "vertex-fallback",
+  "promptVersion": "doorstep-prompts-1"
+}

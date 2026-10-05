@@ -46,7 +46,9 @@
     "lint:demodrive-faqdef": "node scripts/lint-demodrive-faqdef.ts",
     "chassis": "vite-node scripts/chassis.ts",
     "lint:dev": "vite-node scripts/lint-dev-tooling.ts",
-    "new:deck": "bash scripts/duplicate-pitch-deck.sh"
+    "new:deck": "bash scripts/duplicate-pitch-deck.sh",
+    "agent:review": "vite-node scripts/run-review.ts --transport golden",
+    "agent:manifest": "vite-node scripts/export-manifest.ts --check"
   },
   "bin": {
     "mock": "src/dev/mock/cli.ts",
@@ -90,9 +92,12 @@
     "vitest": "^4.1.11"
   },
   "dependencies": {
+    "@aws-sdk/client-bedrock": "3.1146.0",
+    "@aws-sdk/client-bedrock-runtime": "3.1146.0",
     "@react-three/drei": "10.7.9",
     "@react-three/fiber": "9.8.1",
     "@react-three/postprocessing": "3.1.3",
+    "@strands-agents/sdk": "1.19.0",
     "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1",
     "gifenc": "1.0.3",
@@ -104,6 +109,6 @@
     "react-dom": "19.3.0",
     "sharp": "0.35.5",
     "three": "0.186.1",
-    "zod": "^4.6.5"
+    "zod": "4.6.5"
   }
 }

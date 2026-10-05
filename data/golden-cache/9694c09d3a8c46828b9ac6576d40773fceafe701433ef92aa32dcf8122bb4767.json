@@ -1,0 +1,19 @@
+{
+  "via": "recorded",
+  "value": {
+    "incidentId": "inc-2",
+    "title": "Hall camera offline for 47 min",
+    "explanation": "Hall camera stopped reporting for 47 min on Thu 15 Oct, so activity in that time may be missing.",
+    "tone": "calm",
+    "suggestedNudge": null
+  },
+  "model": "scripted",
+  "usage": {
+    "promptTokens": 0,
+    "outputTokens": 0,
+    "totalTokens": 0
+  },
+  "latencyMs": 0,
+  "provider": "vertex-fallback",
+  "promptVersion": "doorstep-prompts-1"
+}

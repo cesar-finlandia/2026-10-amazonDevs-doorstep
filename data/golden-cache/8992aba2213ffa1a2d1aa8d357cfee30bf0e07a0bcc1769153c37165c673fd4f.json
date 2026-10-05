@@ -1,0 +1,19 @@
+{
+  "via": "recorded",
+  "value": {
+    "incidentId": "inc-1",
+    "title": "Door activity at 02:14 during quiet hours",
+    "explanation": "There was door activity at 02:14 on Tue 13 Oct, during quiet hours. A gentle check-in could be worth it.",
+    "tone": "calm",
+    "suggestedNudge": null
+  },
+  "model": "scripted",
+  "usage": {
+    "promptTokens": 0,
+    "outputTokens": 0,
+    "totalTokens": 0
+  },
+  "latencyMs": 0,
+  "provider": "vertex-fallback",
+  "promptVersion": "doorstep-prompts-1"
+}

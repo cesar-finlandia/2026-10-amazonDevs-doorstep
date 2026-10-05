@@ -1,0 +1,27 @@
+{
+  "promptVersion": "doorstep-prompts-1",
+  "provider": "vertex-fallback",
+  "model": "synthetic-deterministic",
+  "region": "us-east-1",
+  "recordedAt": "2026-10-05T14:11:59.380Z",
+  "roles": {
+    "extractor": 2,
+    "planner": 1,
+    "narrator": 3
+  },
+  "steps": 14,
+  "floors": {
+    "ok": true,
+    "modelEntries": 20,
+    "roles": [
+      "actor",
+      "extractor",
+      "narrator",
+      "planner"
+    ],
+    "verifyRepairRounds": 2,
+    "humanCheckpoints": 1,
+    "finalErrors": 0,
+    "problems": []
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "version": "1.2.0",
+  "syncedFrom": "banned-words.json",
+  "patterns": [
+    {
+      "id": "honest",
+      "pattern": "\\bhonest\\w*",
+      "flags": "i"
+    },
+    {
+      "id": "triage",
+      "pattern": "\\btriag\\w*",
+      "flags": "i"
+    }
+  ]
+}

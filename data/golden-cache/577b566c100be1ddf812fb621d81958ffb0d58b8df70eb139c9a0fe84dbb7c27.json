@@ -1,0 +1,18 @@
+{
+  "via": "recorded",
+  "value": {
+    "text": "Prepared the family update and noted what needs consent.",
+    "functionCalls": [],
+    "usage": {
+      "promptTokens": 0,
+      "outputTokens": 0,
+      "totalTokens": 0
+    },
+    "model": "scripted",
+    "latencyMs": 0
+  },
+  "inputHash": "bcdb8b0adcee619f34c6a33953912eed0e27e916bc182b29c2eaec52ed20c7b0",
+  "model": "synthetic-deterministic",
+  "provider": "vertex-fallback",
+  "promptVersion": "doorstep-prompts-1"
+}

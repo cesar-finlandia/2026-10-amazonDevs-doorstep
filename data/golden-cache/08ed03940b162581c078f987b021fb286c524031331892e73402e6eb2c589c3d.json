@@ -1,0 +1,33 @@
+{
+  "via": "recorded",
+  "value": {
+    "text": "Reconciling quiet devices.",
+    "functionCalls": [
+      {
+        "name": "reconcile_webhook_gap",
+        "args": {
+          "deviceId": "dev-door",
+          "overlapMinutes": 0
+        }
+      },
+      {
+        "name": "reconcile_webhook_gap",
+        "args": {
+          "deviceId": "dev-elite",
+          "overlapMinutes": 0
+        }
+      }
+    ],
+    "usage": {
+      "promptTokens": 0,
+      "outputTokens": 0,
+      "totalTokens": 0
+    },
+    "model": "scripted",
+    "latencyMs": 0
+  },
+  "inputHash": "a49835931e9f2acdf26fc06e27fcf54598d5bb46d0698ac80d82e452fdac0b3e",
+  "model": "synthetic-deterministic",
+  "provider": "vertex-fallback",
+  "promptVersion": "doorstep-prompts-1"
+}

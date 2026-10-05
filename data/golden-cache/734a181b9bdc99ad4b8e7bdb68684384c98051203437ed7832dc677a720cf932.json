@@ -1,0 +1,19 @@
+{
+  "via": "recorded",
+  "value": {
+    "incidentId": "inc-3",
+    "title": "Morning paper did not happen on Fri 16 Oct",
+    "explanation": "The Morning paper did not happen on Fri 16 Oct. It usually does.",
+    "tone": "calm",
+    "suggestedNudge": null
+  },
+  "model": "scripted",
+  "usage": {
+    "promptTokens": 0,
+    "outputTokens": 0,
+    "totalTokens": 0
+  },
+  "latencyMs": 0,
+  "provider": "vertex-fallback",
+  "promptVersion": "doorstep-prompts-1"
+}

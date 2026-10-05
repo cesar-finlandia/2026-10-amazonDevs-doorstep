@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "rawId": {
+            "type": "string",
+            "description": "The id of the input record this event came from, copied exactly."
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "componentId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 8
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "motion_detected",
+              "button_press",
+              "device_online",
+              "device_offline"
+            ]
+          },
+          "subType": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "human"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "tsMs": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991,
+            "description": "UTC milliseconds since 1970."
+          },
+          "requestId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "rawId",
+          "deviceId",
+          "componentId",
+          "type",
+          "subType",
+          "tsMs",
+          "requestId"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "skipped": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "rawId": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 120
+          }
+        },
+        "required": [
+          "rawId",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "events",
+    "skipped"
+  ],
+  "additionalProperties": false
+}

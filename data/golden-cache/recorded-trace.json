@@ -1,0 +1,1038 @@
+{
+  "version": "1.0.0",
+  "run_id": "run-2026-10-05T14-11-58-649Z",
+  "started_at": "2026-10-05T14:11:58.650Z",
+  "entries": [
+    {
+      "round": 1,
+      "kind": "model",
+      "name": "extractor",
+      "source": "agent",
+      "input_ref": "extractor-1",
+      "output_ref": "39 events, 0 skipped",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "bedrock",
+      "seq": 1
+    },
+    {
+      "round": 1,
+      "kind": "action",
+      "name": "ingest_events",
+      "source": "agent",
+      "input_ref": null,
+      "output_ref": "Added 39 events (0 already known).",
+      "ok": true,
+      "latency_ms": 0,
+      "state_change": {
+        "revision_before": 1,
+        "revision_after": 2,
+        "entity_ids": [
+          "evt:req-67",
+          "evt:req-68",
+          "evt:req-69",
+          "evt:req-70",
+          "evt:req-71",
+          "evt:req-72",
+          "evt:req-73",
+          "evt:req-74",
+          "evt:req-75",
+          "evt:req-76",
+          "evt:req-77",
+          "evt:req-78",
+          "evt:req-79",
+          "evt:req-80",
+          "evt:req-81",
+          "evt:req-82",
+          "evt:req-83",
+          "evt:req-84",
+          "evt:req-85",
+          "evt:req-86",
+          "evt:req-87",
+          "evt:req-88",
+          "evt:req-89",
+          "evt:req-90",
+          "evt:req-91",
+          "evt:req-92",
+          "evt:req-93",
+          "evt:req-94",
+          "evt:req-95",
+          "evt:req-96",
+          "evt:req-97",
+          "evt:req-98",
+          "evt:req-99",
+          "evt:req-100",
+          "evt:req-104",
+          "evt:req-105",
+          "evt:req-108",
+          "evt:req-109",
+          "evt:req-110"
+        ]
+      },
+      "seq": 2
+    },
+    {
+      "round": 1,
+      "kind": "model",
+      "name": "extractor",
+      "source": "agent",
+      "input_ref": "extractor-2",
+      "output_ref": "26 events, 0 skipped",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "bedrock",
+      "seq": 3
+    },
+    {
+      "round": 1,
+      "kind": "action",
+      "name": "ingest_events",
+      "source": "agent",
+      "input_ref": null,
+      "output_ref": "Added 26 events (0 already known).",
+      "ok": true,
+      "latency_ms": 0,
+      "state_change": {
+        "revision_before": 41,
+        "revision_after": 42,
+        "entity_ids": [
+          "hist:req-108",
+          "hist:req-109",
+          "hist:req-110",
+          "hist:req-101",
+          "hist:req-102",
+          "hist:req-106",
+          "hist:req-116",
+          "hist:req-117",
+          "hist:req-113",
+          "hist:req-114",
+          "hist:req-118",
+          "hist:req-120",
+          "hist:req-124",
+          "hist:req-125",
+          "hist:req-121",
+          "hist:req-122",
+          "hist:req-126",
+          "hist:req-128",
+          "hist:req-134",
+          "hist:req-135",
+          "hist:req-136",
+          "hist:req-137",
+          "hist:req-138",
+          "hist:req-129",
+          "hist:req-130",
+          "hist:req-132"
+        ]
+      },
+      "seq": 4
+    },
+    {
+      "round": 2,
+      "kind": "model",
+      "name": "planner",
+      "source": "agent",
+      "input_ref": "planner-1",
+      "output_ref": "5 steps, focus 8,10,11",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "bedrock",
+      "seq": 5
+    },
+    {
+      "round": 3,
+      "kind": "model",
+      "name": "actor",
+      "source": "agent",
+      "input_ref": null,
+      "output_ref": "Reading the baseline and devices.",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "get_rhythm_baseline,list_devices",
+      "seq": 6
+    },
+    {
+      "round": 3,
+      "kind": "action",
+      "name": "get_rhythm_baseline",
+      "source": "agent",
+      "input_ref": "args#1",
+      "args": {},
+      "output_ref": "Usual longest stay 7 min over 13 visits.",
+      "ok": true,
+      "latency_ms": 39.208900000000085,
+      "seq": 7
+    },
+    {
+      "round": 3,
+      "kind": "action",
+      "name": "list_devices",
+      "source": "agent",
+      "input_ref": "args#2",
+      "args": {},
+      "output_ref": "2 devices.",
+      "ok": true,
+      "latency_ms": 23.62429999999995,
+      "seq": 8
+    },
+    {
+      "round": 3,
+      "kind": "model",
+      "name": "actor",
+      "source": "agent",
+      "input_ref": null,
+      "output_ref": "Reconciling quiet devices.",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "reconcile_webhook_gap,reconcile_webhook_gap",
+      "seq": 9
+    },
+    {
+      "round": 3,
+      "kind": "action",
+      "name": "reconcile_webhook_gap",
+      "source": "agent",
+      "input_ref": "args#3",
+      "args": {
+        "deviceId": "dev-door",
+        "overlapMinutes": 0
+      },
+      "output_ref": "Recovered 0 events for Front door from the event history (24 already known).",
+      "ok": true,
+      "latency_ms": 20.05040000000008,
+      "state_change": {
+        "revision_before": 42,
+        "revision_after": 43,
+        "entity_ids": []
+      },
+      "seq": 10
+    },
+    {
+      "round": 3,
+      "kind": "action",
+      "name": "reconcile_webhook_gap",
+      "source": "agent",
+      "input_ref": "args#4",
+      "args": {
+        "deviceId": "dev-elite",
+        "overlapMinutes": 0
+      },
+      "output_ref": "Recovered 11 events for Hall camera from the event history (0 already known).",
+      "ok": true,
+      "latency_ms": 19.200399999999945,
+      "state_change": {
+        "revision_before": 43,
+        "revision_after": 44,
+        "entity_ids": [
+          "hist:req-95",
+          "hist:req-111",
+          "hist:req-112",
+          "hist:req-103",
+          "hist:req-107",
+          "hist:req-115",
+          "hist:req-119",
+          "hist:req-123",
+          "hist:req-127",
+          "hist:req-131",
+          "hist:req-133"
+        ]
+      },
+      "seq": 11
+    },
+    {
+      "round": 3,
+      "kind": "model",
+      "name": "actor",
+      "source": "agent",
+      "input_ref": null,
+      "output_ref": "Comparing days.",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "compare_to_baseline,compare_to_baseline,compare_to_baseline,compare_to_baseline,compare_to_baseline,compare_to_baseline,compare_to_baseline",
+      "seq": 12
+    },
+    {
+      "round": 3,
+      "kind": "action",
+      "name": "compare_to_baseline",
+      "source": "agent",
+      "input_ref": "args#5",
+      "args": {
+        "day": 7
+      },
+      "output_ref": "Mon 12 Oct: 5 visits, 0 findings.",
+      "ok": true,
+      "latency_ms": 19.618000000000166,
+      "truth": {
+        "errors": 4,
+        "warnings": 0
+      },
+      "seq": 13
+    },
+    {
+      "round": 3,
+      "kind": "action",
+      "name": "compare_to_baseline",
+      "source": "agent",
+      "input_ref": "args#6",
+      "args": {
+        "day": 8
+      },
+      "output_ref": "Tue 13 Oct: 6 visits, 1 findings.",
+      "ok": true,
+      "latency_ms": 14.569799999999987,
+      "truth": {
+        "errors": 4,
+        "warnings": 0
+      },
+      "seq": 14
+    },
+    {
+      "round": 3,
+      "kind": "action",
+      "name": "compare_to_baseline",
+      "source": "agent",
+      "input_ref": "args#7",
+      "args": {
+        "day": 9
+      },
+      "output_ref": "Wed 14 Oct: 7 visits, 0 findings.",
+      "ok": true,
+      "latency_ms": 15.182999999999993,
+      "truth": {
+        "errors": 4,
+        "warnings": 0
+      },
+      "seq": 15
+    },
+    {
+      "round": 3,
+      "kind": "action",
+      "name": "compare_to_baseline",
+      "source": "agent",
+      "input_ref": "args#8",
+      "args": {
+        "day": 10
+      },
+      "output_ref": "Thu 15 Oct: 6 visits, 1 findings.",
+      "ok": true,
+      "latency_ms": 17.38670000000002,
+      "truth": {
+        "errors": 4,
+        "warnings": 0
+      },
+      "seq": 16
+    },
+    {
+      "round": 3,
+      "kind": "action",
+      "name": "compare_to_baseline",
+      "source": "agent",
+      "input_ref": "args#9",
+      "args": {
+        "day": 11
+      },
+      "output_ref": "Fri 16 Oct: 4 visits, 1 findings.",
+      "ok": true,
+      "latency_ms": 20.939300000000003,
+      "truth": {
+        "errors": 4,
+        "warnings": 0
+      },
+      "seq": 17
+    },
+    {
+      "round": 3,
+      "kind": "action",
+      "name": "compare_to_baseline",
+      "source": "agent",
+      "input_ref": "args#10",
+      "args": {
+        "day": 12
+      },
+      "output_ref": "Sat 17 Oct: 5 visits, 0 findings.",
+      "ok": true,
+      "latency_ms": 17.273500000000013,
+      "truth": {
+        "errors": 4,
+        "warnings": 0
+      },
+      "seq": 18
+    },
+    {
+      "round": 3,
+      "kind": "action",
+      "name": "compare_to_baseline",
+      "source": "agent",
+      "input_ref": "args#11",
+      "args": {
+        "day": 13
+      },
+      "output_ref": "Sun 18 Oct: 5 visits, 0 findings.",
+      "ok": true,
+      "latency_ms": 18.941900000000032,
+      "truth": {
+        "errors": 4,
+        "warnings": 0
+      },
+      "seq": 19
+    },
+    {
+      "round": 3,
+      "kind": "model",
+      "name": "actor",
+      "source": "agent",
+      "input_ref": null,
+      "output_ref": "Opening incidents.",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "open_incident,open_incident,open_incident",
+      "seq": 20
+    },
+    {
+      "round": 3,
+      "kind": "action",
+      "name": "open_incident",
+      "source": "agent",
+      "input_ref": "args#12",
+      "args": {
+        "kind": "quiet_hours_activity",
+        "title": "Door activity at 02:14 during quiet hours",
+        "eventIds": [
+          "evt:req-84",
+          "evt:req-85",
+          "evt:req-87",
+          "evt:req-86"
+        ],
+        "startMs": 1791882845000,
+        "endMs": 1791884175000,
+        "dayIndex": 8
+      },
+      "output_ref": "Opened inc-1: Door activity at 02:14 during quiet hours.",
+      "ok": true,
+      "latency_ms": 30.698100000000068,
+      "state_change": {
+        "revision_before": 44,
+        "revision_after": 46,
+        "entity_ids": [
+          "inc-1",
+          "med-1"
+        ]
+      },
+      "seq": 21
+    },
+    {
+      "round": 3,
+      "kind": "action",
+      "name": "open_incident",
+      "source": "agent",
+      "input_ref": "args#13",
+      "args": {
+        "kind": "device_outage",
+        "title": "Hall camera offline for 47 min",
+        "eventIds": [
+          "hist:req-111",
+          "hist:req-112"
+        ],
+        "startMs": 1792098300000,
+        "endMs": 1792101120000,
+        "dayIndex": 10
+      },
+      "output_ref": "Opened inc-2: Hall camera offline for 47 min.",
+      "ok": true,
+      "latency_ms": 32.98579999999993,
+      "state_change": {
+        "revision_before": 46,
+        "revision_after": 48,
+        "entity_ids": [
+          "inc-2",
+          "med-2"
+        ]
+      },
+      "seq": 22
+    },
+    {
+      "round": 3,
+      "kind": "action",
+      "name": "open_incident",
+      "source": "agent",
+      "input_ref": "args#14",
+      "args": {
+        "kind": "missed_routine",
+        "title": "Morning paper did not happen on Fri 16 Oct",
+        "eventIds": [],
+        "startMs": 1792161900000,
+        "endMs": 1792164000000,
+        "routineId": "rtn-paper",
+        "dayIndex": 11
+      },
+      "output_ref": "Opened inc-3: Morning paper did not happen on Fri 16 Oct.",
+      "ok": true,
+      "latency_ms": 19.30529999999999,
+      "state_change": {
+        "revision_before": 48,
+        "revision_after": 49,
+        "entity_ids": [
+          "inc-3"
+        ]
+      },
+      "seq": 23
+    },
+    {
+      "round": 3,
+      "kind": "model",
+      "name": "actor",
+      "source": "agent",
+      "input_ref": null,
+      "output_ref": "Noting incidents.",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "add_incident_note,add_incident_note,add_incident_note",
+      "seq": 24
+    },
+    {
+      "round": 3,
+      "kind": "action",
+      "name": "add_incident_note",
+      "source": "agent",
+      "input_ref": "args#15",
+      "args": {
+        "incidentId": "inc-1",
+        "text": "Recorded: Door activity at 02:14 during quiet hours."
+      },
+      "output_ref": "Noted on inc-1.",
+      "ok": true,
+      "latency_ms": 17.04379999999992,
+      "state_change": {
+        "revision_before": 49,
+        "revision_after": 50,
+        "entity_ids": [
+          "inc-1",
+          "note-1"
+        ]
+      },
+      "seq": 25
+    },
+    {
+      "round": 3,
+      "kind": "action",
+      "name": "add_incident_note",
+      "source": "agent",
+      "input_ref": "args#16",
+      "args": {
+        "incidentId": "inc-2",
+        "text": "Recorded: Hall camera offline for 47 min."
+      },
+      "output_ref": "Noted on inc-2.",
+      "ok": true,
+      "latency_ms": 13.542299999999841,
+      "state_change": {
+        "revision_before": 50,
+        "revision_after": 51,
+        "entity_ids": [
+          "inc-2",
+          "note-2"
+        ]
+      },
+      "seq": 26
+    },
+    {
+      "round": 3,
+      "kind": "action",
+      "name": "add_incident_note",
+      "source": "agent",
+      "input_ref": "args#17",
+      "args": {
+        "incidentId": "inc-3",
+        "text": "Recorded: Morning paper did not happen on Fri 16 Oct."
+      },
+      "output_ref": "Noted on inc-3.",
+      "ok": true,
+      "latency_ms": 16.804600000000164,
+      "state_change": {
+        "revision_before": 51,
+        "revision_after": 52,
+        "entity_ids": [
+          "inc-3",
+          "note-3"
+        ]
+      },
+      "seq": 27
+    },
+    {
+      "round": 3,
+      "kind": "model",
+      "name": "actor",
+      "source": "agent",
+      "input_ref": null,
+      "output_ref": "Verifying.",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "check_week_model",
+      "seq": 28
+    },
+    {
+      "round": 3,
+      "kind": "action",
+      "name": "check_week_model",
+      "source": "agent",
+      "input_ref": "args#18",
+      "args": {},
+      "output_ref": "1 errors, 3 warnings.",
+      "ok": true,
+      "latency_ms": 22.598500000000058,
+      "truth": {
+        "errors": 1,
+        "warnings": 3
+      },
+      "seq": 29
+    },
+    {
+      "round": 3,
+      "kind": "model",
+      "name": "actor",
+      "source": "agent",
+      "input_ref": null,
+      "output_ref": "Reviewed the week and recorded the findings. check_week_model reports the final counts.",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "final",
+      "seq": 30
+    },
+    {
+      "round": 4,
+      "kind": "model",
+      "name": "actor",
+      "source": "agent",
+      "input_ref": null,
+      "output_ref": "Applying fixes.",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "merge_duplicate_events",
+      "seq": 31
+    },
+    {
+      "round": 4,
+      "kind": "action",
+      "name": "merge_duplicate_events",
+      "source": "agent",
+      "input_ref": "args#19",
+      "args": {
+        "eventIds": [
+          "evt:req-108",
+          "hist:req-108",
+          "evt:req-109",
+          "hist:req-109",
+          "evt:req-110",
+          "hist:req-110"
+        ]
+      },
+      "output_ref": "Merged 5 events into evt:req-108.",
+      "ok": true,
+      "latency_ms": 23.38429999999994,
+      "state_change": {
+        "revision_before": 52,
+        "revision_after": 53,
+        "entity_ids": [
+          "evt:req-108"
+        ]
+      },
+      "seq": 32
+    },
+    {
+      "round": 4,
+      "kind": "model",
+      "name": "actor",
+      "source": "agent",
+      "input_ref": null,
+      "output_ref": "Verifying repairs.",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "check_week_model",
+      "seq": 33
+    },
+    {
+      "round": 4,
+      "kind": "action",
+      "name": "check_week_model",
+      "source": "agent",
+      "input_ref": "args#20",
+      "args": {},
+      "output_ref": "0 errors, 3 warnings.",
+      "ok": true,
+      "latency_ms": 22.119699999999966,
+      "truth": {
+        "errors": 0,
+        "warnings": 3
+      },
+      "seq": 34
+    },
+    {
+      "round": 4,
+      "kind": "model",
+      "name": "actor",
+      "source": "agent",
+      "input_ref": null,
+      "output_ref": "Repaired the errors and verified zero remain.",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "final",
+      "seq": 35
+    },
+    {
+      "round": 5,
+      "kind": "model",
+      "name": "narrator",
+      "source": "agent",
+      "input_ref": "narrator-1",
+      "output_ref": "Door activity at 02:14 during quiet hours",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "bedrock",
+      "seq": 36
+    },
+    {
+      "round": 5,
+      "kind": "action",
+      "name": "set_incident_status",
+      "source": "agent",
+      "input_ref": "args#21",
+      "args": {
+        "incidentId": "inc-1",
+        "status": "explained",
+        "summary": "There was door activity at 02:14 on Tue 13 Oct, during quiet hours. A gentle check-in could be worth it."
+      },
+      "output_ref": "Set incident inc-1 to explained.",
+      "ok": true,
+      "latency_ms": 13.60850000000005,
+      "state_change": {
+        "revision_before": 53,
+        "revision_after": 54,
+        "entity_ids": [
+          "inc-1"
+        ]
+      },
+      "seq": 37
+    },
+    {
+      "round": 5,
+      "kind": "model",
+      "name": "narrator",
+      "source": "agent",
+      "input_ref": "narrator-2",
+      "output_ref": "Hall camera offline for 47 min",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "bedrock",
+      "seq": 38
+    },
+    {
+      "round": 5,
+      "kind": "action",
+      "name": "set_incident_status",
+      "source": "agent",
+      "input_ref": "args#22",
+      "args": {
+        "incidentId": "inc-2",
+        "status": "explained",
+        "summary": "Hall camera stopped reporting for 47 min on Thu 15 Oct, so activity in that time may be missing."
+      },
+      "output_ref": "Set incident inc-2 to explained.",
+      "ok": true,
+      "latency_ms": 13.739900000000034,
+      "state_change": {
+        "revision_before": 54,
+        "revision_after": 55,
+        "entity_ids": [
+          "inc-2"
+        ]
+      },
+      "seq": 39
+    },
+    {
+      "round": 5,
+      "kind": "model",
+      "name": "narrator",
+      "source": "agent",
+      "input_ref": "narrator-3",
+      "output_ref": "Morning paper did not happen on Fri 16 Oct",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "bedrock",
+      "seq": 40
+    },
+    {
+      "round": 5,
+      "kind": "action",
+      "name": "set_incident_status",
+      "source": "agent",
+      "input_ref": "args#23",
+      "args": {
+        "incidentId": "inc-3",
+        "status": "explained",
+        "summary": "The Morning paper did not happen on Fri 16 Oct. It usually does."
+      },
+      "output_ref": "Set incident inc-3 to explained.",
+      "ok": true,
+      "latency_ms": 11.605999999999995,
+      "state_change": {
+        "revision_before": 55,
+        "revision_after": 56,
+        "entity_ids": [
+          "inc-3"
+        ]
+      },
+      "seq": 41
+    },
+    {
+      "round": 6,
+      "kind": "model",
+      "name": "actor",
+      "source": "agent",
+      "input_ref": null,
+      "output_ref": "Proposing a family message.",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "propose_family_nudge",
+      "seq": 42
+    },
+    {
+      "round": 6,
+      "kind": "action",
+      "name": "propose_family_nudge",
+      "source": "agent",
+      "input_ref": "args#24",
+      "args": {
+        "text": "Maybe a quick call this evening to check in.",
+        "incidentId": "inc-1"
+      },
+      "output_ref": "Proposed a family message for approval (nud-1).",
+      "ok": true,
+      "latency_ms": 11.9217000000001,
+      "state_change": {
+        "revision_before": 56,
+        "revision_after": 57,
+        "entity_ids": [
+          "nud-1"
+        ]
+      },
+      "seq": 43
+    },
+    {
+      "round": 6,
+      "kind": "model",
+      "name": "actor",
+      "source": "agent",
+      "input_ref": null,
+      "output_ref": "Sharing the brief.",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "export_weekly_brief",
+      "seq": 44
+    },
+    {
+      "round": 6,
+      "kind": "approval",
+      "name": "export_weekly_brief",
+      "source": "agent",
+      "input_ref": "args#25",
+      "output_ref": null,
+      "ok": true,
+      "latency_ms": 0,
+      "decision": "approved",
+      "seq": 45
+    },
+    {
+      "round": 6,
+      "kind": "action",
+      "name": "export_weekly_brief",
+      "source": "agent",
+      "input_ref": "args#25",
+      "args": {
+        "includeNotes": true
+      },
+      "output_ref": "Shared the weekly brief with Maya.",
+      "ok": true,
+      "latency_ms": 65.83359999999993,
+      "state_change": {
+        "revision_before": 57,
+        "revision_after": 60,
+        "entity_ids": [
+          "nud-2"
+        ]
+      },
+      "seq": 46
+    },
+    {
+      "round": 6,
+      "kind": "model",
+      "name": "actor",
+      "source": "agent",
+      "input_ref": null,
+      "output_ref": "Trying the chime.",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "play_chime_announcement",
+      "seq": 47
+    },
+    {
+      "round": 0,
+      "kind": "action",
+      "name": "play_chime_announcement",
+      "source": "agent",
+      "input_ref": null,
+      "output_ref": "Chime announcements are off. Maya can turn on \"Chime announcement\" in the Consent panel.",
+      "ok": false,
+      "latency_ms": 0,
+      "seq": 48
+    },
+    {
+      "round": 6,
+      "kind": "model",
+      "name": "actor",
+      "source": "agent",
+      "input_ref": null,
+      "output_ref": "Prepared the family update and noted what needs consent.",
+      "ok": true,
+      "tokens": {
+        "prompt": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latency_ms": 0,
+      "decision": "final",
+      "seq": 49
+    },
+    {
+      "round": 6,
+      "kind": "action",
+      "name": "check_week_model",
+      "source": "agent",
+      "input_ref": "args#26",
+      "args": {},
+      "output_ref": "0 errors, 3 warnings.",
+      "ok": true,
+      "latency_ms": 14.663099999999986,
+      "truth": {
+        "errors": 0,
+        "warnings": 3
+      },
+      "seq": 50
+    }
+  ],
+  "summary": {
+    "model_calls": 20,
+    "actions": 29,
+    "rounds": 6,
+    "model_roles": [
+      "actor",
+      "extractor",
+      "narrator",
+      "planner"
+    ],
+    "verify_repair_rounds": 2,
+    "human_checkpoints": 1,
+    "approvals": {
+      "approved": 1,
+      "rejected": 0
+    },
+    "final_truth": {
+      "errors": 0,
+      "warnings": 3
+    }
+  }
+}

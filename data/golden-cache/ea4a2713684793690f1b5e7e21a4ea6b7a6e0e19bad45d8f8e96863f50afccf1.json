@@ -1,0 +1,25 @@
+{
+  "via": "recorded",
+  "value": {
+    "text": "Sharing the brief.",
+    "functionCalls": [
+      {
+        "name": "export_weekly_brief",
+        "args": {
+          "includeNotes": true
+        }
+      }
+    ],
+    "usage": {
+      "promptTokens": 0,
+      "outputTokens": 0,
+      "totalTokens": 0
+    },
+    "model": "scripted",
+    "latencyMs": 0
+  },
+  "inputHash": "54c63dc4d1b874c06cda592de6800e7b84f775448d3191d1ea2c22beedc5d934",
+  "model": "synthetic-deterministic",
+  "provider": "vertex-fallback",
+  "promptVersion": "doorstep-prompts-1"
+}

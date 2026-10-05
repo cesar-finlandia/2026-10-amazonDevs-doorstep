@@ -1,0 +1,61 @@
+{
+  "via": "recorded",
+  "value": {
+    "text": "Comparing days.",
+    "functionCalls": [
+      {
+        "name": "compare_to_baseline",
+        "args": {
+          "day": 7
+        }
+      },
+      {
+        "name": "compare_to_baseline",
+        "args": {
+          "day": 8
+        }
+      },
+      {
+        "name": "compare_to_baseline",
+        "args": {
+          "day": 9
+        }
+      },
+      {
+        "name": "compare_to_baseline",
+        "args": {
+          "day": 10
+        }
+      },
+      {
+        "name": "compare_to_baseline",
+        "args": {
+          "day": 11
+        }
+      },
+      {
+        "name": "compare_to_baseline",
+        "args": {
+          "day": 12
+        }
+      },
+      {
+        "name": "compare_to_baseline",
+        "args": {
+          "day": 13
+        }
+      }
+    ],
+    "usage": {
+      "promptTokens": 0,
+      "outputTokens": 0,
+      "totalTokens": 0
+    },
+    "model": "scripted",
+    "latencyMs": 0
+  },
+  "inputHash": "195d02db133599901527b95e2ab14631a563a0541526922396e8add49ff97073",
+  "model": "synthetic-deterministic",
+  "provider": "vertex-fallback",
+  "promptVersion": "doorstep-prompts-1"
+}

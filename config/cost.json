@@ -1,0 +1,7 @@
+{
+  "global": {
+    "budget": 600000,
+    "unit": "tokens",
+    "threshold": 0.8
+  }
+}

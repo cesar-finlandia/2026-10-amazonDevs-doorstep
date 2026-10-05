@@ -1,0 +1,32 @@
+{
+  "via": "recorded",
+  "value": {
+    "text": "Applying fixes.",
+    "functionCalls": [
+      {
+        "name": "merge_duplicate_events",
+        "args": {
+          "eventIds": [
+            "evt:req-108",
+            "hist:req-108",
+            "evt:req-109",
+            "hist:req-109",
+            "evt:req-110",
+            "hist:req-110"
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "promptTokens": 0,
+      "outputTokens": 0,
+      "totalTokens": 0
+    },
+    "model": "scripted",
+    "latencyMs": 0
+  },
+  "inputHash": "6e93a1d2aabd1f9f6348f5db4ffa76ad1ffe710a5693e16af408412cad3af1a3",
+  "model": "synthetic-deterministic",
+  "provider": "vertex-fallback",
+  "promptVersion": "doorstep-prompts-1"
+}

@@ -1,0 +1,18 @@
+{
+  "via": "recorded",
+  "value": {
+    "text": "Repaired the errors and verified zero remain.",
+    "functionCalls": [],
+    "usage": {
+      "promptTokens": 0,
+      "outputTokens": 0,
+      "totalTokens": 0
+    },
+    "model": "scripted",
+    "latencyMs": 0
+  },
+  "inputHash": "d52c46028f11d0dea8369660dad26daef23aa0a033fc45f375b71ae346f644e1",
+  "model": "synthetic-deterministic",
+  "provider": "vertex-fallback",
+  "promptVersion": "doorstep-prompts-1"
+}

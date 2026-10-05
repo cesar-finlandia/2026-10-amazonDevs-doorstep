@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "steps": {
+      "minItems": 3,
+      "maxItems": 8,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "order": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8
+          },
+          "goal": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 160
+          },
+          "actions": {
+            "minItems": 1,
+            "maxItems": 6,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "why": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "order",
+          "goal",
+          "actions",
+          "why"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "focusDays": {
+      "maxItems": 7,
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 7,
+        "maximum": 13
+      }
+    },
+    "watchFor": {
+      "maxItems": 6,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 120
+      }
+    }
+  },
+  "required": [
+    "steps",
+    "focusDays",
+    "watchFor"
+  ],
+  "additionalProperties": false
+}

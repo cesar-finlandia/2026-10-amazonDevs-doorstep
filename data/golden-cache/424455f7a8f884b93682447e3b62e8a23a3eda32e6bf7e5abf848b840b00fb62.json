@@ -1,0 +1,61 @@
+{
+  "via": "recorded",
+  "value": {
+    "text": "Opening incidents.",
+    "functionCalls": [
+      {
+        "name": "open_incident",
+        "args": {
+          "kind": "quiet_hours_activity",
+          "title": "Door activity at 02:14 during quiet hours",
+          "eventIds": [
+            "evt:req-84",
+            "evt:req-85",
+            "evt:req-87",
+            "evt:req-86"
+          ],
+          "startMs": 1791882845000,
+          "endMs": 1791884175000,
+          "dayIndex": 8
+        }
+      },
+      {
+        "name": "open_incident",
+        "args": {
+          "kind": "device_outage",
+          "title": "Hall camera offline for 47 min",
+          "eventIds": [
+            "hist:req-111",
+            "hist:req-112"
+          ],
+          "startMs": 1792098300000,
+          "endMs": 1792101120000,
+          "dayIndex": 10
+        }
+      },
+      {
+        "name": "open_incident",
+        "args": {
+          "kind": "missed_routine",
+          "title": "Morning paper did not happen on Fri 16 Oct",
+          "eventIds": [],
+          "startMs": 1792161900000,
+          "endMs": 1792164000000,
+          "routineId": "rtn-paper",
+          "dayIndex": 11
+        }
+      }
+    ],
+    "usage": {
+      "promptTokens": 0,
+      "outputTokens": 0,
+      "totalTokens": 0
+    },
+    "model": "scripted",
+    "latencyMs": 0
+  },
+  "inputHash": "6056bca82b3653717a26cf0b972cf1964479f624c722333ce229bf8a9bf5752c",
+  "model": "synthetic-deterministic",
+  "provider": "vertex-fallback",
+  "promptVersion": "doorstep-prompts-1"
+}

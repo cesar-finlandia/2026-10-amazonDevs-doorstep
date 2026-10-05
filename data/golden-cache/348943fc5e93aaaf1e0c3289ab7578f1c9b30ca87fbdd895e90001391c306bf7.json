@@ -1,0 +1,68 @@
+{
+  "via": "recorded",
+  "value": {
+    "steps": [
+      {
+        "order": 1,
+        "goal": "Read the record and reconcile every device cleanly.",
+        "actions": [
+          "list_week_events",
+          "reconcile_webhook_gap"
+        ],
+        "why": "The counts need a fresh read first."
+      },
+      {
+        "order": 2,
+        "goal": "Compare each focus day with the baseline rhythm.",
+        "actions": [
+          "compare_to_baseline"
+        ],
+        "why": "Day counts point at the odd days."
+      },
+      {
+        "order": 3,
+        "goal": "Record every real change as an incident now.",
+        "actions": [
+          "open_incident",
+          "add_incident_note"
+        ],
+        "why": "Findings fade unless recorded."
+      },
+      {
+        "order": 4,
+        "goal": "Verify the record until zero errors remain.",
+        "actions": [
+          "check_week_model"
+        ],
+        "why": "Only a clean check ends doubt."
+      },
+      {
+        "order": 5,
+        "goal": "Prepare the family message and weekly brief.",
+        "actions": [
+          "propose_family_nudge",
+          "export_weekly_brief"
+        ],
+        "why": "The family waits on the word."
+      }
+    ],
+    "focusDays": [
+      8,
+      10,
+      11
+    ],
+    "watchFor": [
+      "a visit after quiet hours begin",
+      "a device that stopped reporting"
+    ]
+  },
+  "model": "scripted",
+  "usage": {
+    "promptTokens": 0,
+    "outputTokens": 0,
+    "totalTokens": 0
+  },
+  "latencyMs": 0,
+  "provider": "vertex-fallback",
+  "promptVersion": "doorstep-prompts-1"
+}

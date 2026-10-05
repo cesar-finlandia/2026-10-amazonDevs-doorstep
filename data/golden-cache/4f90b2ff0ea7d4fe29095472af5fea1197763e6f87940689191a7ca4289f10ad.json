@@ -1,0 +1,26 @@
+{
+  "via": "recorded",
+  "value": {
+    "text": "Proposing a family message.",
+    "functionCalls": [
+      {
+        "name": "propose_family_nudge",
+        "args": {
+          "text": "Maybe a quick call this evening to check in.",
+          "incidentId": "inc-1"
+        }
+      }
+    ],
+    "usage": {
+      "promptTokens": 0,
+      "outputTokens": 0,
+      "totalTokens": 0
+    },
+    "model": "scripted",
+    "latencyMs": 0
+  },
+  "inputHash": "1ca4e89f666059b1a6db9f25affb5ca33d24eb4c5157c22327e3a9adaa899fff",
+  "model": "synthetic-deterministic",
+  "provider": "vertex-fallback",
+  "promptVersion": "doorstep-prompts-1"
+}

@@ -1,0 +1,251 @@
+{
+  "via": "recorded",
+  "value": {
+    "events": [
+      {
+        "rawId": "req-108",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792098110000,
+        "requestId": "hist:req-108"
+      },
+      {
+        "rawId": "req-109",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792098130000,
+        "requestId": "hist:req-109"
+      },
+      {
+        "rawId": "req-110",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792098150000,
+        "requestId": "hist:req-110"
+      },
+      {
+        "rawId": "req-101",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792102515000,
+        "requestId": "hist:req-101"
+      },
+      {
+        "rawId": "req-102",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792105155000,
+        "requestId": "hist:req-102"
+      },
+      {
+        "rawId": "req-106",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792118114000,
+        "requestId": "hist:req-106"
+      },
+      {
+        "rawId": "req-116",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792181443000,
+        "requestId": "hist:req-116"
+      },
+      {
+        "rawId": "req-117",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792181743000,
+        "requestId": "hist:req-117"
+      },
+      {
+        "rawId": "req-113",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792188786000,
+        "requestId": "hist:req-113"
+      },
+      {
+        "rawId": "req-114",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792191126000,
+        "requestId": "hist:req-114"
+      },
+      {
+        "rawId": "req-118",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792204522000,
+        "requestId": "hist:req-118"
+      },
+      {
+        "rawId": "req-120",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792249289000,
+        "requestId": "hist:req-120"
+      },
+      {
+        "rawId": "req-124",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792260027000,
+        "requestId": "hist:req-124"
+      },
+      {
+        "rawId": "req-125",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792260567000,
+        "requestId": "hist:req-125"
+      },
+      {
+        "rawId": "req-121",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792275365000,
+        "requestId": "hist:req-121"
+      },
+      {
+        "rawId": "req-122",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792277765000,
+        "requestId": "hist:req-122"
+      },
+      {
+        "rawId": "req-126",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792291215000,
+        "requestId": "hist:req-126"
+      },
+      {
+        "rawId": "req-128",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792336511000,
+        "requestId": "hist:req-128"
+      },
+      {
+        "rawId": "req-134",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792350329000,
+        "requestId": "hist:req-134"
+      },
+      {
+        "rawId": "req-135",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792350929000,
+        "requestId": "hist:req-135"
+      },
+      {
+        "rawId": "req-136",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792351529000,
+        "requestId": "hist:req-136"
+      },
+      {
+        "rawId": "req-137",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792352129000,
+        "requestId": "hist:req-137"
+      },
+      {
+        "rawId": "req-138",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792352729000,
+        "requestId": "hist:req-138"
+      },
+      {
+        "rawId": "req-129",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792361798000,
+        "requestId": "hist:req-129"
+      },
+      {
+        "rawId": "req-130",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792364138000,
+        "requestId": "hist:req-130"
+      },
+      {
+        "rawId": "req-132",
+        "deviceId": "dev-door",
+        "componentId": 0,
+        "type": "motion_detected",
+        "subType": "human",
+        "tsMs": 1792377615000,
+        "requestId": "hist:req-132"
+      }
+    ],
+    "skipped": []
+  },
+  "model": "scripted",
+  "usage": {
+    "promptTokens": 0,
+    "outputTokens": 0,
+    "totalTokens": 0
+  },
+  "latencyMs": 0,
+  "provider": "vertex-fallback",
+  "promptVersion": "doorstep-prompts-1"
+}

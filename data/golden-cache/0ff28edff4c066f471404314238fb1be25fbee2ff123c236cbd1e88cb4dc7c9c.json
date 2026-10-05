@@ -1,0 +1,40 @@
+{
+  "via": "recorded",
+  "value": {
+    "text": "Noting incidents.",
+    "functionCalls": [
+      {
+        "name": "add_incident_note",
+        "args": {
+          "incidentId": "inc-1",
+          "text": "Recorded: Door activity at 02:14 during quiet hours."
+        }
+      },
+      {
+        "name": "add_incident_note",
+        "args": {
+          "incidentId": "inc-2",
+          "text": "Recorded: Hall camera offline for 47 min."
+        }
+      },
+      {
+        "name": "add_incident_note",
+        "args": {
+          "incidentId": "inc-3",
+          "text": "Recorded: Morning paper did not happen on Fri 16 Oct."
+        }
+      }
+    ],
+    "usage": {
+      "promptTokens": 0,
+      "outputTokens": 0,
+      "totalTokens": 0
+    },
+    "model": "scripted",
+    "latencyMs": 0
+  },
+  "inputHash": "0eaa9b966b2698b03f525a17b29321e72282e6314ac4ebb7552b1eaaafb53ae0",
+  "model": "synthetic-deterministic",
+  "provider": "vertex-fallback",
+  "promptVersion": "doorstep-prompts-1"
+}

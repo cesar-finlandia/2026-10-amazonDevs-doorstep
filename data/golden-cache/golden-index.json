@@ -1,0 +1,165 @@
+{
+  "version": "1.0.0",
+  "entries": {
+    "327878bc3eb9f56a3d511fdb67619dbe23b0e821a8e2ea69c2ad82557527f777": {
+      "created_at": "2026-10-05T14:11:58.657Z",
+      "provider": "vertex-fallback",
+      "model": "scripted",
+      "source": "recorded",
+      "size_bytes": 9262,
+      "explicit_key": "doorstep-role-extractor-1"
+    },
+    "80da949f2fde88c8fb63b423c0f03e486d79bcb113ff71d67a20e409864cf917": {
+      "created_at": "2026-10-05T14:11:58.707Z",
+      "provider": "vertex-fallback",
+      "model": "scripted",
+      "source": "recorded",
+      "size_bytes": 6340,
+      "explicit_key": "doorstep-role-extractor-2"
+    },
+    "348943fc5e93aaaf1e0c3289ab7578f1c9b30ca87fbdd895e90001391c306bf7": {
+      "created_at": "2026-10-05T14:11:58.717Z",
+      "provider": "vertex-fallback",
+      "model": "scripted",
+      "source": "recorded",
+      "size_bytes": 1592,
+      "explicit_key": "doorstep-role-planner-1"
+    },
+    "69e2bdbb4b919dd32488ebfa8732bd22206c941f46e9b2e4a77402bf3cce0bd2": {
+      "created_at": "2026-10-05T14:11:58.721Z",
+      "provider": "vertex-fallback",
+      "model": "synthetic-deterministic",
+      "source": "recorded",
+      "size_bytes": 597,
+      "explicit_key": "doorstep-step-001"
+    },
+    "08ed03940b162581c078f987b021fb286c524031331892e73402e6eb2c589c3d": {
+      "created_at": "2026-10-05T14:11:58.788Z",
+      "provider": "vertex-fallback",
+      "model": "synthetic-deterministic",
+      "source": "recorded",
+      "size_bytes": 748,
+      "explicit_key": "doorstep-step-002"
+    },
+    "a6f0d6f5a485aadd060cbf04147f92611c07a392d5a98475b51c97e1857dfbfb": {
+      "created_at": "2026-10-05T14:11:58.832Z",
+      "provider": "vertex-fallback",
+      "model": "synthetic-deterministic",
+      "source": "recorded",
+      "size_bytes": 1161,
+      "explicit_key": "doorstep-step-003"
+    },
+    "424455f7a8f884b93682447e3b62e8a23a3eda32e6bf7e5abf848b840b00fb62": {
+      "created_at": "2026-10-05T14:11:58.960Z",
+      "provider": "vertex-fallback",
+      "model": "synthetic-deterministic",
+      "source": "recorded",
+      "size_bytes": 1546,
+      "explicit_key": "doorstep-step-004"
+    },
+    "0ff28edff4c066f471404314238fb1be25fbee2ff123c236cbd1e88cb4dc7c9c": {
+      "created_at": "2026-10-05T14:11:59.048Z",
+      "provider": "vertex-fallback",
+      "model": "synthetic-deterministic",
+      "source": "recorded",
+      "size_bytes": 992,
+      "explicit_key": "doorstep-step-005"
+    },
+    "aa61a145bae7242f019ddbae4df465317384a1504ba23fb34c353b470f1195db": {
+      "created_at": "2026-10-05T14:11:59.110Z",
+      "provider": "vertex-fallback",
+      "model": "synthetic-deterministic",
+      "source": "recorded",
+      "size_bytes": 503,
+      "explicit_key": "doorstep-step-006"
+    },
+    "d80ef4d1cbc3fc0c000829a1e56d4f087cc99793642bc363e623bedcc8ab6f18": {
+      "created_at": "2026-10-05T14:11:59.143Z",
+      "provider": "vertex-fallback",
+      "model": "synthetic-deterministic",
+      "source": "recorded",
+      "size_bytes": 504,
+      "explicit_key": "doorstep-step-007"
+    },
+    "70c5505f3df3ae1a3d49de0bc170657444c95986145c9019b9f60a81024b76ae": {
+      "created_at": "2026-10-05T14:11:59.158Z",
+      "provider": "vertex-fallback",
+      "model": "synthetic-deterministic",
+      "source": "recorded",
+      "size_bytes": 723,
+      "explicit_key": "doorstep-step-008"
+    },
+    "19f99a97e0c97df7b780bdcc649bc4ce997772ad9026b287cf72e3b22d6d83de": {
+      "created_at": "2026-10-05T14:11:59.187Z",
+      "provider": "vertex-fallback",
+      "model": "synthetic-deterministic",
+      "source": "recorded",
+      "size_bytes": 511,
+      "explicit_key": "doorstep-step-009"
+    },
+    "6c9eee09998269b3ef6407a540a3fd1f0f8bdd724d94a529c322cc42c0ee6f42": {
+      "created_at": "2026-10-05T14:11:59.214Z",
+      "provider": "vertex-fallback",
+      "model": "synthetic-deterministic",
+      "source": "recorded",
+      "size_bytes": 462,
+      "explicit_key": "doorstep-step-010"
+    },
+    "8992aba2213ffa1a2d1aa8d357cfee30bf0e07a0bcc1769153c37165c673fd4f": {
+      "created_at": "2026-10-05T14:11:59.223Z",
+      "provider": "vertex-fallback",
+      "model": "scripted",
+      "source": "recorded",
+      "size_bytes": 501,
+      "explicit_key": "doorstep-role-narrator-1"
+    },
+    "9694c09d3a8c46828b9ac6576d40773fceafe701433ef92aa32dcf8122bb4767": {
+      "created_at": "2026-10-05T14:11:59.241Z",
+      "provider": "vertex-fallback",
+      "model": "scripted",
+      "source": "recorded",
+      "size_bytes": 482,
+      "explicit_key": "doorstep-role-narrator-2"
+    },
+    "734a181b9bdc99ad4b8e7bdb68684384c98051203437ed7832dc677a720cf932": {
+      "created_at": "2026-10-05T14:11:59.259Z",
+      "provider": "vertex-fallback",
+      "model": "scripted",
+      "source": "recorded",
+      "size_bytes": 462,
+      "explicit_key": "doorstep-role-narrator-3"
+    },
+    "4f90b2ff0ea7d4fe29095472af5fea1197763e6f87940689191a7ca4289f10ad": {
+      "created_at": "2026-10-05T14:11:59.274Z",
+      "provider": "vertex-fallback",
+      "model": "synthetic-deterministic",
+      "source": "recorded",
+      "size_bytes": 631,
+      "explicit_key": "doorstep-step-011"
+    },
+    "ea4a2713684793690f1b5e7e21a4ea6b7a6e0e19bad45d8f8e96863f50afccf1": {
+      "created_at": "2026-10-05T14:11:59.290Z",
+      "provider": "vertex-fallback",
+      "model": "synthetic-deterministic",
+      "source": "recorded",
+      "size_bytes": 554,
+      "explicit_key": "doorstep-step-012"
+    },
+    "28b8af0b7ca87cdad284af82cc1b12b3ff7da7d81d99cf5b82a4d7c47050b154": {
+      "created_at": "2026-10-05T14:11:59.360Z",
+      "provider": "vertex-fallback",
+      "model": "synthetic-deterministic",
+      "source": "recorded",
+      "size_bytes": 597,
+      "explicit_key": "doorstep-step-013"
+    },
+    "577b566c100be1ddf812fb621d81958ffb0d58b8df70eb139c9a0fe84dbb7c27": {
+      "created_at": "2026-10-05T14:11:59.364Z",
+      "provider": "vertex-fallback",
+      "model": "synthetic-deterministic",
+      "source": "recorded",
+      "size_bytes": 473,
+      "explicit_key": "doorstep-step-014"
+    }
+  }
+}

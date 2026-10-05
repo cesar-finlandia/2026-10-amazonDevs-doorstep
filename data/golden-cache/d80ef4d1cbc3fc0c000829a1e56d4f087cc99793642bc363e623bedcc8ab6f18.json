@@ -1,0 +1,18 @@
+{
+  "via": "recorded",
+  "value": {
+    "text": "Reviewed the week and recorded the findings. check_week_model reports the final counts.",
+    "functionCalls": [],
+    "usage": {
+      "promptTokens": 0,
+      "outputTokens": 0,
+      "totalTokens": 0
+    },
+    "model": "scripted",
+    "latencyMs": 0
+  },
+  "inputHash": "a7586e11a1d3905fc7f8bc9c3e8c3e8b42c40b56ba40f142e24e8fb137a68511",
+  "model": "synthetic-deterministic",
+  "provider": "vertex-fallback",
+  "promptVersion": "doorstep-prompts-1"
+}

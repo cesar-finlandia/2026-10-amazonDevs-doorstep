@@ -1,0 +1,27 @@
+{
+  "via": "recorded",
+  "value": {
+    "text": "Reading the baseline and devices.",
+    "functionCalls": [
+      {
+        "name": "get_rhythm_baseline",
+        "args": {}
+      },
+      {
+        "name": "list_devices",
+        "args": {}
+      }
+    ],
+    "usage": {
+      "promptTokens": 0,
+      "outputTokens": 0,
+      "totalTokens": 0
+    },
+    "model": "scripted",
+    "latencyMs": 0
+  },
+  "inputHash": "ca219b010891339ce5d02f11fbbb5ab354b6cd3f23bf0dffa65d40c2f3fa1e1e",
+  "model": "synthetic-deterministic",
+  "provider": "vertex-fallback",
+  "promptVersion": "doorstep-prompts-1"
+}
