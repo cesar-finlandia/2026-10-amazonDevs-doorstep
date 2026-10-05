@@ -48,7 +48,10 @@
     "lint:dev": "vite-node scripts/lint-dev-tooling.ts",
     "new:deck": "bash scripts/duplicate-pitch-deck.sh",
     "agent:review": "vite-node scripts/run-review.ts --transport golden",
-    "agent:manifest": "vite-node scripts/export-manifest.ts --check"
+    "agent:manifest": "vite-node scripts/export-manifest.ts --check",
+    "server": "vite-node src/server/index.ts",
+    "server:dev": "vite-node --watch src/server/index.ts",
+    "verify:api": "vite-node scripts/verify-api.ts"
   },
   "bin": {
     "mock": "src/dev/mock/cli.ts",
@@ -77,6 +80,7 @@
   "devDependencies": {
     "@playwright/test": "1.62.1",
     "@testing-library/react": "^16.3.2",
+    "@types/express": "^5.0.6",
     "@types/node": "^26.2.0",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
@@ -100,6 +104,7 @@
     "@strands-agents/sdk": "1.19.0",
     "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1",
+    "express": "5.2.1",
     "gifenc": "1.0.3",
     "google-auth-library": "11.1.0",
     "leva": "0.10.1",

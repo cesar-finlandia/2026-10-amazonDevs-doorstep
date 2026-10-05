@@ -1,0 +1,8 @@
+{
+  "ui-api": { "accept": ["server"] },
+  "api-ring": { "accept": ["live"] },
+  "api-inbox": { "accept": ["live"] },
+  "api-bedrock": { "accept": ["bedrock"] },
+  "api-cache": { "accept": ["golden"] },
+  "api-cost": { "accept": ["sidecar"] }
+}

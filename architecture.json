@@ -1,0 +1,113 @@
+{
+  "version": "1.0.0",
+  "lanes": [
+    "client",
+    "service",
+    "data",
+    "model"
+  ],
+  "nodes": [
+    {
+      "id": "ui",
+      "lane": "client",
+      "label": "Family view",
+      "icon": "window"
+    },
+    {
+      "id": "engine",
+      "lane": "client",
+      "label": "Truth engine",
+      "icon": "shield",
+      "note": "Runs in the browser"
+    },
+    {
+      "id": "api",
+      "lane": "service",
+      "label": "Run server",
+      "icon": "server"
+    },
+    {
+      "id": "ring",
+      "lane": "data",
+      "label": "Ring API",
+      "icon": "store",
+      "sponsor": true
+    },
+    {
+      "id": "inbox",
+      "lane": "data",
+      "label": "Webhook inbox",
+      "icon": "queue"
+    },
+    {
+      "id": "cache",
+      "lane": "data",
+      "label": "Recorded run",
+      "icon": "layers"
+    },
+    {
+      "id": "bedrock",
+      "lane": "model",
+      "label": "Amazon Bedrock",
+      "icon": "spark",
+      "sponsor": true
+    },
+    {
+      "id": "cost",
+      "lane": "service",
+      "label": "Cost guard",
+      "icon": "clock"
+    }
+  ],
+  "edges": [
+    {
+      "id": "ui-engine",
+      "from": "ui",
+      "to": "engine",
+      "kind": "request",
+      "label": "actions"
+    },
+    {
+      "id": "ui-api",
+      "from": "ui",
+      "to": "api",
+      "kind": "request",
+      "label": "HTTPS"
+    },
+    {
+      "id": "api-ring",
+      "from": "api",
+      "to": "ring",
+      "kind": "query",
+      "label": "REST"
+    },
+    {
+      "id": "api-inbox",
+      "from": "api",
+      "to": "inbox",
+      "kind": "event",
+      "label": "webhooks"
+    },
+    {
+      "id": "api-bedrock",
+      "from": "api",
+      "to": "bedrock",
+      "kind": "infer",
+      "label": "Converse"
+    },
+    {
+      "id": "api-cache",
+      "from": "api",
+      "to": "cache",
+      "kind": "read",
+      "label": "replay"
+    },
+    {
+      "id": "api-cost",
+      "from": "api",
+      "to": "cost",
+      "kind": "write",
+      "label": "tokens"
+    }
+  ]
+}

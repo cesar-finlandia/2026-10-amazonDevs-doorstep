@@ -1,0 +1,13 @@
+{
+  "port": 8080,
+  "bodyLimitKb": 256,
+  "webhookAckBudgetMs": 4000,
+  "sessionTtlMin": 120,
+  "sessionMax": 200,
+  "eventsKeep": 500,
+  "staticDir": "dist",
+  "proofLog": "logs/proof.log",
+  "stepTimeoutMs": 90000,
+  "runMax": 50,
+  "ringDegradeAfter": 2
+}

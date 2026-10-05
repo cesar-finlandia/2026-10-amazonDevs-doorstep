@@ -80,3 +80,5 @@ test-results/
 .run_sequential.lock
 .run_step_records.txt
 supervisor.log
+logs/*
+!logs/proof.log
