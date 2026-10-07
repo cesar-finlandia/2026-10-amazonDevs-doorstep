@@ -1,5 +1,6 @@
 // src/ui/panels/AgentPanel.tsx — the review starter (DP-UI §6.6).
 // Requirement IDs: FR-07, FR-09
+import { useEffect } from "react";
 import { Check } from "lucide-react";
 import { PHASES } from "src/agent/orchestrator.js";
 import { Surface } from "../primitives/Surface.js";
@@ -35,6 +36,17 @@ export function AgentPanel(): React.JSX.Element {
   const model = useModel();
   const status = useStatus();
   const run = useRun();
+  // The explainer's "Try it" button starts the same run without reaching
+  // into this panel (the doorstep:open-manual precedent of ManualRunnerPanel).
+  // run.start is a stable callback per session, so this subscribes once.
+  const startRun = run.start;
+  useEffect(() => {
+    const begin = (): void => {
+      void startRun();
+    };
+    window.addEventListener("doorstep:start-review", begin);
+    return () => window.removeEventListener("doorstep:start-review", begin);
+  }, [startRun]);
   const running = run.status === "running";
   const hasReviewEvents = model.events.some((e) => e.tsMs >= model.window.baselineStartMs + 7 * 86400000);
   const subject =

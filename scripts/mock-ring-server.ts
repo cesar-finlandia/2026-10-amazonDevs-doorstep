@@ -70,7 +70,11 @@ export function createMockRingServer(opts?: MockRingOptions): Promise<MockRing> 
   let tokenSeq = 0;
   let sessionSeq = 0;
   let webhookSeq = 0;
-  let linked = false;
+  // Per-link account-link state (FR-16): a PATCH completes only a link whose
+  // POST opened it, exactly once. A fresh server refuses PATCH-first with 409
+  // (ri-07-mock check 10), and so does any repeat PATCH after the one
+  // completion (S-RING-9 one-time semantics).
+  let linkStage: "none" | "awaiting" | "completed" = "none";
   const sessions = new Set<string>();
   const window: number[] = [];
 
@@ -393,14 +397,15 @@ export function createMockRingServer(opts?: MockRingOptions): Promise<MockRing> 
             sendJson(res, 400, jsonError(400, "bad_request", "Bad Request", "account_identifier and nonce are required."));
             return;
           }
-          linked = true;
+          linkStage = "awaiting";
           sendJson(res, 200, WIRE_SAMPLES.appIntegrationAwaiting);
           return;
         }
-        if (!linked) {
+        if (linkStage !== "awaiting") {
           sendJson(res, 409, jsonError(409, "conflict", "Conflict", "Confirm the link before completing it."));
           return;
         }
+        linkStage = "completed";
         sendJson(res, 200, WIRE_SAMPLES.appIntegrationCompleted);
         return;
       }

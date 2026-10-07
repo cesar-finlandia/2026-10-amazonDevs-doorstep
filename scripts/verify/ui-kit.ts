@@ -96,6 +96,7 @@ function newestSourceMs(): number {
     }
   };
   walk("src/ui");
+  walk("src/3d");
   for (const f of ["index.html", "vite.config.ts"]) {
     try {
       const ms = statSync(f).mtimeMs;
@@ -109,7 +110,7 @@ function newestSourceMs(): number {
 }
 
 /** `npx vite build` when dist/index.html is missing or older than any file
- *  under src/ui, index.html, vite.config.ts or public/. */
+ *  under src/ui or src/3d, index.html, vite.config.ts or public/. */
 export async function ensureBuilt(): Promise<void> {
   const index = "dist/index.html";
   let built = 0;

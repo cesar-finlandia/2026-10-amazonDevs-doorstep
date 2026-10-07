@@ -12,8 +12,10 @@ export const SHOT_IDS = ["overview", "walk"] as const;
 
 export const OVERVIEW: ShotDef = {
   name: "overview",
-  position: [5.5, 7.4, 14.0],
-  target: [0, 0.4, 5.2],
+  // Review round 1: the hero canvas is 16:5, so the week reads best from low and
+  // in front of the door, filling the width, rather than from a distant height.
+  position: [0, 4.2, 13.0],
+  target: [0, 0.5, 4.2],
   durationMs: 900,
 };
 

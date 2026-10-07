@@ -5,7 +5,9 @@ import { CircleHelp, Layers } from "lucide-react";
 import { Brandmark } from "./Brandmark.js";
 import { ThemeToggle } from "./ThemeToggle.js";
 import { Explainer } from "../primitives/Explainer.js";
+import { useApp } from "../state/SessionProvider.js";
 import { useStatus } from "../state/hooks.js";
+import { loadSampleWeek } from "../state/sampleWeek.js";
 
 function agentSubject(kind: string): string {
   if (kind === "bedrock") return "Bedrock";
@@ -16,7 +18,21 @@ function agentSubject(kind: string): string {
 
 export function AppBar(): React.JSX.Element {
   const status = useStatus();
+  const { session } = useApp();
   const [explainerOpen, setExplainerOpen] = useState(false);
+  // "Try it" (DP-UI §5.6: loads the sample week if needed and starts the
+  // review): close the panel, make sure there is a week to review, then ask
+  // the Agent panel to start through the doorstep:start-review event (the
+  // same run path as its primary button, so the trace and feed grow).
+  const onTry = (): void => {
+    setExplainerOpen(false);
+    void (async () => {
+      const state = session.store.getState();
+      const hasWeek = state.events.some((e) => e.tsMs >= state.window.baselineStartMs + 7 * 86400000);
+      if (!hasWeek) await loadSampleWeek(session);
+      window.dispatchEvent(new Event("doorstep:start-review"));
+    })();
+  };
   const live = status.ring.mode === "live";
   const ringSubject = live
     ? status.ring.tokenExpiresInSec === null
@@ -39,7 +55,7 @@ export function AppBar(): React.JSX.Element {
         <CircleHelp size={18} aria-hidden="true" />
         How this works
       </button>
-      <Explainer open={explainerOpen} onClose={() => setExplainerOpen(false)} onTry={() => setExplainerOpen(false)} />
+      <Explainer open={explainerOpen} onClose={() => setExplainerOpen(false)} onTry={onTry} />
       <div className="appbar__spacer" />
       <div className="appbar__cluster">
         <div className="status-chip" data-degraded={live ? undefined : "true"}>

@@ -24,6 +24,19 @@ interface Attached {
 }
 
 let attached: Attached | null = null;
+const attachListeners = new Set<() => void>();
+
+function notifyAttach(): void {
+  for (const l of [...attachListeners]) l();
+}
+
+/** useSyncExternalStore subscription: fires whenever the GL bridge attaches or detaches. */
+export function subscribeGl(cb: () => void): () => void {
+  attachListeners.add(cb);
+  return () => {
+    attachListeners.delete(cb);
+  };
+}
 
 /** Called by renderers/probe-bridge.tsx; the returned function detaches. */
 export function attachGl(
@@ -40,8 +53,12 @@ export function attachGl(
         : null,
   };
   attached = mine;
+  notifyAttach();
   return () => {
-    if (attached === mine) attached = null;
+    if (attached === mine) {
+      attached = null;
+      notifyAttach();
+    }
   };
 }
 
@@ -50,6 +67,21 @@ export function attachGl(
  *  driving the camera re-issue while this is false. */
 export function hasGlControls(): boolean {
   return attached !== null && attached.controls !== null && attached.controls !== undefined;
+}
+
+/** The live camera pose, or null when no GL bridge is attached. Read-only. */
+export function glCameraPose(): {
+  position: [number, number, number];
+  target: [number, number, number];
+} | null {
+  const a = attached;
+  if (!a) return null;
+  const p = a.camera.position;
+  const t = a.controls?.getTarget(new THREE.Vector3()) ?? new THREE.Vector3();
+  return {
+    position: [p.x, p.y, p.z],
+    target: [t.x, t.y, t.z],
+  };
 }
 
 export interface Scene3dProbe {

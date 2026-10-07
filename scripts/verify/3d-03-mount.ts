@@ -3,7 +3,8 @@
 import type { Page } from "@playwright/test";
 import type { WeekModel } from "src/domain/types.js";
 import { toSceneDescription } from "src/3d/adapter.js";
-import { FPS_MIN, VARIANCE_MIN, loadWeek, open3d, settle, variance64, waitScene } from "./3d-kit.js";
+import { OVERVIEW } from "src/3d/shots.js";
+import { FPS_MIN, VARIANCE_MIN, loadWeek, open3d, settle, variance64, waitNear, waitScene } from "./3d-kit.js";
 import { createChecker, readModel } from "./ui-kit.js";
 
 void FPS_MIN;
@@ -116,12 +117,27 @@ try {
   // asserted behaviour — a canvas strip click selects the day in the page —
   // is unchanged.
   {
-    const pt = await project(page, "day:2", [-0.2, 0.05, 0]);
-    await page.mouse.click(pt.x, pt.y);
-    await page.waitForFunction(() => {
-      const w = window as unknown as { __doorstep: { session: { store: { getState(): WeekModel } } } };
-      return w.__doorstep.session.store.getState().ui.selectedDay === 2;
-    });
+    // Review round 1 lowered the overview camera, so pillars can hide parts of
+    // a strip: try bare points along it (between the ticks and the pillars)
+    // until one lands on the strip.
+    let selected = false;
+    for (const dz of [0, -3.9, -3, 3, 3.9, -2, 2]) {
+      const pt = await project(page, "day:2", [-0.2, 0.05, dz]);
+      await page.mouse.click(pt.x, pt.y);
+      selected = await page
+        .waitForFunction(
+          () => {
+            const w = window as unknown as { __doorstep: { session: { store: { getState(): WeekModel } } } };
+            return w.__doorstep.session.store.getState().ui.selectedDay === 2;
+          },
+          undefined,
+          { timeout: 1500 },
+        )
+        .then(() => true)
+        .catch(() => false);
+      if (selected) break;
+    }
+    if (!selected) throw new Error("no point on day 2's strip selected it");
     await page.waitForFunction(
       () => document.querySelector('[data-day="2"]')?.getAttribute("aria-pressed") === "true",
       { timeout: 5000 },
@@ -151,6 +167,13 @@ try {
       return ent ? { id: visit?.id ?? null, h: ent.size[1] } : null;
     }, incidentId);
     if (!pillar || !pillar.id) throw new Error("flagged pillar not found");
+    // Selecting a day in step 7 sent the camera to that day's shot, which may
+    // not show this pillar: frame the whole week before aiming at it.
+    // The day selection's own focus move is still being scheduled: let it
+    // finish first, or it lands after (and overrides) the overview.
+    await waitNear(page, { position: [2.6, 4, 0.6], target: [-1.6, 0.4, 5.6] }, 8000);
+    await page.evaluate(() => (window as unknown as { __demo3d: { play(s: string): void } }).__demo3d.play("overview"));
+    await settle(page, 5000, OVERVIEW);
     const pt = await project(page, pillar.id, [0, 0, 0]);
     await page.mouse.click(pt.x, pt.y);
     await page.waitForFunction((inc: string) => {

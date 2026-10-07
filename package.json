@@ -57,7 +57,9 @@
     "agent:manifest": "vite-node scripts/export-manifest.ts --check",
     "server": "vite-node src/server/index.ts",
     "server:dev": "vite-node --watch src/server/index.ts",
-    "verify:api": "vite-node scripts/verify-api.ts"
+    "verify:api": "vite-node scripts/verify-api.ts",
+    "screenshots:3d": "vite-node scripts/3d-screenshots.ts",
+    "verify:3d": "vite-node scripts/verify/3d-01-adapter.ts && vite-node scripts/verify/3d-02-tokens.ts && vite-node scripts/verify/3d-03-mount.ts && vite-node scripts/verify/3d-04-shots.ts && vite-node scripts/verify/3d-05-arcs.ts && vite-node scripts/verify/3d-06-lab.ts && vite-node scripts/verify/3d-07-capability.ts && vite-node scripts/verify/3d-08-review.ts"
   },
   "bin": {
     "mock": "src/dev/mock/cli.ts",

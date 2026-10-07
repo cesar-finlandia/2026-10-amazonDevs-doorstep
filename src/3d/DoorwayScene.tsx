@@ -17,10 +17,20 @@ import { SCENE_NAME, toSceneDescription } from "src/3d/adapter.js";
 import { FlatWeekFallback } from "src/3d/FlatWeekFallback.js";
 import { installProbe } from "src/3d/probe.js";
 import type { ProbeData } from "src/3d/probe.js";
-import { hasGlControls } from "src/3d/probe.js";
+import { hasGlControls, subscribeGl } from "src/3d/probe.js";
 import { createRenderers } from "src/3d/renderers/index.js";
+import type { SceneLabel } from "src/3d/renderers/scene-labels.js";
 import { shotsForScene } from "src/3d/shots.js";
 import { useSceneTokens } from "src/3d/tokens.js";
+
+const LABELS_ENTITY: SceneEntity = {
+  id: "scene-labels",
+  kind: "custom",
+  customKey: "scene-labels",
+  position: [0, 0, 0],
+  size: [0, 0, 0],
+  material: { token: "wall" },
+};
 
 const PROBE_ENTITY: SceneEntity = {
   id: "probe",
@@ -44,6 +54,8 @@ function reducedMotion(): boolean {
   );
 }
 
+const BURST_LEDGER_ENTRIES = 12;
+
 export function DoorwayScene(props: {
   session: Session;
   className?: string;
@@ -59,12 +71,37 @@ export function DoorwayScene(props: {
     const validity = validateSceneDescription(desc);
     if (!validity.ok) throw new Error(`invalid scene: ${validity.errors[0] ?? "unknown"}`);
   }
+  // Labels are drawn by the scene-labels layer (sprites), not by the kit's
+  // per-entity <Html> roots: the kit never sees `label` (FIX-13).
+  const labels = useMemo<SceneLabel[]>(
+    () =>
+      desc.entities.flatMap((e) =>
+        e.label ? [{ id: e.id, text: e.label, position: [e.position[0], e.position[1], e.position[2]] as [number, number, number] }] : [],
+      ),
+    [desc],
+  );
   const scene = useMemo(
-    () => ({ ...desc, entities: [...desc.entities, PROBE_ENTITY] }),
+    () => ({
+      ...desc,
+      entities: [
+        ...desc.entities.map((e) => {
+          if (e.label === undefined) return e;
+          const { label: _label, ...rest } = e;
+          void _label;
+          return rest;
+        }),
+        LABELS_ENTITY,
+        PROBE_ENTITY,
+      ],
+    }),
     [desc],
   );
   const tokens = useSceneTokens();
-  const renderers = useMemo(() => createRenderers({ tokens }), [tokens]);
+  const labelReach = useMemo(() => {
+    const [a, b] = [desc.bounds.min, desc.bounds.max];
+    return Math.hypot(b[0] - a[0], b[1] - a[1], b[2] - a[2]) * 0.9;
+  }, [desc.bounds]);
+  const renderers = useMemo(() => createRenderers({ tokens, labels, labelReach }), [tokens, labels, labelReach]);
   const shots = useMemo(() => shotsForScene(desc), [desc]);
   const quality = renderQuality();
   const [ready, setReady] = useState(false);
@@ -72,6 +109,7 @@ export function DoorwayScene(props: {
   const lastSeq = useRef<number>(-1);
   const timer = useRef<number | undefined>(undefined);
   const playedOverview = useRef(false);
+  const playedShot = useRef<string | null>(null);
 
   // §5.4 item 5 — highlight what the ledger just touched.
   useEffect(() => {
@@ -87,10 +125,22 @@ export function DoorwayScene(props: {
       setHighlightIds([]);
       return;
     }
+    // A flush that covers a burst (a repair pass, a batch of tool calls) is not
+    // one action to point at: pulsing for it keeps a software-GL page drawing
+    // for seconds while the burst is still running (FIX-13).
+    if (model.ledger.filter((e) => e.seq > lastSeq.current).length > BURST_LEDGER_ENTRIES) {
+      lastSeq.current = head;
+      return;
+    }
     const sceneIds = new Set(desc.entities.map((e) => e.id));
     const found = highlightFromLedger(model, lastSeq.current, sceneIds);
     lastSeq.current = found.seq;
-    setHighlightIds(found.ids);
+    // Only a change of the highlighted ids renders: an effect that sets a fresh
+    // (even empty) array on every ledger step chains a commit per step and
+    // trips React's nested-update guard during a repair storm (FIX-13).
+    setHighlightIds((prev) =>
+      prev.length === found.ids.length && prev.every((id, i) => id === found.ids[i]) ? prev : found.ids,
+    );
     if (timer.current !== undefined) window.clearTimeout(timer.current);
     timer.current = window.setTimeout(() => {
       setHighlightIds([]);
@@ -105,50 +155,31 @@ export function DoorwayScene(props: {
     [],
   );
 
-  // §5.4 item 4 — the shot effect. On first ready it plays overview; afterwards
-  // it plays ui.shotId when listed. An unknown shot is ignored silently. A move
-  // issued before the rig has controls is dropped without a sound, so the
-  // effect re-issues while hasGlControls() is false (at most 4 s) and issues
-  // one final play once controls arrive.
+  // §5.4 item 4 — the shot effect. `ready` fires when the kit mounts, before
+  // the canvas exists; the rig drops any move requested while it has no
+  // controls. So the effect waits for the GL bridge to report controls, then
+  // plays overview on first run and ui.shotId afterwards. A shot that is not
+  // listed is ignored silently. Each request is issued exactly once: a move in
+  // flight is never restarted.
+  const controlsReady = useSyncExternalStore(subscribeGl, hasGlControls, () => false);
   const shotId = model.ui.shotId;
   useEffect(() => {
-    if (!ready) return;
+    if (!ready || !controlsReady) return;
     const api = (window as unknown as { __demo3d?: { play(s: string): void; shots: string[] } }).__demo3d;
     if (!api) return;
     let want: string;
     if (!playedOverview.current) {
       playedOverview.current = true;
       want = "overview";
+    } else if (shotId === playedShot.current) {
+      return;
     } else {
       want = shotId;
     }
+    playedShot.current = shotId;
     if (!api.shots.includes(want)) return;
-    let cancelled = false;
-    if (hasGlControls()) {
-      api.play(want);
-      return () => {
-        cancelled = true;
-      };
-    }
     api.play(want);
-    const started = performance.now();
-    const retry = window.setInterval(() => {
-      if (cancelled) {
-        window.clearInterval(retry);
-        return;
-      }
-      if (performance.now() - started > 4000 || hasGlControls()) {
-        if (!cancelled && hasGlControls()) api.play(want);
-        window.clearInterval(retry);
-      } else {
-        api.play(want);
-      }
-    }, 150);
-    return () => {
-      cancelled = true;
-      window.clearInterval(retry);
-    };
-  }, [ready, shotId]);
+  }, [ready, controlsReady, shotId]);
 
   const dataRef = useRef<ProbeData>({
     ready: false,
@@ -173,10 +204,6 @@ export function DoorwayScene(props: {
   if (!canRenderGl()) return <FlatWeekFallback model={model} />;
   return (
     <div className={props.className} style={{ width: "100%", height: "100%" }}>
-      {/* Scene labels are annotations: they must never swallow the clicks that
-          select the objects behind them. Scoped to this scene's marker so the
-          lab panel and the page stay interactive. */}
-      <style>{'[data-demo-3d="doorway-week"] div[style*="translate3d(-50%, -50%, 0px)"] { pointer-events: none; }'}</style>
       <ThreeScene
         scene={scene}
         tokens={tokens}

@@ -8,7 +8,7 @@ import type { ServerDeps } from "src/server/deps.js";
 import { RingError } from "src/domain/ring-port.js";
 import type { RingPort } from "src/domain/ring-port.js";
 import { SESSION_ID_PATTERN } from "src/server/sessions.js";
-import { confirmLink, completeLink, getUserMe, makeNonce, nonceTime } from "src/ring/linking.js";
+import { confirmLink, completeLink, getUserMe, makeNonce, maskIdentifier, nonceTime, verifyNonce } from "src/ring/linking.js";
 import { createWebhookHandler } from "src/ring/webhook.js";
 import type { WebhookHandler } from "src/ring/webhook.js";
 import { signPayload } from "src/ring/signature.js";
@@ -192,6 +192,10 @@ function sendRingError(res: Response, e: RingError): void {
 }
 
 function mountRing(app: Express, deps: ServerDeps): void {
+  // Per-session account-link state (FR-16): the nonce binds a link attempt to
+  // the account id it was issued for; confirm proves the binding and complete
+  // is one-time. The raw account id never leaves the server in a response.
+  const links = new Map<string, { nonce: string; time: number; accountId: string; confirmed: boolean; completed: boolean }>();
   app.post("/api/ring/token", async (req: Request, res: Response, next: NextFunction) => {
     try {
       const body = (req.body ?? {}) as Record<string, unknown>;
@@ -256,11 +260,14 @@ function mountRing(app: Express, deps: ServerDeps): void {
           accountId = (await getUserMe({ http })).accountId;
         }
         const at = deps.now();
+        const nonce = makeNonce(key, accountId as string, at);
+        const time = nonceTime(at);
+        links.set(sid, { nonce, time, accountId: accountId as string, confirmed: false, completed: false });
         res.json({
           ok: true,
-          nonce: makeNonce(key, accountId as string, at),
-          time: nonceTime(at),
-          accountId,
+          nonce,
+          time,
+          accountId: maskIdentifier(accountId as string),
         });
       } catch (e) {
         const ringErr = e instanceof RingError ? e : new RingError(0, "upstream", "Ring did not answer.");
@@ -291,7 +298,19 @@ function mountRing(app: Express, deps: ServerDeps): void {
         if (typeof accountIdentifier !== "string" || typeof nonce !== "string") {
           throw new RingError(400, "bad_request", "confirm: accountIdentifier is required.");
         }
-        const result = await confirmLink({ http }, { accountIdentifier, nonce });
+        // The link the nonce was issued for (this session): the client echoes
+        // the masked identifier, so the binding is proven by the nonce itself.
+        const pending = links.get(sid);
+        const key = deps.env["RING_HMAC_KEY"] as string;
+        if (
+          pending === undefined || pending.nonce !== nonce ||
+          !verifyNonce(key, pending.accountId, pending.time, nonce, deps.now())
+        ) {
+          res.status(409).json(errJson(409, "conflict", "Start the link again with a fresh nonce."));
+          return;
+        }
+        const result = await confirmLink({ http }, { accountIdentifier: pending.accountId, nonce });
+        pending.confirmed = true;
         res.json({ ok: true, ...result });
       } catch (e) {
         const ringErr = e instanceof RingError ? e : new RingError(0, "upstream", "Ring did not answer.");
@@ -317,7 +336,15 @@ function mountRing(app: Express, deps: ServerDeps): void {
         return;
       }
       try {
+        // One-time per confirmed link: a second complete (or one with no
+        // confirmed link) is refused here, before the upstream PATCH.
+        const pending = links.get(sid);
+        if (pending === undefined || !pending.confirmed || pending.completed) {
+          res.status(409).json(errJson(409, "conflict", "Confirm the link before completing it."));
+          return;
+        }
         const result = await completeLink({ http });
+        pending.completed = true;
         res.json({ ok: true, ...result });
       } catch (e) {
         const ringErr = e instanceof RingError ? e : new RingError(0, "upstream", "Ring did not answer.");

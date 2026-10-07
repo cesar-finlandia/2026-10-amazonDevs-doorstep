@@ -4,7 +4,9 @@ import type { Page } from "@playwright/test";
 import { chromium } from "@playwright/test";
 import type { RunningServer } from "src/server/start.js";
 import { startTestServer } from "./at-kit.js";
-import { ensureBuilt, waitCalm } from "./ui-kit.js";
+import type { WeekModel } from "src/domain/types.js";
+import { candidateIncidents } from "src/domain/rules.js";
+import { ensureBuilt, readModel, waitCalm } from "./ui-kit.js";
 
 export const GL_ARGS: string[] = [
   "--use-angle=swiftshader",
@@ -66,12 +68,30 @@ export async function open3d(opts?: Open3dOptions): Promise<ThreeRun> {
     config: { staticDir: "dist" },
     overrides: { log: createLogger({ write: () => undefined }) } as never,
   });
-  const browser = await chromium.launch({ args: GL_ARGS });
-  const context = await browser.newContext({
-    viewport: { width: opts?.width ?? 1280, height: opts?.height ?? 720 },
-    colorScheme: opts?.theme ?? "light",
-    reducedMotion: opts?.reducedMotion === true ? "reduce" : "no-preference",
-  });
+  // If any step below throws, tear down what was already created: otherwise
+  // the headless browser is orphaned and keeps burning CPU in the background.
+  const closeAll = async (b?: import("@playwright/test").Browser): Promise<void> => {
+    if (b) {
+      try {
+        await b.close();
+      } catch {
+        /* ignore */
+      }
+    }
+    try {
+      await server.close();
+    } catch {
+      /* ignore */
+    }
+  };
+  let browser: import("@playwright/test").Browser | undefined;
+  try {
+    browser = await chromium.launch({ args: GL_ARGS });
+    const context = await browser.newContext({
+      viewport: { width: opts?.width ?? 1280, height: opts?.height ?? 720 },
+      colorScheme: opts?.theme ?? "light",
+      reducedMotion: opts?.reducedMotion === true ? "reduce" : "no-preference",
+    });
   const theme = opts?.theme ?? "light";
   const extra = opts?.init ?? "";
   await context.addInitScript(
@@ -91,9 +111,14 @@ export async function open3d(opts?: Open3dOptions): Promise<ThreeRun> {
   });
   const quality = opts?.quality ?? "low";
   const path = opts?.path ?? `/?hook=1&quality=${quality}`;
-  await page.goto(server.url + path, { waitUntil: "domcontentloaded" });
-  await page.evaluate(() => document.fonts.ready);
-  await page.waitForSelector('body[data-app-ready="true"]', { timeout: 15000 });
+  try {
+    await page.goto(server.url + path, { waitUntil: "domcontentloaded" });
+    await page.evaluate(() => document.fonts.ready);
+    await page.waitForSelector('body[data-app-ready="true"]', { timeout: 15000 });
+  } catch (e) {
+    await closeAll(browser);
+    throw e;
+  }
   return {
     page,
     url: server.url,
@@ -106,13 +131,17 @@ export async function open3d(opts?: Open3dOptions): Promise<ThreeRun> {
         /* ignore */
       }
       try {
-        await browser.close();
+        if (browser) await browser.close();
       } catch {
         /* ignore */
       }
       await server.close();
     },
   };
+  } catch (e) {
+    await closeAll(browser);
+    throw e;
+  }
 }
 
 /** Presses "Load the sample week", waits for the ribbon ticks. */
@@ -130,6 +159,48 @@ export async function waitScene(page: Page): Promise<void> {
   await page.waitForFunction(
     () => (window as unknown as Scene3dWindow).__scene3d.frames() >= 1,
     { timeout: 30000 },
+  );
+}
+
+/** Keeps frames flowing in the background so camera moves advance even when
+ *  nothing else invalidates (software GL can starve a wall-clock-bounded move
+ *  loop). Uses the public fpsProbe hook; the promise is intentionally left
+ *  floating. */
+export async function pumpFrames(page: Page, ms = 10000): Promise<void> {
+  await page.evaluate((dur: number) => {
+    const w = window as unknown as { __demo3d: { fpsProbe(m: number): Promise<number> } };
+    w.__demo3d.fpsProbe(dur).then(
+      () => undefined,
+      () => undefined,
+    );
+  }, ms);
+}
+
+/** Polls inside the page (every 10 ms) until the camera is within 0.05 of the
+ *  pose or the budget runs out, so Playwright round trips add no latency to a
+ *  timed move. Assertion-free; callers decide. */
+export async function waitNear(
+  page: Page,
+  pose: { position: [number, number, number]; target: [number, number, number] },
+  budgetMs = 8000,
+): Promise<boolean> {
+  return page.evaluate(
+    async ([p, budget]: [typeof pose, number]) => {
+      const w = window as unknown as {
+        __scene3d?: { camera(): { position: number[]; target: number[] } };
+      };
+      const dist = (a: number[], b: number[]): number =>
+        Math.sqrt(a.reduce((s, v, i) => s + (v - (b[i] as number)) ** 2, 0));
+      const t0 = performance.now();
+      for (;;) {
+        // The probe is installed a moment after the app is ready.
+        const c = w.__scene3d?.camera();
+        if (c && dist(c.position, p.position) <= 0.05 && dist(c.target, p.target) <= 0.05) return true;
+        if (performance.now() - t0 >= budget) return false;
+        await new Promise((r) => setTimeout(r, 10));
+      }
+    },
+    [pose, budgetMs] as [typeof pose, number],
   );
 }
 
@@ -194,3 +265,72 @@ export async function settle(
     await page.waitForTimeout(50);
   }
 }
+
+interface CandidateArgs {
+  kind: string;
+  title: string;
+  eventIds: string[];
+  startMs: number;
+  endMs: number;
+  routineId?: string;
+  dayIndex?: number;
+}
+
+/** Opens an incident through the agent route. Index 0 is the page's first candidate
+ *  (what openFirstCandidate opens); a larger index is a one-event moment on the
+ *  n-th event of the review week, so any number of distinct incidents can be made. */
+export async function openIncident(page: Page, n: number, withSnapshot: boolean): Promise<string> {
+  const model = (await readModel(page)) as unknown as WeekModel;
+  let args: CandidateArgs & { withSnapshot: boolean };
+  if (n === 0) {
+    const picked = candidateIncidents(model)[0];
+    if (!picked) throw new Error("no candidate incident");
+    args = {
+      kind: picked.kind,
+      title: picked.title,
+      eventIds: [...picked.eventIds],
+      startMs: picked.startMs,
+      endMs: picked.endMs,
+      withSnapshot,
+      ...(picked.routineId !== undefined ? { routineId: picked.routineId } : {}),
+      ...(picked.dayIndex !== undefined ? { dayIndex: picked.dayIndex } : {}),
+    };
+  } else {
+    const week = model.events.filter((e) => e.tsMs >= model.window.baselineEndMs);
+    const ev = week[n * 7];
+    if (!ev) throw new Error(`no event #${n * 7} in the review week`);
+    args = {
+      kind: "long_dwell",
+      title: `Moment ${n} to look at`,
+      eventIds: [ev.id],
+      startMs: ev.tsMs,
+      endMs: ev.tsMs + 600_000,
+      withSnapshot,
+    };
+  }
+  const id = await page.evaluate(async (a: unknown) => {
+    const w = window as unknown as {
+      __doorstep: { session: { call(n: string, a: unknown, o: unknown): Promise<{ ok: boolean; data?: unknown }> } };
+    };
+    const res = await w.__doorstep.session.call("open_incident", a, { source: "human" });
+    if (!res.ok) return null;
+    return (res.data as { incident?: { id?: string } } | undefined)?.incident?.id ?? null;
+  }, args);
+  if (!id) throw new Error(`open_incident #${n} failed`);
+  return id;
+}
+
+export async function setIncidentStatus(page: Page, id: string, status: string): Promise<void> {
+  await page.evaluate(
+    async ([iid, st]: [string, string]) => {
+      const w = window as unknown as { __doorstep: { session: { call(n: string, a: unknown, o: unknown): Promise<unknown> } } };
+      await w.__doorstep.session.call(
+        "set_incident_status",
+        { incidentId: iid, status: st, summary: "Checked against the record." },
+        { source: "human" },
+      );
+    },
+    [id, status] as [string, string],
+  );
+}
+

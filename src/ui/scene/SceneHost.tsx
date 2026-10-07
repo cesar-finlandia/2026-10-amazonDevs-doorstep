@@ -49,12 +49,19 @@ export function canWebGL(
 
 const loaders = import.meta.glob("/src/3d/DoorwayScene.tsx") as Record<string, SceneLoader>;
 
+/** The hero-slot scene component, resolved once per page load. `lazy()` must
+ *  stay out of the render path: a fresh `lazy(load)` identity on every render
+ *  unmounts and remounts the whole scene (one react-dom root per drei `Html`
+ *  label is torn down inside the commit, which React reports as "Attempted to
+ *  synchronously unmount a root while React was already rendering"). */
+const sceneLoader = pickScene(loaders);
+const LazyScene = sceneLoader !== null ? lazy(sceneLoader) : null;
+
 export function SceneHost(): React.JSX.Element {
   const { session } = useApp();
   const [failed, setFailed] = useState(false);
   const forcedOff = typeof location !== "undefined" && new URLSearchParams(location.search).get("scene") === "off";
-  const load = pickScene(loaders);
-  if (forcedOff || !load || failed || !canWebGL()) {
+  if (forcedOff || !LazyScene || failed || !canWebGL()) {
     // A structured callout (glyph + title + body), not bare text: the
     // fallback is a system state with a home (visual review round 2,
     // defect 2). Texts and the data-demo-3d marker are unchanged.
@@ -65,7 +72,7 @@ export function SceneHost(): React.JSX.Element {
       </div>
     );
   }
-  const Scene = lazy(load);
+  const Scene = LazyScene;
   return (
     <div className="scene-live">
       <SceneErrorBoundary onFail={() => setFailed(true)}>

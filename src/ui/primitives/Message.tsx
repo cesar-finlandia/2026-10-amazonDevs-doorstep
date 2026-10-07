@@ -30,8 +30,10 @@ export function Message(props: {
           {props.detail ? <div className="message__detail">{props.detail}</div> : null}
           {props.items && props.items.length > 0 ? (
             <dl className="message__items">
-              {props.items.map((it) => (
-                <div key={it.step}>
+              {/* Steps repeat across envelopes (e.g. two rung lines both
+                  labelled with the rung name): the index keeps keys unique. */}
+              {props.items.map((it, i) => (
+                <div key={`${it.step}-${i}`}>
                   <dt>{it.step}</dt>
                   <dd>{it.text}</dd>
                 </div>

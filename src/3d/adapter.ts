@@ -1,15 +1,14 @@
 // src/3d/adapter.ts — toSceneDescription(model, revision?) and MATERIAL_TOKENS (DP-3D §5.1).
 // Pure and deterministic: the same model and revision give a deep-equal result;
-// never reads the clock or a random source. WU-05 adds the inc-*, flare:* and
-// thread:* rows; this unit covers every other row of the §5.1 table.
+// never reads the clock or a random source. Covers every row of the §5.1 table.
 // Requirement IDs: FR-20, FR-17
 import type { WeekModel, Visit } from "src/domain/types.js";
-import { weekRibbon } from "src/domain/derive.js";
+import { visitorThreads, weekRibbon } from "src/domain/derive.js";
 import type { RibbonDay } from "src/domain/derive.js";
 import { candidateIncidents } from "src/domain/rules.js";
 import { fmtClock } from "src/domain/time.js";
 import type { SceneDescription, SceneEntity } from "src/kits/three-scene/src/react/index.js";
-import { BOUNDS, DUP_DX, OUTAGE_DX, PILLAR_DX, TICK_DX, dayX, minuteZ, pillarHeight } from "src/3d/layout.js";
+import { BOUNDS, DUP_DX, OUTAGE_DX, PILLAR_DX, TICK_DX, dayX, hopPosition, minuteZ, pillarHeight } from "src/3d/layout.js";
 import { LOOK } from "src/3d/look.js";
 
 export const SCENE_NAME = "doorway-week";
@@ -200,6 +199,64 @@ export function toSceneDescription(model: WeekModel, revision = 0): SceneDescrip
     });
   }
 
+  // Incident arcs and evidence flares: one per incident, on its first ribbon day.
+  const arcToken = (status: string): MaterialToken =>
+    status === "resolved" ? "resolved" : status === "dismissed" ? "gap" : "pillar-warn";
+  for (const inc of model.incidents) {
+    const day = ribbon.find((d) => d.incidents.some((x) => x.id === inc.id));
+    const ribbonInc = day?.incidents.find((x) => x.id === inc.id);
+    if (day === undefined || ribbonInc === undefined) continue;
+    const mid = (ribbonInc.fromMin + ribbonInc.toMin) / 2;
+    entities.push({
+      id: inc.id,
+      kind: "custom",
+      customKey: "incident-arc",
+      position: [dayX(day.dayIndex), 0.08, minuteZ(mid)],
+      size: [1.4, 0.2, Math.max(((ribbonInc.toMin - ribbonInc.fromMin) / 1440) * 8 + 0.6, 1.0)],
+      material: material(arcToken(inc.status)),
+      meta: { status: inc.status, kind: inc.kind, dayIndex: day.dayIndex, title: inc.title },
+    });
+    const media = model.media.find((m) => m.incidentId === inc.id);
+    if (media !== undefined) {
+      entities.push({
+        id: `flare:${inc.id}`,
+        kind: "custom",
+        customKey: "evidence-flare",
+        position: [dayX(day.dayIndex), 3.3, minuteZ(mid)],
+        size: [0.3, 0.3, 0.3],
+        material: material("arc"),
+        meta: { incidentId: inc.id, mediaId: media.id },
+      });
+    }
+  }
+
+  // Visit threads: a visit that crossed more than one camera component, on the
+  // visit's own day. Like every other row it is a function of the week the
+  // ribbon draws, so a visit the calendar does not show (a baseline week) has
+  // no thread.
+  const frustumIds = frustumDevices.map((d) => d.id);
+  for (const thread of visitorThreads(model)) {
+    const day = ribbon.find((d) => d.visits.some((v) => v.id === thread.visitId));
+    const rv = day?.visits.find((v) => v.id === thread.visitId);
+    if (day === undefined || rv === undefined) continue;
+    const first = hopPosition(thread.hops[0] as string, frustumIds);
+    const last = hopPosition(thread.hops[thread.hops.length - 1] as string, frustumIds);
+    entities.push({
+      id: `thread:${thread.visitId}`,
+      kind: "custom",
+      customKey: "visit-thread",
+      position: [dayX(day.dayIndex) + PILLAR_DX, 1.0, minuteZ((rv.fromMin + rv.toMin) / 2)],
+      size: [0, 0, 0],
+      material: material("arc"),
+      meta: {
+        visitId: thread.visitId,
+        hops: thread.hops.join(","),
+        sx: first[0], sy: first[1], sz: first[2],
+        ex: last[0], ey: last[1], ez: last[2],
+      },
+    });
+  }
+
   entities.sort((a, b) => {
     const order = entityOrder(a.id);
     const ob = entityOrder(b.id);
@@ -220,6 +277,8 @@ function entityOrder(id: string): number {
   if (id.startsWith("vis:")) return 5;
   if (id.startsWith("outage:")) return 6;
   if (id.startsWith("seam:")) return 7;
-  if (id.startsWith("inc-") || id.startsWith("flare:") || id.startsWith("thread:")) return 8;
-  return 9;
+  if (id.startsWith("inc-")) return 8;
+  if (id.startsWith("flare:")) return 9;
+  if (id.startsWith("thread:")) return 10;
+  return 11;
 }

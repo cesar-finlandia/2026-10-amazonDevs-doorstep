@@ -98,7 +98,7 @@ body, .page, .rail, .main, .workbench, [data-surface] { transition: background-c
 .toggle-rail { display: block; }
 /* Hero stage: the 3D doorway slot (DP-UI §6.9). Fixed 16:5 aspect; the
    min-height wins below ~960 px of width, as CSS specifies. */
-.scene-stage { aspect-ratio: 16 / 5; min-height: 240px; display: flex; flex-direction: column; gap: var(--space-2); }
+.scene-stage { aspect-ratio: 16 / 5; min-height: 240px; width: 100%; min-width: 0; display: flex; flex-direction: column; gap: var(--space-2); }
 @media (min-width: 1440px) { .scene-stage { min-height: 300px; } }
 /* The 16:5 aspect with a 240 px min-height would force a 768 px-wide
    stage (240 × 16/5) and spill the 390 px viewport (ui-04 check 13).
@@ -112,8 +112,15 @@ body, .page, .rail, .main, .workbench, [data-surface] { transition: background-c
 /* The active shot is a third accent role on the screen (visual review
    round 1, defect 8): accent word plus semibold weight, never colour alone. */
 .scene-toolbar [aria-pressed="true"] { color: var(--accent); font-weight: 600; }
-.scene-fallback, .scene-live { flex: 1; min-height: 0; }
+.scene-fallback, .scene-live { flex: 1; min-height: 0; min-width: 0; }
 .scene-host__canvas { width: 100%; height: 100%; display: block; }
+/* The R3F canvas carries its measured pixel size as an inline style. After a
+   viewport shrink the stale inline width wedges the surrounding flex items
+   open (the container never shrinks, so no resize is observed) and the stage
+   spills a 390 px viewport. The product owns the canvas box: it always fills
+   its container (the renderer re-measures once the box can shrink, which also
+   re-seats the HTML label overlays). */
+.scene-host__canvas canvas { display: block; width: 100% !important; height: auto !important; }
 .household-btn { display: none; }
 @media (max-width: 1023px) {
   .household-btn { display: inline-flex; }
@@ -143,4 +150,20 @@ body, .page, .rail, .main, .workbench, [data-surface] { transition: background-c
   /* The fix button must drop below the text instead of forcing the row
      past the viewport (craft §11 assertion 1). */
   .issue-row { flex-wrap: wrap; }
+}
+
+/* Tuning lab (/lab, DP-3D WU-3D-06): the scene large, controls and values beside it. */
+.page.lab-page { display: block; }
+.lab { display: flex; flex-direction: column; gap: var(--space-4); }
+.lab__head { display: flex; flex-direction: column; gap: var(--space-2); }
+.lab__body { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: var(--gutter); align-items: start; }
+.lab__stage { min-width: 0; }
+.lab__canvas { aspect-ratio: 16 / 9; min-height: 540px; position: relative; }
+.lab__side { display: flex; flex-direction: column; gap: var(--space-3); min-width: 0; }
+.lab__shots { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.lab__values { margin: 0; white-space: pre; overflow-x: auto; font-size: var(--text-support); }
+.lab__copied { margin: 0; min-height: var(--lh-support); color: var(--text-muted); }
+@media (max-width: 1023px) {
+  .lab__body { grid-template-columns: minmax(0, 1fr); }
+  .lab__canvas { aspect-ratio: auto; min-height: 320px; }
 }

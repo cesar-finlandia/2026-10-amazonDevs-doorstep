@@ -1,6 +1,7 @@
 // src/ui/state/SessionProvider.tsx — one session per tab (DP-UI §3.2, §6.3 items 1, 10).
 // Requirement IDs: FR-01, FR-09
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { flushSync } from "react-dom";
 import type { Session } from "src/domain/session.js";
 import { createAppSession } from "src/agent/app-session.js";
 import { createHttpRingPort } from "src/server/http-ring-port.js";
@@ -57,6 +58,8 @@ export function SessionProvider(props: {
   }, [props.baseUrl, sessionId]);
   useEffect(() => {
     document.body.dataset["appReady"] = "true";
+    // DIAG-ONLY: expose a UI-copy flushSync for the nested-update hunt.
+    (window as unknown as { __flushUi?: () => void }).__flushUi = () => flushSync(() => undefined);
     const off = installTraceHook(value.session.trace);
     if (new URLSearchParams(location.search).get("hook") === "1") {
       (window as unknown as { __doorstep?: unknown }).__doorstep = {

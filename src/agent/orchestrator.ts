@@ -371,6 +371,11 @@ export async function runWeekReview(deps: ReviewDeps): Promise<ReviewSummary> {
   }
 
   // 6. repair. The single onPhase fire carries the outcome detail.
+  // Each pass pairs one agent loop with one deterministic system pass over
+  // the remaining error issues that carry a fix: bulk issues the agent did
+  // not reach (e.g. a week of channel duplicates against a short recorded
+  // run) are folded by the system in the same pass, so the loop converges
+  // without spending a second agent pass it may not have.
   let repairDetail = "no errors to repair";
   {
     let errors = session.checkNow().counts.errors;
@@ -393,17 +398,18 @@ export async function runWeekReview(deps: ReviewDeps): Promise<ReviewSummary> {
         repairDetail = "agent repaired all errors";
         break;
       }
-      if (session.store.snapshot().revision === revBefore) break; // no progress: system repair takes over
-    }
-    errors = session.checkNow().counts.errors;
-    if (errors > 0) {
       const issues = session.checkNow().issues.filter((i) => i.severity === "error" && i.fix);
-      for (const issue of issues) {
+      for (const [index, issue] of issues.entries()) {
         const fix = (issue.fix as { action: string; args: Record<string, unknown> });
         await session.call(fix.action, fix.args, { source: "system", round: 4 });
       }
-      await session.call("check_week_model", {}, { source: "system", round: 4 });
-      repairDetail = "repaired by the system after the agent stopped";
+      if (issues.length > 0) {
+        await session.call("check_week_model", {}, { source: "system", round: 4 });
+        repairDetail = "repaired by the system after the agent stopped";
+      }
+      errors = session.checkNow().counts.errors;
+      if (errors === 0) break;
+      if (session.store.snapshot().revision === revBefore) break; // no progress: stop
     }
   }
   phase("repair", 4, repairDetail);
