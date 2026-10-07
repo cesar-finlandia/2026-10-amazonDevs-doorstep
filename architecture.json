@@ -72,7 +72,13 @@
       "from": "ui",
       "to": "api",
       "kind": "request",
-      "label": "HTTPS"
+      "label": "HTTPS",
+      "proof": {
+        "file": "logs/proof.log",
+        "line": 87,
+        "text": "POST /api/agent/step 200 2ms",
+        "mode": "server"
+      }
     },
     {
       "id": "api-ring",
@@ -100,14 +106,26 @@
       "from": "api",
       "to": "cache",
       "kind": "read",
-      "label": "replay"
+      "label": "replay",
+      "proof": {
+        "file": "logs/proof.log",
+        "line": 85,
+        "text": "replayed step from the recorded run",
+        "mode": "golden"
+      }
     },
     {
       "id": "api-cost",
       "from": "api",
       "to": "cost",
       "kind": "write",
-      "label": "tokens"
+      "label": "tokens",
+      "proof": {
+        "file": "logs/proof.log",
+        "line": 86,
+        "text": "used 0% of the token budget (0 tokens)",
+        "mode": "sidecar"
+      }
     }
   ]
 }

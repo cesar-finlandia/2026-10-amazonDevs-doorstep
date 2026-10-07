@@ -6,7 +6,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { createChecker } from "./ui-kit.js";
-import { run, wrapper } from "./e2e-kit.js";
+import { run, wrapper, wrapperAsync } from "./e2e-kit.js";
 import { startServer } from "../../src/server/start.js";
 import { createMockRingServer } from "../../scripts/mock-ring-server.js";
 import { randomSecret } from "../../e2e/helpers.js";
@@ -113,7 +113,7 @@ let smokeBase = { code: -1, out: "", line: "" };
 let depthBase = { code: -1, out: "", line: "" };
 try {
   // 4. Against BASE_URL no local server starts (app.local is false).
-  smokeBase = wrapper("smoke", ["e2e/smoke.spec.ts"], { env: { BASE_URL: second.url } });
+  smokeBase = await wrapperAsync("smoke", ["e2e/smoke.spec.ts"], { env: { BASE_URL: second.url } });
   c.ok(
     smokeBase.code === 0 &&
       smokeBase.line === "smoke: 4 passed, 0 failed, 0 skipped" &&
@@ -123,7 +123,7 @@ try {
   );
 
   // 5. A dead URL fails SMOKE-1 and exits 1.
-  const dead = wrapper("smoke", ["e2e/smoke.spec.ts"], { env: { BASE_URL: "http://127.0.0.1:1" } });
+  const dead = await wrapperAsync("smoke", ["e2e/smoke.spec.ts"], { env: { BASE_URL: "http://127.0.0.1:1" } });
   c.ok(
     dead.code === 1 && dead.out.includes("FAIL SMOKE-1"),
     "dead BASE_URL exits 1 with a FAIL SMOKE-1 line",
@@ -170,7 +170,7 @@ try {
 
   // 10. The depth file honours BASE_URL and passes against the second server.
   const depthText = readFileSync("e2e/depth.spec.ts", "utf8");
-  depthBase = wrapper("depth", ["e2e/depth.spec.ts"], { env: { BASE_URL: second.url } });
+  depthBase = await wrapperAsync("depth", ["e2e/depth.spec.ts"], { env: { BASE_URL: second.url } });
   c.ok(
     depthText.includes("depth: base") &&
       FORBIDDEN.every((s) => !depthText.includes(s)) &&

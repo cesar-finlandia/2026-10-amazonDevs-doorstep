@@ -59,7 +59,11 @@
     "server:dev": "vite-node --watch src/server/index.ts",
     "verify:api": "vite-node scripts/verify-api.ts",
     "screenshots:3d": "vite-node scripts/3d-screenshots.ts",
-    "verify:3d": "vite-node scripts/verify/3d-01-adapter.ts && vite-node scripts/verify/3d-02-tokens.ts && vite-node scripts/verify/3d-03-mount.ts && vite-node scripts/verify/3d-04-shots.ts && vite-node scripts/verify/3d-05-arcs.ts && vite-node scripts/verify/3d-06-lab.ts && vite-node scripts/verify/3d-07-capability.ts && vite-node scripts/verify/3d-08-review.ts"
+    "verify:3d": "vite-node scripts/verify/3d-01-adapter.ts && vite-node scripts/verify/3d-02-tokens.ts && vite-node scripts/verify/3d-03-mount.ts && vite-node scripts/verify/3d-04-shots.ts && vite-node scripts/verify/3d-05-arcs.ts && vite-node scripts/verify/3d-06-lab.ts && vite-node scripts/verify/3d-07-capability.ts && vite-node scripts/verify/3d-08-review.ts",
+    "e2e": "npx vite-node scripts/e2e-run.ts --label full",
+    "e2e:list": "npx vite-node scripts/e2e-run.ts --label full --list",
+    "e2e:smoke": "playwright test e2e/smoke.spec.ts",
+    "verify:e2e": "npx vite-node scripts/verify/e2e-01-strategy.ts && npx vite-node scripts/verify/e2e-02-harness.ts && npx vite-node scripts/verify/e2e-03-scenarios.ts && npx vite-node scripts/verify/e2e-04-ring.ts && npx vite-node scripts/verify/e2e-05-smoke.ts && npx vite-node scripts/verify/e2e-06-hygiene.ts && npx vite-node scripts/verify/e2e-07-3d.ts && npx vite-node scripts/verify/e2e-08-green.ts && npx vite-node scripts/verify/e2e-09-scenarios.ts && npx vite-node scripts/verify/e2e-10-eval.ts && npx vite-node scripts/verify/e2e-11-proofs.ts && npx vite-node scripts/verify/e2e-12-results.ts"
   },
   "bin": {
     "mock": "src/dev/mock/cli.ts",

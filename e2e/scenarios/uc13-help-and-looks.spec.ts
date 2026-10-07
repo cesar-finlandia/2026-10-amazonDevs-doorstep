@@ -6,6 +6,16 @@ import { openHome, loadSampleWeek, settleSampleWeek } from "../helpers";
 import { helpContent } from "src/ui/help/helpContent";
 
 async function contrastRatio(page: Page): Promise<number> {
+  // Measure the settled look: the theme switch runs colour transitions (FIX-24).
+  // Wait until the resolved colours stop changing (three equal reads, 100 ms apart).
+  let prev = "";
+  let equal = 0;
+  for (let i = 0; i < 60 && equal < 3; i += 1) {
+    const now = await page.evaluate(() => `${getComputedStyle(document.body).color}|${getComputedStyle(document.body).backgroundColor}|${getComputedStyle(document.documentElement).backgroundColor}`);
+    equal = now === prev ? equal + 1 : 0;
+    prev = now;
+    await page.waitForTimeout(100);
+  }
   return page.evaluate(() => {
     const parse = (s: string): [number, number, number] => {
       const m = /rgba?\(([^)]+)\)/.exec(s);

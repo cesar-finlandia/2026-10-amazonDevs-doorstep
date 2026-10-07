@@ -19,7 +19,8 @@ import type { FloorReport } from "src/agent/floors.js";
 import type { AgentTransport } from "src/agent/transport.js";
 import type { RoleName, RoleInput, RoleOutput } from "src/agent/schemas.js";
 import type { RoleOutcome, TransportKind } from "src/llm/roles.js";
-import { guardCopy } from "src/llm/guard.js";
+import type { guardCopy } from "src/llm/guard.js";
+import { guardCopy as nodeGuardCopy } from "src/llm/guard.js";
 import { ACT_GOAL, ACTOR_PROMPT, CHECKPOINT_GOAL, REPAIR_GOAL } from "src/prompts/actor.js";
 import { ACTOR_PROCEDURES } from "src/prompts/actor.js";
 
@@ -32,6 +33,12 @@ export interface ReviewDeps {
   limits?: { act: number; repair: number; checkpoint: number };               // default 16 / 8 / 8
   autoDecide?: "approve" | "reject-first-then-approve" | null;                 // scripts only; UI passes null so a person decides
   decisionDelayMs?: number;                                                     // default 40 (autoDecide only)
+  /** Narrator-copy guard. Defaults to the Node copy guard (reads
+   *  config/banned-patterns.json); browser callers MUST pass the browser-safe
+   *  twin (src/ui/shim/guard-browser.ts), whose node:fs-free patterns are
+   *  copied verbatim, or every review that reaches explain with an open
+   *  incident crashes on the externalized stub (FIX-3). */
+  guard?: typeof guardCopy;
 }
 export interface ReviewSummary {
   ok: boolean; stoppedAt: Phase | null; rung: TransportKind; label: string;
@@ -437,7 +444,7 @@ export async function runWeekReview(deps: ReviewDeps): Promise<ReviewSummary> {
       if (!out.ok) {
         text = facts.template;
       } else {
-        const guarded = await guardCopy(out.output.explanation, async (t, hits) => {
+        const guarded = await (deps.guard ?? nodeGuardCopy)(out.output.explanation, async (t, hits) => {
           const retry = await callRole("narrator", {
             ...input,
             incident: { ...input.incident, facts: [...input.incident.facts, `Avoid these words: ${hits.join(", ")}`] },

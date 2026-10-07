@@ -5,6 +5,7 @@ import type { Page } from "@playwright/test";
 import {
   openHome,
   loadSampleWeek,
+  settleSampleWeek,
   waitScene,
   readModel,
   openFirstCandidate,
@@ -57,11 +58,20 @@ test("3D-2 the picture has the same days as the calendar", async ({ page, app })
   await app.local || true;
   await loadSampleWeek(page);
   await waitScene(page);
+  await settleSampleWeek(page);
   const model = await readModel(page);
+  // DP-3D section 5.1: a visit with a routineId is one instance of the single
+  // `visits-routine` entity; every other visit is its own `vis:<ms>` pillar.
+  // The picture follows the model a third of a second behind, so the count is
+  // polled until it catches up with the settled week.
+  const visits = weekRibbon(model).flatMap((day) => day.visits);
+  const routine = visits.filter((v) => v.routineId !== undefined).length;
+  await expect
+    .poll(async () => (await sceneIds(page)).filter((id) => id.startsWith("vis:")).length, { timeout: 10000 })
+    .toBe(visits.length - routine);
   const ids = await sceneIds(page);
   expect(ids.filter((id) => id.startsWith("day:"))).toHaveLength(7);
-  const expected = weekRibbon(model).reduce((sum, day) => sum + day.visits.length, 0);
-  expect(ids.filter((id) => id.startsWith("vis:")).length).toBe(expected);
+  expect(ids.includes("visits-routine")).toBe(routine > 0);
 });
 
 test("3D-3 the shots move the camera", async ({ page, app }) => {
@@ -170,15 +180,25 @@ test("3D-5 the picture is fast enough and survives no WebGL", async ({ page, bro
   // Demand frameloop draws nothing when idle, so an idle window measures 0–2
   // frames by design (not slowness): measure across a shot transition, which
   // renders continuously for ~2.5–3 s under SwiftShader (FIX-9).
-  await page.locator('[data-slot="stage"] button[data-shot="walk"]').click();
+  // frames0 is read BEFORE the click: Playwright's click() itself returns only
+  // after the busy main thread settles, i.e. often after the transition has
+  // already drawn (FIX-15).
   const need = process.env["THREE_D_HEADED"] === "1" ? 100 : 40;
   const frames0 = await page.evaluate(
     () => (window as unknown as { __scene3d: { frames(): number } }).__scene3d.frames(),
   );
+  await page.locator('[data-slot="stage"] button[data-shot="walk"]').click();
   const calls = await page.evaluate(
     () => (window as unknown as { __scene3d: { drawCalls(): number } }).__scene3d.drawCalls(),
   );
   await page.waitForTimeout(2000);
+  // The transition is over when the camera reaches the pose; the count then
+  // covers all of it (at most 5 s more).
+  for (let i = 0; i < 100; i += 1) {
+    const cam = await sceneCamera(page);
+    if (dist3(cam.position, WALK.position) <= 0.05 && dist3(cam.target, WALK.target) <= 0.05) break;
+    await page.waitForTimeout(50);
+  }
   const frames1 = await page.evaluate(
     () => (window as unknown as { __scene3d: { frames(): number } }).__scene3d.frames(),
   );

@@ -76,7 +76,7 @@ export function registerDoorstepActions(core: SessionCore, deps?: ActionDeps): v
 
   R.register({
     name: "list_week_events", title: titleFor("list_week_events"), group: "read",
-    description: `Lists door events and the visits built from them for one day or the whole record, oldest first. Use it to read a day before deciding what to open; it never changes anything, and all times are local to the household. Example: list_week_events({"day": 8, "limit": 20}).`,
+    description: `Lists door events and the visits built from them for one day or the whole record, oldest first. Use it to read a day before deciding what to open; it never changes anything, and all times are local to the household. A question from the person is answered from reads like this one: look the record up yourself instead of asking which day or door they mean (the household has one front door and one hall camera), and change nothing unless they ask you to. Days are numbered from Monday 5 Oct = 0, so the review week runs Monday 12 Oct = 7, Tuesday 13 Oct = 8, up to Sunday 18 Oct = 13. Example: list_week_events({"day": 8, "limit": 20}).`,
     inputSchema: schema({
       day: P.int("Absolute day index: 0 = Mon 5 Oct, 7 = Mon 12 Oct, 13 = Sun 18 Oct.", 0, 13),
       deviceId: P.str("Device id such as dev-door, or its name such as Front door."),
@@ -114,7 +114,7 @@ export function registerDoorstepActions(core: SessionCore, deps?: ActionDeps): v
 
   R.register({
     name: "get_incident", title: titleFor("get_incident"), group: "read",
-    description: `Returns one incident with its notes and attached evidence (labels only, not image data). Use it before changing an incident's status. Example: get_incident({"incidentId": "inc-1"}).`,
+    description: `Returns one incident with its notes and attached evidence (labels only, not image data). Use it before changing an incident's status; incident ids come from list_week_events, compare_to_baseline or check_week_model, never from the person. Example: get_incident({"incidentId": "inc-1"}).`,
     inputSchema: schema({ incidentId: P.str("Incident id such as inc-1.") }, ["incidentId"]),
     annotations: { readOnly: true, destructive: false, untrustedContent: false },
     precondition: (model) => model.incidents.length > 0,
@@ -167,7 +167,7 @@ export function registerDoorstepActions(core: SessionCore, deps?: ActionDeps): v
 
   R.register({
     name: "list_devices", title: titleFor("list_devices"), group: "read",
-    description: `Lists the household's Ring devices with their components and whether each can play audio, show live video or take a snapshot. Use it to find device ids and to check a capability before proposing an action that needs it. Example: list_devices({}).`,
+    description: `Lists the household's Ring devices with their components and whether each can play audio, show live video or take a snapshot. Use it to find device ids and names, to check a capability before proposing an action that needs it, and to answer which cameras are online; call it yourself instead of asking the person. Example: list_devices({}).`,
     inputSchema: schema({}),
     annotations: { readOnly: true, destructive: false, untrustedContent: false },
     handler: () => {
@@ -269,7 +269,7 @@ export function registerDoorstepActions(core: SessionCore, deps?: ActionDeps): v
 
   R.register({
     name: "merge_duplicate_events", title: titleFor("merge_duplicate_events"), group: "change",
-    description: `Folds events that are the same moment seen twice into the earliest one. Use it on the ids named by a duplicate issue from check_week_model, and only on ids that belong to one duplicate group. Example: merge_duplicate_events({"eventIds": ["evt:req-a", "hist:b"]}).`,
+    description: `Folds events that are the same moment seen twice into the earliest one. Use it on the ids named by a duplicate issue from check_week_model, and only on ids that belong to one duplicate group. There is one group per issue and a week can hold dozens, so send the calls for several groups together in the same step instead of one at a time. Example: merge_duplicate_events({"eventIds": ["evt:req-a", "hist:b"]}).`,
     inputSchema: schema({
       eventIds: P.arr("Ids of events that are the same moment seen twice.", { type: "string" }, { minItems: 2 }),
     }, ["eventIds"]),
@@ -322,7 +322,7 @@ export function registerDoorstepActions(core: SessionCore, deps?: ActionDeps): v
 
   R.register({
     name: "open_incident", title: titleFor("open_incident"), group: "change",
-    description: `Opens an incident for something that stood out and, by default, attaches a snapshot from the device as evidence. Use the kind, title, eventIds, startMs, endMs, routineId and dayIndex exactly as a finding or an issue fix gives them. Example: open_incident({"kind": "quiet_hours_activity", "title": "Door activity at 02:14 during quiet hours", "eventIds": ["evt:req-9"], "startMs": 1791000000000, "endMs": 1791001000000, "dayIndex": 8}).`,
+    description: `Opens an incident for something that stood out and, by default, attaches a snapshot from the device as evidence. Use the kind, title, eventIds, startMs, endMs, routineId and dayIndex exactly as a finding, an issue fix or a visit from list_week_events gives them. Open an incident only when the person asks you to note, mark or flag a moment, never to answer a question. Example: open_incident({"kind": "quiet_hours_activity", "title": "Door activity at 02:14 during quiet hours", "eventIds": ["evt:req-9"], "startMs": 1791000000000, "endMs": 1791001000000, "dayIndex": 8}).`,
     inputSchema: schema({
       kind: P.enm("Kind of incident.", ["quiet_hours_activity", "long_dwell", "device_outage", "missed_routine", "duplicate_burst"]),
       title: P.str("Short title.", { minLength: 4, maxLength: 80 }),
@@ -376,7 +376,7 @@ export function registerDoorstepActions(core: SessionCore, deps?: ActionDeps): v
 
   R.register({
     name: "set_incident_status", title: titleFor("set_incident_status"), group: "change",
-    description: `Moves an incident to a new status and, when given, stores the explanation the family will read. Use explained once a note has been written, resolved when the family member has dealt with it, and dismissed when it was not a concern. Example: set_incident_status({"incidentId": "inc-1", "status": "explained", "summary": "A visit at 02:14 lasted 22 min."}).`,
+    description: `Moves an incident to a new status and, when given, stores the explanation the family will read. Use explained once a note has been written, resolved when the family member has dealt with it, and dismissed when it was not a concern. Use it only when the person asks you to mark or close a moment. To mark a visit they name (for example the Tuesday evening visit): find it with list_week_events for that day, call open_incident for it, then call this with the new incident's id and the person's own words as the summary; do all of that yourself without asking them for an id, a time or a name. Example: set_incident_status({"incidentId": "inc-1", "status": "explained", "summary": "A visit at 02:14 lasted 22 min."}).`,
     inputSchema: schema({
       incidentId: P.str("Incident id such as inc-1."),
       status: P.enm("New status.", ["open", "explained", "resolved", "dismissed"]),
@@ -417,7 +417,7 @@ export function registerDoorstepActions(core: SessionCore, deps?: ActionDeps): v
 
   R.register({
     name: "compare_to_baseline", title: titleFor("compare_to_baseline"), group: "verify",
-    description: `Compares one day with the household's baseline and returns the visit count, the longest stay against the usual figure, quiet-hours visits, routines kept and missed, and a list of findings that could become incidents. Use the findings' fields as they are when opening an incident. Example: compare_to_baseline({"day": 8}).`,
+    description: `Compares one day with the household's baseline and returns the visit count, the longest stay against the usual figure, quiet-hours visits, routines kept and missed, and a list of findings that could become incidents. Use the findings' fields as they are when opening an incident. Findings are candidates only: open an incident for the single moment the person asked about, never one for every finding. Example: compare_to_baseline({"day": 8}).`,
     inputSchema: schema({ day: P.int("Absolute day index; review days are 7 to 13.", 0, 13) }, ["day"]),
     annotations: { readOnly: true, destructive: false, untrustedContent: false },
     handler: (args) => {
@@ -463,7 +463,7 @@ export function registerDoorstepActions(core: SessionCore, deps?: ActionDeps): v
 
   R.register({
     name: "focus_day", title: titleFor("focus_day"), group: "navigate",
-    description: `Moves the view to one day so the person watching sees what you are reading. It changes nothing in the record. Example: focus_day({"day": 8}).`,
+    description: `Moves the view to one day so the person watching sees what you are reading. It changes nothing in the record. Use it whenever the person says show me, or asks what happened on a day: showing a day means calling this, and describing it in words does not show it. Days are numbered from Monday 5 Oct = 0, so the review week runs Monday 12 Oct = 7, Tuesday 13 Oct = 8, up to Sunday 18 Oct = 13. Example: focus_day({"day": 8}).`,
     inputSchema: schema({ day: { type: ["integer", "null"], description: "Day to show, or null to show the whole week." } }),
     annotations: { readOnly: false, destructive: false, untrustedContent: false },
     handler: (args, ctx) => {

@@ -4,7 +4,7 @@ Every row mirrors one `inert[]` entry of `e2e/controls.json` by id. `static` row
 
 | id | route | selector | kind | reason |
 |---|---|---|---|---|
-| inert-001 | `/` | `[data-surface] header h2` | static | headings are not interactive |
+| inert-001 | `/` | `[data-surface] header .eyebrow` | static | headings are not interactive |
 | inert-002 | `/` | `.hour-line` | static | marks drawn on the calendar, not controls |
 | inert-003 | `/` | `.quiet-band` | static | marks drawn on the calendar, not controls |
 | inert-004 | `/` | `.outage-band` | static | marks drawn on the calendar, not controls |

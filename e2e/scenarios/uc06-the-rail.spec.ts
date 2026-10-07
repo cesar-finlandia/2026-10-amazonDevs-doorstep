@@ -51,7 +51,10 @@ test("UC06-3 consent switches work and survive a reload of the page state", asyn
   expect((badge ?? "").trim()).toBe("YOU");
   await page.reload();
   await page.waitForSelector('body[data-app-ready="true"]', { timeout: 30000 });
-  await expect(page.getByRole("switch", { name: "Family messages" })).toHaveAttribute("aria-checked", String(scope?.granted));
+  // A reload starts a new session on the sample household (only the theme is
+  // stored, DP-UI §6.2): the switch must show what that new model holds (Truth).
+  const reloaded = (await readModel(page)).consent.find((c) => c.scope === "family_message");
+  await expect(page.getByRole("switch", { name: "Family messages" })).toHaveAttribute("aria-checked", String(reloaded?.granted));
 });
 
 test("UC06-4 the theme can be switched and is remembered", async ({ page, app }) => {

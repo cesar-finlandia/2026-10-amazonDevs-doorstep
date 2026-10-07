@@ -62,7 +62,17 @@ export function createSession(opts: SessionOptions): Session {
   });
   const preflights = new Map<string, Preflight[]>();
 
-  async function call(
+  // In a browser a run of calls (a batch of tool calls, a repair pass) is one
+  // unbroken chain of microtasks: every store update commits on React's sync
+  // lane while the feed's and the run's default-lane updates stay queued behind
+  // them, and React aborts the page past 50 such commits ("Maximum update depth
+  // exceeded", FIX-13). Handing the event loop back after each call lets the queued updates land. Node callers never wait.
+  async function breathe(): Promise<void> {
+    if (typeof window === "undefined") return;
+    await new Promise<void>((resolve) => setTimeout(resolve, 0));
+  }
+
+  async function callNow(
     name: string,
     args: unknown,
     callOpts: { source: Source; round?: number; signal?: AbortSignal },
@@ -89,6 +99,16 @@ export function createSession(opts: SessionOptions): Session {
       }
     }
     return core.call(name, args, callOpts);
+  }
+
+  async function call(
+    name: string,
+    args: unknown,
+    callOpts: { source: Source; round?: number; signal?: AbortSignal },
+  ): Promise<ActionResult> {
+    const result = await callNow(name, args, callOpts);
+    await breathe();
+    return result;
   }
 
   const registry: Registry<WeekModel> = { ...core, call };

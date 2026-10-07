@@ -48,8 +48,8 @@ Note: the design plan's table lists UC07-1 as FR-08 only, but §5.2 maps UC-07 t
 | UC04-3 | `uc04` | a duplicate burst is merged from the Check panel | UC-04 | FR-19 | the sample week has a `Merge duplicates` button; pressing it lowers `checkNow()` errors by at least one and updates the badge within 1 s |
 | UC04-4 | `uc04` | a moment with no picture says so | UC-04 | FR-19 | an incident opened with `withSnapshot: false` shows the callout `No snapshot for this moment` and no `img` |
 | UC05-1 | `uc05` | a proposed message to the caretaker shows its audience | UC-05 | FR-07 | after the review, the nudge card shows `Approve`, `Reject` and a support line starting `To Maya` |
-| UC05-2 | `uc05` | approving sends nothing until the person says so | UC-05 | FR-07 | before `Approve` the nudge's status is `proposed`; after it `approved`; the ledger has one `decide_nudge` entry (Truth) |
-| UC05-3 | `uc05` | turning a message down returns a sentence | UC-05 | FR-07 | `Reject`: status `rejected`; the feed shows the decline sentence of the registry (`The human declined`) |
+| UC05-2 | `uc05` | approving sends nothing until the person says so | UC-05 | FR-07 | before `Approve` the nudge's status is `proposed`; after it `approved`; the ledger has one `decide_nudge` entry for that message (Truth; the recorded run's chime and brief carry their own) |
+| UC05-3 | `uc05` | turning a message down returns a sentence | UC-05 | FR-07 | `Reject`: status `rejected`; the feed shows the decline sentence of the message card (`You declined "…"`, DP-UI `rejected()`; the registry's agent-facing `The human declined` belongs to the approval bar) |
 | UC06-1 | `uc06` | quiet hours can be changed and the page says what it counts | UC-06 | FR-19 | set `Start` 21:30 and `End` 05:30: the support line equals `Counted from 22:00 to 05:00`; `EFFECTIVE_QUIET_HOURS` of the model matches (Truth) |
 | UC06-2 | `uc06` | two equal times are refused in words | UC-06 | FR-19 | `Start` = `End`: the callout `Pick two different times.` appears and the ledger length is unchanged |
 | UC06-3 | `uc06` | consent switches work and survive a reload of the page state | UC-06 | FR-16 | toggling a `role="switch"` calls `set_consent` with `actor: "human"` (ledger); `aria-checked` equals `model.consent[scope].granted` (Truth) |
@@ -66,7 +66,7 @@ Note: the design plan's table lists UC07-1 as FR-08 only, but §5.2 maps UC-07 t
 | UC13-3 | `uc13` | the page reads well in both looks | UC-13 | NFR-05 | in `light` and `dark` the body text contrast against its background is at least 4.5 : 1 (computed in the page from the resolved colours) |
 | UC14-1 | `uc14` | every step appears in the feed with its badge | UC-14 | FR-09 | after the review the feed has at least 15 rows; each row has one of `AGENT`, `YOU`, `SYSTEM` |
 | UC14-2 | `uc14` | the feed rows use friendly titles | UC-14 | FR-09 | no row text contains an underscore-joined action name; row titles include `List devices` or `Open incident` |
-| UC14-3 | `uc14` | a changed item flashes | UC-14 | FR-09 | after an action that changes a day, the changed element carries the kit's flash class for 200–400 ms then loses it |
+| UC14-3 | `uc14` | a changed item flashes | UC-14 | FR-09 | after an action that changes a day, the changed element carries the kit's flash class (its animation lasts 200–400 ms; the kit holds the class 900 ms, DP-UI motion table) then loses it |
 | UC14-4 | `uc14` | long rows can be opened | UC-14 | FR-09 | a row longer than two lines shows `Show more`; pressing it removes the clamp |
 | CTL-1 | `controls` | every control in the inventory exists and is reachable | — | HEE-E2E-04 | for each non-optional `controls[]` row the locator resolves to at least one visible element on its route; **and in reverse**, after the sample week is loaded and the review is done, every visible `button`, `a[href]`, `[role=switch]`, `[role=radio]`, `input`, `select`, `summary` on `/` is matched by a `controls[]` row or an `inert[]` row, else the test names the unlisted control |
 | CTL-2 | `controls` | every control not covered elsewhere is pressed once | — | HEE-E2E-04 | rows with `covered_by: "controls-sweep"` are pressed (or toggled and restored); zero console errors; every `inert[]` selector resolves and is not focusable |
@@ -86,7 +86,7 @@ Note: the design plan's table lists UC07-1 as FR-08 only, but §5.2 maps UC-07 t
 | SMOKE-4 | `smoke` | the three routes render | UC-15 | FR-24 | `/` has `[data-demo-focus="workbench"]`, `/watch` has `replay`, `/lab` has `lab`; `/nope` ends at `/` |
 | DEPTH-1 | `depth` | one run of the core demo meets the depth bar | UC-15 | FR-06, FR-07, FR-09 | from `run-trace.json`: model roles ≥ 4, actions ≥ 15, ≥ 1 verify→repair with errors dropping to 0, ≥ 1 human checkpoint resolved through the UI, every on-screen metric equals the trace's number, final `checkNow()` has zero errors |
 | 3D-1 | `3d.spec` | the stage draws the week | UC-12 | FR-20 | `[data-demo-3d="doorway-week"]`; `window.__scene3d.ready()`; canvas variance at least 40; zero `problems` |
-| 3D-2 | `3d.spec` | the picture has the same days as the calendar | UC-12 | FR-20 | `__scene3d.entityIds()` has seven `day:<i>`; the visit-pillar count equals the sum of `weekRibbon(model)[i].visits.length` (Truth) |
+| 3D-2 | `3d.spec` | the picture has the same days as the calendar | UC-12 | FR-20 | `__scene3d.entityIds()` has seven `day:<i>`; the visit-pillar count equals the sum of `weekRibbon(model)[i].visits` without a `routineId` (Truth; routine visits are the instances of the one `visits-routine` entity, DP-3D §5.1, present exactly when some visit has a `routineId`) |
 | 3D-3 | `3d.spec` | the shots move the camera | UC-12 | FR-20 | `Walk`, `Overview`, `Focus` each bring the camera within 0.05 of the shot's pose within 5 s (measured 2.5–3 s to converge under headless SwiftShader; DP-3D's own `waitNear` allows 8 s); `ui.shotId` follows |
 | 3D-4 | `3d.spec` | an agent action moves the picture | UC-12 | FR-20 | `set_camera_shot` through the by-hand panel changes the camera; `open_incident` adds one `inc-<n>` entity |
 | 3D-5 | `3d.spec` | the picture is fast enough and survives no WebGL | UC-12 | NFR-07 | in this headless mode the frames drawn across a 2 s shot transition (`frames()` before and after starting `Walk`) are at least 40 (20 fps; idle pages draw ~0 by demand-frameloop design, so an idle window cannot measure speed) and `drawCalls()` is under 300; with WebGL disabled by launch argument the flat replica `FlatWeekFallback` and `data-demo-3d="unavailable"` show |
@@ -131,3 +131,40 @@ One row per `controls[]` entry of `e2e/controls.json`.
 | ctl-026 | `/` | button "Review the week" | UC02-1 | false |
 | ctl-027 | `/` | textbox "Playground token" | S-RING-4 | false |
 | ctl-028 | `/` | button "Use this token" | S-RING-4 | false |
+| ctl-029 | `/` | `button[data-day]` | UC01-4 | false |
+| ctl-030 | `/` | button "Reduce margin" | controls-sweep | false |
+| ctl-031 | `/` | button "Increase margin" | controls-sweep | false |
+| ctl-032 | `/` | checkbox "Require approval" | controls-sweep | false |
+| ctl-033 | `/` | button "Open an incident" | controls-sweep | false |
+| ctl-034 | `/` | `button[aria-label^="Open incident"]` | UC03-1 | true |
+| ctl-035 | `/` | button "Cancel" | CTL-1 | false |
+
+
+## 4 Agent-surface evaluation
+
+Measured by `hee/src/agent-eval` with `evals/adapter.ts` against the running app, on the Vertex route of the AI ACCESS rule (model `gemini-2.5-flash`, location `us-central1`).
+
+**Headline (verbatim from `evals/report.json`):** 95.0% task success (19/20) with the product's action surface against 35.0% (7/20) with generic screen actions only; 44527.3 tokens and 34.2 s per try with the surface.
+
+**Ceiling (verbatim):** Measured on 10 frozen tasks, 2 repetitions each, with gemini-2.5-flash; this shows success on those tasks only.
+
+| Iteration | What changed | Treatment passed | Kept |
+|---|---|---|---|
+| 1 | baseline, both arms | 8/20 (control 5/20) | yes |
+| 2 | descriptions: read the record yourself, day numbers, batch merges | 13/20 | no: a read-only question opened an incident (safety) |
+| 3 | descriptions v2: questions are answered from reads | 14/20 | no: a second incident was opened unasked (safety) |
+| 4 | descriptions v3: show-me means `focus_day`, recipe for marking a named visit, findings are candidates | 19/20 | yes, target reached |
+| 5 | final re-run of both arms, surface unchanged | 19/20 (control 7/20) | surface identical to iteration 4 |
+
+Only the `descriptions` aspect was changed, one iteration at a time; the final run uses the same model for both arms. 220 of 300 sessions were used; 80 of them were spent before a single model turn, on two failures that are named below, and are counted in the budget.
+
+What the numbers do not say, and how the adapter differs from the plan text:
+
+- The page opens with `scene=off`: no check reads the 3D picture and a software-drawn scene starves a page that a model drives.
+- The treatment adapter answers the approval gate as the person; every request belongs to a task the person asked for. The control arm cannot be asked for approval and works through the screen.
+- The harness does not hand the model's final message to the world, so the `answer-*` and `summary-written` checks could not read it. The vendored runner gained one optional hook, `recordFinalText`, called before grading (`hee/src/agent-eval/runner.ts`, `types.ts`).
+- `outage-recorded-wednesday` holds in the seeded week before any step, so task t04 measures only that nothing was deleted. `chime-refused-politely` can only pass in the treatment arm: the screen has no chime control.
+- The surface edit is in `src/agent/actions.ts` descriptions and `actions.manifest.json`; the browser bundle was rebuilt for every iteration.
+- AI ACCESS: the default project of the rule answered `403 Permission denied on resource project`; the operator's own gcloud project (`hacka-2026-09-agentic-cinema1`) answered. The first 40 sessions never reached a model for that reason, the next 40 because the vendored Vertex client sent tool parameter schemas without its own `toVertexSchema` conversion (HTTP 400 on every tool-calling request). Both are fixed in `hee/src/llm/vertexClient.ts` and in the pipeline.
+
+Publication: the README carries no `hee-eval` markers yet, so `publish` is run by DP-SHOWCASE WU-05 after it writes them; only the headline and ceiling above may be quoted.

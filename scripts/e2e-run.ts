@@ -3,7 +3,7 @@
 //
 // npx vite-node scripts/e2e-run.ts --label <name> [<spec file>…] [--twice] [--list]
 import { spawnSync } from "node:child_process";
-import { mkdirSync, readFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 
 const REPORT = "e2e/artifacts/report.json";
 
@@ -105,7 +105,7 @@ function runPlaywright(extraArgs: string[]): { code: number; out: string } {
 }
 
 /** One selection run; prints SKIP lines, FAIL lines, then the summary line. */
-function runOnce(): { code: number; passed: number; failed: number; skipped: number; line: string } {
+function runOnce(): { code: number; passed: number; failed: number; skipped: number; line: string; skips: string[] } {
   const child = runPlaywright(files);
   void child.out;
   const report = readJsonReport();
@@ -122,6 +122,7 @@ function runOnce(): { code: number; passed: number; failed: number; skipped: num
     failed: sum.failed,
     skipped: sum.skipped,
     line,
+    skips: sum.skips,
   };
 }
 
@@ -147,6 +148,13 @@ if (list) {
 if (twice) {
   const first = runOnce();
   const second = runOnce();
+  // A provenance record for the whole-selection pair, so a later gate script can
+  // reuse a still-valid green pair instead of repeating an hour of browser runs.
+  writeFileSync(
+    "e2e/artifacts/twice-record.json",
+    JSON.stringify({ label, files, lines: [first.line, second.line], skips: first.skips, finishedAt: Date.now() }, null, 2) + "\n",
+    "utf8",
+  );
   if (
     first.failed === 0 &&
     second.failed === 0 &&

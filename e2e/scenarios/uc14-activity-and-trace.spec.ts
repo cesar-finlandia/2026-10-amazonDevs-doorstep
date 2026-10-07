@@ -41,8 +41,15 @@ test("UC14-3 a changed item flashes", async ({ page, app }) => {
   await page.getByRole("button", { name: "Mark as explained" }).click();
   await page.waitForSelector(".changed-flash", { timeout: 10000 });
   const appeared = Date.now();
+  // The kit holds the class 900 ms; the visible tint is its 400 ms animation (DP-UI motion table).
+  const animationMs = await page.evaluate(() => {
+    const el = document.querySelector(".changed-flash");
+    return el ? parseFloat(getComputedStyle(el).animationDuration) * 1000 : -1;
+  });
+  expect(animationMs).toBeGreaterThanOrEqual(200);
+  expect(animationMs).toBeLessThanOrEqual(400);
   let gone = 0;
-  for (let i = 0; i < 14; i++) {
+  for (let i = 0; i < 40; i++) {
     if ((await page.locator(".changed-flash").count()) === 0) {
       gone = Date.now();
       break;
@@ -52,7 +59,7 @@ test("UC14-3 a changed item flashes", async ({ page, app }) => {
   expect(gone).toBeGreaterThan(0);
   const held = gone - appeared;
   expect(held).toBeGreaterThanOrEqual(100);
-  expect(held).toBeLessThanOrEqual(500);
+  expect(held).toBeLessThanOrEqual(1500);
   const model = await readModel(page);
   expect(model.incidents.length).toBeGreaterThan(0);
 });
@@ -62,8 +69,14 @@ test("UC14-4 long rows can be opened", async ({ page, app }) => {
   await app.local || true;
   await loadSampleWeek(page);
   await reviewTheWeek(page);
-  const more = page.locator('[data-result-region="activity-feed"] li button', { hasText: "Show more" }).first();
-  await expect(more).toBeVisible();
-  await more.click();
-  await expect(more).toBeHidden();
+  const buttons = page.locator('[data-result-region="activity-feed"] li button', { hasText: "Show more" });
+  await expect(buttons.first()).toBeVisible();
+  const before = await buttons.count();
+  const handle = await buttons.first().elementHandle();
+  if (!handle) throw new Error("the Show more button vanished before it was pressed");
+  const row = await handle.evaluateHandle((el) => el.closest("li") as HTMLElement);
+  await buttons.first().click();
+  // The pressed button is gone and its row is no longer clamped.
+  await expect(buttons).toHaveCount(before - 1);
+  expect(await row.evaluate((el) => (el as HTMLElement).style.maxHeight)).toBe("none");
 });

@@ -3,7 +3,7 @@
 import { spawnSync } from "node:child_process";
 import { existsSync, readdirSync, statSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
 import { test as base, expect, type ConsoleMessage, type Page } from "@playwright/test";
 import type { MockRing } from "../scripts/mock-ring-server";
 import { createMockRingServer } from "../scripts/mock-ring-server";
@@ -113,10 +113,11 @@ export const test: import("@playwright/test").TestType<
       await ensureBuilt();
       const secrets = { webhook: randomSecret(), hmac: randomSecret() };
       const ring = await createMockRingServer({ webhookSecret: secrets.webhook });
-      const proofLog = join(tmpdir(), `e2e-${randomSecret(4)}-proof.log`);
+      // E2E_PROOF_LOG (WU-E2E-11): only depth.spec.ts and s-bedrock.spec.ts are run with it set.
+      const proofLog = process.env["E2E_PROOF_LOG"] ? resolve(process.env["E2E_PROOF_LOG"]) : join(tmpdir(), `e2e-${randomSecret(4)}-proof.log`);
       const server = await startServer({
         port: 0,
-        config: { staticDir: "dist", proofLog },
+        config: { staticDir: process.env["E2E_DIST"] ?? "dist", proofLog },
         env: {
           NODE_ENV: "test",
           AGENT_PROVIDER: "golden",

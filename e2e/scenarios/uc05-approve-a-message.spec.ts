@@ -28,7 +28,9 @@ test("UC05-2 approving sends nothing until the person says so", async ({ page, a
   await page.locator("[data-nudge-card]").getByRole("button", { name: "Approve" }).click();
   await expect.poll(async () => (await readModel(page)).nudges.find((n) => n.id === nudge.id)?.status, { timeout: 10000 }).toBe("approved");
   const after = await readModel(page);
-  expect(after.ledger.filter((e) => e.action === "decide_nudge")).toHaveLength(1);
+  // The golden run also plays a chime and shares the brief (agent-made nudges
+  // decided through the approval bar); this message has exactly one decision.
+  expect(after.ledger.filter((e) => e.action === "decide_nudge" && e.entityIds.includes(nudge.id))).toHaveLength(1);
 });
 
 test("UC05-3 turning a message down returns a sentence", async ({ page, app }) => {
@@ -41,5 +43,5 @@ test("UC05-3 turning a message down returns a sentence", async ({ page, app }) =
   if (!nudge) throw new Error(`no proposed nudge; ledger has ${before.ledger.length} entries`);
   await page.locator("[data-nudge-card]").getByRole("button", { name: "Reject" }).click();
   await expect.poll(async () => (await readModel(page)).nudges.find((n) => n.id === nudge.id)?.status, { timeout: 10000 }).toBe("rejected");
-  await expect(page.locator('[data-result-region="activity-feed"]').getByText(/The human declined/)).toBeVisible();
+  await expect(page.locator('[data-result-region="activity-feed"]').getByText(/You declined/)).toBeVisible();
 });

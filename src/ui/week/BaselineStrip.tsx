@@ -20,5 +20,5 @@ export function BaselineStrip(): React.JSX.Element {
     const hour = `${String(best).padStart(2, "0")}:00`;
     return `Usual: visits under ${p90} min; busiest ${hour}`;
   }, [model]);
-  return <p className="support">{text}</p>;
+  return <p className="support baseline-strip">{text}</p>;
 }

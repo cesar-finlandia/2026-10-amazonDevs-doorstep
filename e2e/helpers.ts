@@ -6,7 +6,19 @@ import type { Page } from "@playwright/test";
 import type { WeekModel } from "src/domain/types";
 import { saveTraceFromPage } from "../hee/kits/agent-workflow/src/node/saveTrace";
 
-export const GL_ARGS: string[] = ["--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist", "--enable-webgl"];                          // ["--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist", "--enable-webgl"] (the list of DP-3D §5.10)
+// Where the machine has a graphics API Chromium can drive headless (Windows: Direct3D 11
+// through ANGLE, which falls back to WARP without a GPU; macOS: Metal) the page draws
+// there: a software rasteriser on the CPU made every review 3-10x slower and two
+// parallel workers starve each other (FIX-13). Linux, or E2E_GPU=0, keeps the portable
+// software list of DP-3D section 5.10. E2E_GPU=1 forces the hardware list.
+const SOFTWARE_GL = ["--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist", "--enable-webgl"];
+const HARDWARE_GL: Record<string, string[]> = {
+  win32: ["--use-angle=d3d11", "--ignore-gpu-blocklist", "--enable-gpu", "--enable-webgl"],
+  darwin: ["--use-angle=metal", "--ignore-gpu-blocklist", "--enable-gpu", "--enable-webgl"],
+};
+const GPU_PREF = process.env["E2E_GPU"];
+export const GL_ARGS: string[] =
+  GPU_PREF === "0" ? SOFTWARE_GL : (HARDWARE_GL[process.platform] ?? (GPU_PREF === "1" ? HARDWARE_GL["win32"] ?? SOFTWARE_GL : SOFTWARE_GL));
 export const SIZE_DESKTOP: { width: 1280; height: 720 } = { width: 1280, height: 720 };
 export const SIZE_WIDE: { width: 1440; height: 900 } = { width: 1440, height: 900 };
 export const SIZE_PHONE: { width: 390; height: 844 } = { width: 390, height: 844 };
@@ -58,11 +70,15 @@ export async function loadSampleWeek(page: Page): Promise<void> {
 export async function settleSampleWeek(page: Page): Promise<void> {
   let last = -1;
   let lastTicks = -1;
+  let stable = 0;
   const settledAt = Date.now();
   for (;;) {
     const n = (await readModel(page)).events.length;
     const t = await page.locator(".tick").count();
-    if (n === last && t === lastTicks) return;
+    // The history channels land with gaps between them; one quiet poll is not
+    // the end of the ingest, six (1.5 s) are.
+    stable = n === last && t === lastTicks ? stable + 1 : 0;
+    if (stable >= 6) return;
     last = n;
     lastTicks = t;
     if (Date.now() - settledAt > 30000) throw new Error("the sample week did not settle");
@@ -82,11 +98,15 @@ export async function reviewTheWeek(page: Page, opts?: { timeoutMs?: number }): 
       () => document.querySelector("[data-run-status]")?.getAttribute("data-run-status"),
     );
     if (status === "done" || status === "stopped") return approvals;
+    if (status === "error") {
+      const banner = await page.locator(".callout, [role=alert]").first().innerText().catch(() => "");
+      throw new Error(`review ended in error: ${banner.replace(/\s+/g, " ").slice(0, 200)}`);
+    }
     try {
       // count() never waits (isVisible() can hang on a busy page and burn the
       // 90 s test budget); click with a short timeout so a mid-render detach
       // retries next poll instead of stalling the loop (FIX-4).
-      const approve = page.getByRole("button", { name: "Approve" }).first();
+      const approve = page.locator('[data-result-region="approval-bar"]').getByRole("button", { name: "Approve" }).first();
       if ((await approve.count()) > 0) {
         await approve.click({ timeout: 3000 });
         approvals += 1;

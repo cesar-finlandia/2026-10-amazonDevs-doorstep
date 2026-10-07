@@ -131,6 +131,7 @@ export async function runTask(opts: RunTaskOpts): Promise<RunResult> {
       stopped = "max_steps";
       final_text = "";
     }
+    world.recordFinalText?.(final_text);
     const grade = await gradeRun({ world, task, arm, rep, iteration, final_text, client });
     const dir = iterationDir(evalsDir, iteration);
     const traceRel = join("iterations", `iteration-${pad(iteration, 3)}`, "traces", arm, `${task.id}.r${rep}.json`);

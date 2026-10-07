@@ -82,3 +82,10 @@ test-results/
 supervisor.log
 logs/*
 !logs/proof.log
+# WU-E2E-06 hygiene: remaining sweep tokens + eval raw per-run folders
+# (evals/report.json, evals/scenarios.json, evals/adapter.ts, evals/config.json stay trackable)
+.lock/
+.opencode/
+.tmp/
+run_state.json.*
+evals/iterations/

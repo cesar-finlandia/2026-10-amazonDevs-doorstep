@@ -1,6 +1,6 @@
 // scripts/verify/e2e-kit.ts — shared by the twelve E2E scripts (DP-E2E-BROWSER-TESTING §7).
 // Requirement IDs: FR-24
-import { spawnSync } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join, sep } from "node:path";
 
@@ -25,6 +25,30 @@ export function run(
   return { code: r.status ?? 1, out: `${r.stdout ?? ""}${r.stderr ?? ""}` };
 }
 
+/** Like run(), without blocking this process: a script that hosts a server in-process must not
+ *  freeze its event loop while a child (a browser run) talks to that server. */
+export function runAsync(
+  cmd: string,
+  args: string[],
+  opts?: { env?: Record<string, string | undefined>; timeout?: number },
+): Promise<RunResult> {
+  return new Promise((resolve) => {
+    const child = spawn(cmd, args, {
+      cwd: process.cwd(),
+      shell: true,
+      env: { ...process.env, ...(opts?.env ?? {}) },
+    });
+    let out = "";
+    child.stdout?.on("data", (d: Buffer) => (out += d.toString("utf8")));
+    child.stderr?.on("data", (d: Buffer) => (out += d.toString("utf8")));
+    const timer = setTimeout(() => child.kill(), opts?.timeout ?? 600000);
+    child.on("close", (code) => {
+      clearTimeout(timer);
+      resolve({ code: code ?? 1, out });
+    });
+  });
+}
+
 export interface WrapperResult extends RunResult {
   line: string;
 }
@@ -40,10 +64,38 @@ export function wrapper(
   if (extra?.twice === true) args.push("--twice");
   args.push(...files);
   const r = run("npx", args, { env: extra?.env, timeout: extra?.timeout });
-  const line = r.out
-    .split("\n")
-    .map((l) => l.trim())
-    .find((l) => l.startsWith(`${label}: `)) ?? "";
+  // The summary is the last `<label>: …` line of the right shape: a spec may print its own
+  // `<label>: base …` lines (smoke, depth) before it.
+  const shape = new RegExp(`^${label}: (\\d+ passed, \\d+ failed, \\d+ skipped|\\d+ tests in \\d+ files|green twice)$`);
+  const line =
+    r.out
+      .split("\n")
+      .map((l) => l.trim())
+      .filter((l) => shape.test(l))
+      .pop() ?? "";
+  return { code: r.code, out: r.out, line };
+}
+
+/** wrapper() without blocking this process (see runAsync). */
+export async function wrapperAsync(
+  label: string,
+  files: string[],
+  extra?: { env?: Record<string, string | undefined>; twice?: boolean; list?: boolean; timeout?: number },
+): Promise<WrapperResult> {
+  const args = ["vite-node", "scripts/e2e-run.ts", "--label", label];
+  if (extra?.list === true) args.push("--list");
+  if (extra?.twice === true) args.push("--twice");
+  args.push(...files);
+  const r = await runAsync("npx", args, { env: extra?.env, timeout: extra?.timeout });
+  // The summary is the last `<label>: …` line of the right shape: a spec may print its own
+  // `<label>: base …` lines (smoke, depth) before it.
+  const shape = new RegExp(`^${label}: (\\d+ passed, \\d+ failed, \\d+ skipped|\\d+ tests in \\d+ files|green twice)$`);
+  const line =
+    r.out
+      .split("\n")
+      .map((l) => l.trim())
+      .filter((l) => shape.test(l))
+      .pop() ?? "";
   return { code: r.code, out: r.out, line };
 }
 

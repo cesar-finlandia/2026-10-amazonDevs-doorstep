@@ -38,6 +38,15 @@ export function ConnectDialog(): React.JSX.Element {
     setBusy(true);
     try {
       await ring.setToken(token);
+      // The server stores a token without testing it; the first call that uses it
+      // answers 401 for a wrong one. Try it here so the answer lands in this dialog,
+      // not as a banner that the fallback to the sample week clears a moment later.
+      try {
+        await ring.listDevices();
+      } catch (e) {
+        await ring.forgetToken().catch(() => undefined);
+        throw e;
+      }
       if (inputRef.current) inputRef.current.value = "";
       setNotice(null);
       setOpen(false);

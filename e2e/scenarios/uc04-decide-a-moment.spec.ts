@@ -1,7 +1,7 @@
 // e2e/scenarios/uc04-decide-a-moment.spec.ts — UC-04 "I decide what to do about that moment".
 // Requirement IDs: FR-07, FR-19
 import { test, expect } from "../fixtures";
-import { openHome, loadSampleWeek, readModel, checkNow, openFirstCandidate } from "../helpers";
+import { openHome, loadSampleWeek, settleSampleWeek, readModel, checkNow, openFirstCandidate } from "../helpers";
 import { candidateIncidents } from "src/domain/rules";
 
 test("UC04-1 marking a moment explained keeps its write-up", async ({ page, app }) => {
@@ -37,6 +37,7 @@ test("UC04-3 a duplicate burst is merged from the Check panel", async ({ page, a
   await openHome(page);
   await app.local || true;
   await loadSampleWeek(page);
+  await settleSampleWeek(page);
   const before = (await checkNow(page)).filter((i) => i.severity === "error").length;
   await page.getByRole("button", { name: "Merge duplicates" }).first().click();
   await expect.poll(async () => (await checkNow(page)).filter((i) => i.severity === "error").length, { timeout: 10000 }).toBeLessThan(before);

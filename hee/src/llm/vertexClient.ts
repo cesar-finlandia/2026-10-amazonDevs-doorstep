@@ -138,7 +138,7 @@ export function createClient(opts?: ClientOptions): {
     };
     if (req.system) bodyObj["systemInstruction"] = { parts: [{ text: req.system }] };
     if (req.tools) {
-      bodyObj["tools"] = [{ functionDeclarations: req.tools.map((t) => ({ name: t.name, description: t.description, parameters: t.parameters })) }];
+      bodyObj["tools"] = [{ functionDeclarations: req.tools.map((t) => ({ name: t.name, description: t.description, parameters: toVertexSchema(t.parameters) })) }];
     }
     const body = JSON.stringify(bodyObj);
     const base = process.env["HEE_VERTEX_BASE_URL"]?.replace(/\/$/, "") ??

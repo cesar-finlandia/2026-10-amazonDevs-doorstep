@@ -21,7 +21,7 @@ test("UC02-1 the review starts and shows its phases in order", async ({ page, ap
     // count() + short-timeout click (never isVisible(): it can hang on a busy
     // page past the 90 s test budget). FIX-4.
     try {
-      const approve = page.getByRole("button", { name: "Approve" }).first();
+      const approve = page.locator('[data-result-region="approval-bar"]').getByRole("button", { name: "Approve" }).first();
       if ((await approve.count()) > 0) await approve.click({ timeout: 3000 });
     } catch {
       /* detached mid-render; the next poll retries */
@@ -38,7 +38,7 @@ test("UC02-2 the run waits for the person and then finishes", async ({ page, app
   await loadSampleWeek(page);
   await settleSampleWeek(page);
   await page.getByRole("button", { name: /Review the (sample )?week/ }).first().click();
-  await expect(page.getByRole("button", { name: "Approve" }).first()).toBeVisible({ timeout: 120000 });
+  await expect(page.locator('[data-result-region="approval-bar"]').getByRole("button", { name: "Approve" }).first()).toBeVisible({ timeout: 120000 });
   await expect(page.getByRole("button", { name: "Reject" }).first()).toBeVisible();
   await expect(page.getByText("Nothing is waiting for you.")).toBeHidden();
   const start = Date.now();
@@ -46,7 +46,7 @@ test("UC02-2 the run waits for the person and then finishes", async ({ page, app
     const status = await page.locator("[data-run-status]").getAttribute("data-run-status");
     if (status === "done" || status === "stopped") break;
     try {
-      const approve = page.getByRole("button", { name: "Approve" }).first();
+      const approve = page.locator('[data-result-region="approval-bar"]').getByRole("button", { name: "Approve" }).first();
       if ((await approve.count()) > 0) await approve.click({ timeout: 3000 });
     } catch {
       /* detached mid-render; the next poll retries */

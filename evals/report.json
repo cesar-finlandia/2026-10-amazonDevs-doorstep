@@ -1,0 +1,222 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-10-06T23:23:32.803Z",
+  "product": "Doorstep Rhythm",
+  "scenarios_hash": "634a2c445b8243b3b1dcd041f430b674308d26627f5c458569cf510f2b0c3a5c",
+  "tasks": 10,
+  "repetitions": 2,
+  "model": "gemini-2.5-flash",
+  "chosen_iteration": 4,
+  "control_iteration": 5,
+  "comparable": true,
+  "comparable_reasons": [],
+  "treatment": {
+    "runs": 20,
+    "passed": 19,
+    "pass_rate": 95,
+    "first_pass_valid_rate": 1,
+    "failed_calls": 405,
+    "retries": 397,
+    "tokens_per_run": 44527.3,
+    "wall_s_per_run": 34.2,
+    "safety_violations": 0,
+    "calls_per_run": 42.6
+  },
+  "control": {
+    "runs": 20,
+    "passed": 7,
+    "pass_rate": 35,
+    "first_pass_valid_rate": 0.9163,
+    "failed_calls": 43,
+    "retries": 37,
+    "tokens_per_run": 60192.6,
+    "wall_s_per_run": 17.7,
+    "safety_violations": 0,
+    "calls_per_run": 10.2
+  },
+  "per_task": [
+    {
+      "task_id": "t01",
+      "title": "Working cameras",
+      "treatment": {
+        "passed": 2,
+        "runs": 2
+      },
+      "control": {
+        "passed": 2,
+        "runs": 2
+      }
+    },
+    {
+      "task_id": "t02",
+      "title": "Tuesday front-door moment",
+      "treatment": {
+        "passed": 2,
+        "runs": 2
+      },
+      "control": {
+        "passed": 1,
+        "runs": 2
+      }
+    },
+    {
+      "task_id": "t03",
+      "title": "Note the unusual moment",
+      "treatment": {
+        "passed": 2,
+        "runs": 2
+      },
+      "control": {
+        "passed": 0,
+        "runs": 2
+      }
+    },
+    {
+      "task_id": "t04",
+      "title": "Thursday camera gap",
+      "treatment": {
+        "passed": 2,
+        "runs": 2
+      },
+      "control": {
+        "passed": 2,
+        "runs": 2
+      }
+    },
+    {
+      "task_id": "t05",
+      "title": "Thursday doubled-up marks",
+      "treatment": {
+        "passed": 1,
+        "runs": 2
+      },
+      "control": {
+        "passed": 0,
+        "runs": 2
+      }
+    },
+    {
+      "task_id": "t06",
+      "title": "Week check and summary",
+      "treatment": {
+        "passed": 2,
+        "runs": 2
+      },
+      "control": {
+        "passed": 0,
+        "runs": 2
+      }
+    },
+    {
+      "task_id": "t07",
+      "title": "Reassuring speaker message",
+      "treatment": {
+        "passed": 2,
+        "runs": 2
+      },
+      "control": {
+        "passed": 0,
+        "runs": 2
+      }
+    },
+    {
+      "task_id": "t08",
+      "title": "Tuesday evening visit",
+      "treatment": {
+        "passed": 2,
+        "runs": 2
+      },
+      "control": {
+        "passed": 0,
+        "runs": 2
+      }
+    },
+    {
+      "task_id": "t09",
+      "title": "Brief for my brother",
+      "treatment": {
+        "passed": 2,
+        "runs": 2
+      },
+      "control": {
+        "passed": 0,
+        "runs": 2
+      }
+    },
+    {
+      "task_id": "t10",
+      "title": "Tuesday night at the door",
+      "treatment": {
+        "passed": 2,
+        "runs": 2
+      },
+      "control": {
+        "passed": 2,
+        "runs": 2
+      }
+    }
+  ],
+  "iterations": [
+    {
+      "n": 1,
+      "aspect": "baseline",
+      "note": "",
+      "pass_rate": 40,
+      "first_pass_valid_rate": 1,
+      "tokens_per_run": 29687,
+      "wall_s_per_run": 33.6,
+      "safety_violations": 0,
+      "kept": true
+    },
+    {
+      "n": 2,
+      "aspect": "descriptions",
+      "note": "descriptions tell the model to read the record itself, how day numbers map, and to batch merges",
+      "pass_rate": 65,
+      "first_pass_valid_rate": 1,
+      "tokens_per_run": 29277.4,
+      "wall_s_per_run": 19.5,
+      "safety_violations": 1,
+      "kept": false
+    },
+    {
+      "n": 3,
+      "aspect": "descriptions",
+      "note": "descriptions v2: reads answer questions, day mapping, batching; changes only on request",
+      "pass_rate": 70,
+      "first_pass_valid_rate": 1,
+      "tokens_per_run": 22557.5,
+      "wall_s_per_run": 17.5,
+      "safety_violations": 1,
+      "kept": false
+    },
+    {
+      "n": 4,
+      "aspect": "descriptions",
+      "note": "descriptions v3: show-me means focus_day; stepwise recipe for marking a named visit; findings are candidates",
+      "pass_rate": 95,
+      "first_pass_valid_rate": 1,
+      "tokens_per_run": 44527.3,
+      "wall_s_per_run": 34.2,
+      "safety_violations": 0,
+      "kept": true
+    },
+    {
+      "n": 5,
+      "aspect": "descriptions",
+      "note": "final surface re-run with both arms and the same model; no change since iteration 4",
+      "pass_rate": 95,
+      "first_pass_valid_rate": 1,
+      "tokens_per_run": 55241.2,
+      "wall_s_per_run": 43.9,
+      "safety_violations": 0,
+      "kept": false
+    }
+  ],
+  "sessions_used": 220,
+  "sessions_cap": 300,
+  "replayed": false,
+  "headline": "95.0% task success (19/20) with the product's action surface against 35.0% (7/20) with generic screen actions only; 44527.3 tokens and 34.2 s per try with the surface.",
+  "ceiling": "Measured on 10 frozen tasks, 2 repetitions each, with gemini-2.5-flash; this shows success on those tasks only.",
+  "caveats": []
+}

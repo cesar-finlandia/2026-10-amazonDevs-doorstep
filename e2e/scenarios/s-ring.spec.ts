@@ -15,6 +15,7 @@ import {
   randomSecret,
   readModel,
   waitScene,
+  settleSampleWeek,
 } from "../helpers";
 import { weekRibbon } from "src/domain/derive.js";
 import { signPayload } from "src/ring/signature.js";
@@ -353,7 +354,7 @@ test("S-RING-3 history fills a webhook gap and the seam shows", async ({ page, a
 });
 
 test("S-RING-4 a token links the live Ring and is never echoed", async ({ page, app, guard }) => {
-  test.skip(!app.local, "needs the local fixture with the simulated Ring");
+  test.info().skip(!app.local, "needs the local fixture with the simulated Ring");
   guard.allow("Failed to load resource: the server responded with a status of 401 (Unauthorized)");
   await openHome(page);
   // Console capture through CDP keeps the guard the only page.on("console")
@@ -373,14 +374,18 @@ test("S-RING-4 a token links the live Ring and is never echoed", async ({ page, 
   await cdp.send("Log.enable");
   try {
     await loadSampleWeek(page);
+    // The background ingest must be done before the token flow: its last landing
+    // clears the banner the wrong token raised (FIX-22).
+    await settleSampleWeek(page);
     // Wrong token first: the banner names the failure and the field is emptied.
     await page.getByRole("button", { name: "Connect Ring" }).first().click();
     const dialog = page.locator('[role="dialog"][aria-label="Connect Ring"]');
     await dialog.waitFor({ timeout: 10_000 });
     await dialog.locator("input").fill(WRONG_TOKEN);
     await dialog.getByRole("button", { name: "Use this token" }).click();
-    await expect(page.getByText("Couldn't read Ring")).toBeVisible({ timeout: 15_000 });
-    await page.getByRole("button", { name: "Connect Ring" }).first().click();
+    // The dialog's callout and the banner (while the app is still in live mode) both say it.
+    await expect(page.getByText("Couldn't read Ring").first()).toBeVisible({ timeout: 15_000 });
+    // The refusal stays in the dialog (DP-UI: the field is emptied, the message is shown there).
     await dialog.waitFor({ timeout: 10_000 });
     expect(await dialog.locator("input").inputValue()).toBe("");
     await page.keyboard.press("Escape");
@@ -424,7 +429,7 @@ test("S-RING-4 a token links the live Ring and is never echoed", async ({ page, 
 });
 
 test("S-RING-5 the live view opens, counts down and closes", async ({ page, app }) => {
-  test.skip(!app.local, "needs the local fixture with the simulated Ring");
+  test.info().skip(!app.local, "needs the local fixture with the simulated Ring");
   // Stubbed RTCPeerConnection, as DP-UI WU-10 does in scripts/verify/ui-10-liveview.ts.
   await page.addInitScript(`
     window.RTCPeerConnection = class {
@@ -474,7 +479,7 @@ test("S-RING-6 a snapshot becomes the picture on a moment", async ({ page, app }
 });
 
 test("S-RING-7 two cameras make one thread", async ({ page, app }) => {
-  test.skip(!app.local, "needs the local fixture with the simulated Ring");
+  test.info().skip(!app.local, "needs the local fixture with the simulated Ring");
   // The scene is mounted by this first load, so the visit created below lands
   // in the live model the scene is already bound to (no reload in between).
   await openHome(page, { path: "/?quality=low" });

@@ -54,6 +54,8 @@ export interface EvalWorld {
   call(name: string, args: Record<string, unknown>): Promise<ToolOutcome>;
   verify(checkId: string): Promise<{ passed: boolean; detail: string }>;
   describeOutcome(): Promise<string>;
+  /** Optional: handed the model's final message before grading, so a check can read what was answered. */
+  recordFinalText?(text: string): void;
   close(): Promise<void>;
 }
 

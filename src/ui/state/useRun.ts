@@ -4,6 +4,7 @@ import { useCallback, useRef, useState } from "react";
 import { runWeekReview } from "src/agent/orchestrator.js";
 import type { Phase, ReviewSummary } from "src/agent/orchestrator.js";
 import { createHttpAgentTransport } from "src/server/http-agent-transport.js";
+import { guardCopy as guardBrowserCopy } from "../shim/guard-browser.js";
 import { useApp } from "./SessionProvider.js";
 
 export interface RunState {
@@ -56,6 +57,7 @@ export function useRun(): RunState & { start(): Promise<void>; cancel(): void } 
       const summary = await runWeekReview({
         session,
         transport,
+        guard: guardBrowserCopy,
         onPhase: (phase: Phase, info: { round: number; detail: string }) =>
           setState((s) => ({ ...s, phase, round: info.round, detail: info.detail })),
         signal: controller.signal,

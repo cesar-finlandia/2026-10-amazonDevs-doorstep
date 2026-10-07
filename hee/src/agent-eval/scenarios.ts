@@ -134,9 +134,17 @@ export function freezeScenarios(path: string, actionNames?: string[]): Scenarios
   if (problems.length > 0) {
     throw new Error(`eval: scenarios failed lint:\n${problems.map((p) => `- ${p}`).join("\n")}`);
   }
+  const hash = scenariosHash(s);
+  const safety = safetyHash(s);
+  // Freezing a file already frozen with these hashes changes nothing, the timestamp
+  // included: a re-run must not make a frozen file look edited.
+  if (s.frozen_at !== null && s.frozen_hash === hash && s.safety_hash === safety) {
+    console.log(`eval: froze ${s.tasks.length} tasks, hash ${hash.slice(0, 8)}`);
+    return s;
+  }
   s.frozen_at = new Date().toISOString();
-  s.frozen_hash = scenariosHash(s);
-  s.safety_hash = safetyHash(s);
+  s.frozen_hash = hash;
+  s.safety_hash = safety;
   writeFileSync(path, JSON.stringify(s, null, 2) + "\n", "utf8");
   console.log(`eval: froze ${s.tasks.length} tasks, hash ${ (s.frozen_hash as string).slice(0, 8)}`);
   return s;
