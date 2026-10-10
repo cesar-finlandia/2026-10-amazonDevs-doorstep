@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "entry": "2026-10-amazonDevs",
-  "generatedAt": "2026-10-10T13:33:50.034Z",
+  "generatedAt": "2026-10-10T14:22:54.496Z",
   "chassis": {
     "version": "d77a05f4d60d8f70b244f92686fc102ec41eac1b",
     "includedComponents": [
@@ -84,6 +84,12 @@
       "role": "recorded-run",
       "id": "synthetic-deterministic",
       "region": "us-east-1",
+      "source": "vertex"
+    },
+    {
+      "role": "qa-draft",
+      "id": "gemini-2.5-flash",
+      "region": "us-central1",
       "source": "vertex"
     }
   ]

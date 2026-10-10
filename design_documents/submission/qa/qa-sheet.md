@@ -1,0 +1,148 @@
+# Judge Q&A Defense Sheet
+
+Generated 2026-10-10T14:18:41.767Z · 18 questions · grounded in winning_project_plan.md / manifest / PROV disclosure only.
+
+## q-01 [application_of_technology + ring] — grounded: grounded
+
+Q: How does Doorstep Rhythm specifically leverage the new Ring developer platform beyond basic event reception to provide its core functionality?
+
+A: The project utilizes Ring webhooks (motion_detected with human sub-type, button_press, device_online/offline), backfills with Event History polling, and enriches on demand with WHEP live sessions and image snapshots. It also imports and calls the Ring surface for discovery, status, capabilities, and live sessions.
+
+Sources: winning_project_plan.md:## Executive Pitch · winning_project_plan.md:## AI Solution · winning_project_plan.md:## Why Now · winning_project_plan.md:### Demo Inputs
+
+## q-02 [application_of_technology + aws-builder] — grounded: grounded
+
+Q: How does the project demonstrate a 'documented-integration rule' for the AWS Builder track, specifically with Amazon Bedrock?
+
+A: The project uses Amazon Bedrock via the Strands SDK for sort reasoning and rhythm learning. The same Bedrock-powered sort that evidences Tech Implementation also satisfies the AWS Builder documented-integration rule on the identical codebase, maximizing prize EV.
+
+Sources: winning_project_plan.md:## Executive Pitch · winning_project_plan.md:## AI Solution · winning_project_plan.md:## Business Value
+
+## q-03 [originality] — grounded: grounded
+
+Q: What makes Doorstep Rhythm's approach to caretaking monitoring original compared to existing solutions or simple motion alerts?
+
+A: It learns a household's irregular rhythm over rolling weeks, explains anomalies in plain language, and uses human-gated nudges. This moves beyond static thresholds or bare live views, addressing the 'creative side' of caretaking monitoring and having no entrenched prior art on Ring.
+
+Sources: winning_project_plan.md:## Executive Pitch · winning_project_plan.md:## Why Now · winning_project_plan.md:## Business Value
+
+## q-04 [business_value] — grounded: grounded
+
+Q: What is the proposed revenue model for Doorstep Rhythm, and how does it address different market segments?
+
+A: The revenue model includes a B2C per-household monthly subscription for long-distance adult children and a B2B per-door licensing model for small assisted-living and property-management operators, targeting both individual and institutional care needs.
+
+Sources: winning_project_plan.md:## Business Value
+
+## q-05 [presentation] — grounded: grounded
+
+Q: How does the UI design specifically address the accessibility needs of the target persona's family members, such as the long-distance daughter?
+
+A: The product is designed with 'one calm timeline with large-type accessibility and human checkpoints'. This ensures ease of use, clarity, and reduced cognitive load for the long-distance daughter, who needs to quickly discern normal from crisis.
+
+Sources: winning_project_plan.md:## Executive Pitch · winning_project_plan.md:## Architecture
+
+## q-06 [application_of_technology] — grounded: grounded
+
+Q: Describe the agentic workflow and the specific roles of the extractor, planner, and actor models in processing Ring events.
+
+A: The extractor (Gemini via Vertex AI) processes webhook batches and history into typed doorstep events. The planner (Gemini via Vertex AI) takes these events and the week model to formulate a sort plan. The actor (Gemini via Vertex AI) then executes the plan by storing actions like notes, flags, clip fetches, or snapshots.
+
+Sources: winning_project_plan.md:### Agentic Workflow & Call Graph
+
+## q-07 [originality + ring] — grounded: grounded
+
+Q: How does Doorstep Rhythm avoid the 'surveillance' feeling that often deters independent seniors, as mentioned in the problem framing?
+
+A: It answers from the doorway instead of the phone, turning Ring events into a calm household-rhythm timeline. The system learns what normal looks like and uses human-gated nudges, focusing on gentle monitoring and respecting the senior's autonomy rather than intrusive daily calls.
+
+Sources: winning_project_plan.md:## Executive Pitch · winning_project_plan.md:## Problem Framing · winning_project_plan.md:## Target Persona
+
+## q-08 [business_value] — grounded: grounded
+
+Q: How does the project's focus on the 'long-distance daughter' persona maximize its potential impact and market reach?
+
+A: This specific persona is identified as the primary buyer (subscription), a key distributor (recommends to siblings and care circles), and serves as the template for the operator tier (assisted-living doors). This focused approach maximizes market penetration and credible subscription potential.
+
+Sources: winning_project_plan.md:## Target Persona · winning_project_plan.md:## Business Value
+
+## q-09 [application_of_technology + aws-builder] — grounded: grounded
+
+Q: What specific AWS Bedrock capabilities or models are utilized for the 'rhythm learning' aspect of the solution?
+
+A: The project states that 'rhythm learning over rolling weeks' occurs 'on Bedrock' and 'sort reasoning on Amazon Bedrock via the Strands SDK'. While specific Bedrock models are not explicitly named, the platform itself is the foundation for these AI capabilities.
+
+Sources: winning_project_plan.md:## Executive Pitch · winning_project_plan.md:## AI Solution
+
+## q-10 [presentation] — grounded: grounded
+
+Q: How will the 'DEMODRIVE-captured golden path with mock-envelope replay' be used to demonstrate the project's functionality during judging?
+
+A: The DEMODRIVE-captured golden path with mock-envelope replay provides a reliable, pre-recorded demonstration of the core functionality, ensuring consistent presentation even if live Ring events are unavailable. The video also shows a Playground-token run against simulator events.
+
+Sources: winning_project_plan.md:## Architecture · winning_project_plan.md:### Demo Inputs
+
+## q-11 [application_of_technology] — grounded: grounded
+
+Q: Explain the purpose and function of the 'Truth Engine' within the architecture, and how it interacts with the AI agent.
+
+A: The Truth Engine consists of pure functions operating over the week model, producing Issues with severity, entities, human messages, and suggested fixes. It enforces rules like quiet-hours, dwell anomaly, and duplicate suppression. The AI agent calls `check_week_model` after every act batch to repair reported issues.
+
+Sources: winning_project_plan.md:## Architecture · winning_project_plan.md:### Truth Engine
+
+## q-12 [originality] — grounded: grounded
+
+Q: How does Doorstep Rhythm address the 'early-signal problem' of decline in seniors, as identified in the r/AgingParents evidence?
+
+A: By learning the household's normal rhythm from ambient Ring events, the system can identify tiny deviations or changes in routine that signal decline long before a crisis, such as unusual quietness or altered patterns of doorstep activity, addressing the 'ambient early signals' problem.
+
+Sources: winning_project_plan.md:## Problem Framing · winning_project_plan.md:## Executive Pitch · winning_project_plan.md:## AI Solution
+
+## q-13 [business_value] — grounded: grounded
+
+Q: Why is AI essential for this solution, and why couldn't it have been built with traditional forms and databases two years ago?
+
+A: AI is essential because only an agent holding cross-week state can learn irregular rhythms, separate anomaly from normal, and explain it kindly. Static thresholds fail at this. Furthermore, the Ring developer platform, crucial for the data stream, was not publicly available two years ago.
+
+Sources: winning_project_plan.md:## Why Now · winning_project_plan.md:## Business Value
+
+## q-14 [application_of_technology] — grounded: grounded
+
+Q: The architecture mentions '8 chassis component(s)'. How do these internal components contribute to the project's robustness or development efficiency?
+
+A: Components like 'resilience' provide a generic `withResilience` wrapper and `DegradedResult` for robustness. 'Platform' offers one-command deploy and a typed streaming bus for efficiency, while 'provenance' provides a disclosure generator and repo hygiene guard, enhancing overall development quality and speed.
+
+Sources: disclosure.md:PROV-05 · assembly.manifest.json:components[0].id=context · assembly.manifest.json:components[7].id=resilience
+
+## q-15 [presentation] — grounded: grounded
+
+Q: How will the '3D doorway timeline rendering' enhance the user's understanding of the household rhythm compared to a flat timeline?
+
+A: The 'signature 3D doorway view' provides a more intuitive and immersive way to visualize the household model and events. This spatial representation can help users quickly grasp patterns, anomalies, and the overall rhythm of doorstep activity more effectively than a traditional 2D timeline.
+
+Sources: winning_project_plan.md:## AI Solution · winning_project_plan.md:## Architecture
+
+## q-16 [application_of_technology + ring] — grounded: grounded
+
+Q: What is the significance of using 'motion_detected with human sub-type' from Ring webhooks for this project?
+
+A: The 'human sub-type' is crucial for filtering relevant events, focusing specifically on human activity at the doorstep. This reduces noise from non-human motion (e.g., animals, blowing leaves), ensuring the system's rhythm learning and anomaly detection are based on meaningful signals related to the senior's well-being.
+
+Sources: winning_project_plan.md:## AI Solution · winning_project_plan.md:### Demo Inputs
+
+## q-17 [originality] — grounded: grounded
+
+Q: The project states 'no RAG corpus needed beyond docs.' How does the system achieve its plain-language explanations and anomaly sort without a dedicated RAG system?
+
+A: The system relies on the LLM's inherent capabilities (Gemini via Vertex AI for agent roles) to generate plain-language explanations. The 'Truth Engine' produces human messages, and the agent's 'narrator' role explains. Structured outputs (JSON-schema-validated) guide the LLM, eliminating the need for an external RAG corpus.
+
+Sources: winning_project_plan.md:## Architecture · winning_project_plan.md:### Truth Engine · winning_project_plan.md:### Agentic Workflow & Call Graph
+
+## q-18 [business_value] — grounded: grounded
+
+Q: How does the project's 'Track ROI' strategy maximize its chances of winning prizes across the Ring and AWS Builder tracks?
+
+A: By focusing on both Ring and AWS Builder, the project maximizes prize EV. The same Bedrock-powered sort evidences Tech Implementation for both tracks, satisfying AWS Builder's documented-integration rule. This allows one build to target two prize pools with zero dilution of effort or story.
+
+Sources: winning_project_plan.md:## Business Value
+
