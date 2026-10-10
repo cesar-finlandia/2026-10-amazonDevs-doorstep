@@ -22,7 +22,7 @@
       },
       "ceiling": "Counts the typed actions this product registers; the capability listing the kit adds is not counted.",
       "status": "verified",
-      "verified_at": "2026-10-10T13:40:03.246Z"
+      "verified_at": "2026-10-10T16:49:06.529Z"
     },
     {
       "id": "C-02",
@@ -37,7 +37,7 @@
       },
       "ceiling": "Counts the browser tests that are defined; one is skipped in a run that has no Amazon Bedrock route.",
       "status": "verified",
-      "verified_at": "2026-10-10T13:40:03.248Z"
+      "verified_at": "2026-10-10T16:49:06.531Z"
     },
     {
       "id": "C-03",
@@ -52,7 +52,7 @@
       },
       "ceiling": "Measured on the frozen evaluation tasks with the recorded model; per-try wall time on those tasks only.",
       "status": "verified",
-      "verified_at": "2026-10-10T13:40:03.248Z"
+      "verified_at": "2026-10-10T16:49:06.532Z"
     },
     {
       "id": "C-04",
@@ -67,7 +67,7 @@
       },
       "ceiling": "Measured on the frozen evaluation tasks with the recorded model; control-arm success on those tasks only.",
       "status": "verified",
-      "verified_at": "2026-10-10T13:40:03.248Z"
+      "verified_at": "2026-10-10T16:49:06.532Z"
     },
     {
       "id": "C-05",
@@ -82,7 +82,7 @@
       },
       "ceiling": "Measured on the frozen evaluation tasks with the recorded model; token spend on those tasks only.",
       "status": "verified",
-      "verified_at": "2026-10-10T13:40:03.249Z"
+      "verified_at": "2026-10-10T16:49:06.532Z"
     },
     {
       "id": "C-06",
@@ -97,7 +97,7 @@
       },
       "ceiling": "Measured on the frozen evaluation tasks with the recorded model; treatment-arm success on those tasks only.",
       "status": "verified",
-      "verified_at": "2026-10-10T13:40:03.249Z"
+      "verified_at": "2026-10-10T16:49:06.532Z"
     },
     {
       "id": "C-07",
@@ -111,7 +111,7 @@
       },
       "ceiling": "Quotes the measured block's own scope sentence from the evaluation report.",
       "status": "verified",
-      "verified_at": "2026-10-10T13:40:03.249Z"
+      "verified_at": "2026-10-10T16:49:06.533Z"
     }
   ]
 }

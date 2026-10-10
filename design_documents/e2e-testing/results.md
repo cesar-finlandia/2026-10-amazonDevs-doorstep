@@ -4,27 +4,27 @@
 
 final: 59 passed, 0 failed, 1 skipped
 
-Total duration: 215 seconds.
+Total duration: 228 seconds.
 
 | Spec file | Seconds |
 |---|---|
-| depth.spec.ts | 20.2 |
-| harness.spec.ts | 2.0 |
-| scenarios/3d.spec.ts | 19.7 |
-| scenarios/controls.spec.ts | 35.9 |
+| depth.spec.ts | 19.9 |
+| harness.spec.ts | 1.9 |
+| scenarios/3d.spec.ts | 19.8 |
+| scenarios/controls.spec.ts | 36.6 |
 | scenarios/s-bedrock.spec.ts | 0.1 |
-| scenarios/s-ring.spec.ts | 23.5 |
-| scenarios/uc01-open-the-week.spec.ts | 8.2 |
-| scenarios/uc02-review-the-week.spec.ts | 84.1 |
-| scenarios/uc03-the-moment.spec.ts | 5.5 |
-| scenarios/uc04-decide-a-moment.spec.ts | 10.4 |
-| scenarios/uc05-approve-a-message.spec.ts | 60.8 |
-| scenarios/uc06-the-rail.spec.ts | 11.2 |
+| scenarios/s-ring.spec.ts | 24.1 |
+| scenarios/uc01-open-the-week.spec.ts | 8.6 |
+| scenarios/uc02-review-the-week.spec.ts | 86.8 |
+| scenarios/uc03-the-moment.spec.ts | 5.6 |
+| scenarios/uc04-decide-a-moment.spec.ts | 11.2 |
+| scenarios/uc05-approve-a-message.spec.ts | 62.9 |
+| scenarios/uc06-the-rail.spec.ts | 11.9 |
 | scenarios/uc07-by-hand.spec.ts | 8.3 |
 | scenarios/uc11-when-things-fail.spec.ts | 4.6 |
-| scenarios/uc13-help-and-looks.spec.ts | 12.2 |
-| scenarios/uc14-activity-and-trace.spec.ts | 62.7 |
-| smoke.spec.ts | 24.0 |
+| scenarios/uc13-help-and-looks.spec.ts | 11.9 |
+| scenarios/uc14-activity-and-trace.spec.ts | 71.1 |
+| smoke.spec.ts | 27.1 |
 
 ## Traceability
 

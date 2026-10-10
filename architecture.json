@@ -75,8 +75,8 @@
       "label": "HTTPS",
       "proof": {
         "file": "logs/proof.log",
-        "line": 87,
-        "text": "POST /api/agent/step 200 3ms",
+        "line": 1520,
+        "text": "POST /api/agent/step 200 2ms",
         "mode": "server"
       }
     },
@@ -109,7 +109,7 @@
       "label": "replay",
       "proof": {
         "file": "logs/proof.log",
-        "line": 85,
+        "line": 1518,
         "text": "replayed step from the recorded run",
         "mode": "golden"
       }
@@ -122,7 +122,7 @@
       "label": "tokens",
       "proof": {
         "file": "logs/proof.log",
-        "line": 86,
+        "line": 1519,
         "text": "used 0% of the token budget (0 tokens)",
         "mode": "sidecar"
       }
