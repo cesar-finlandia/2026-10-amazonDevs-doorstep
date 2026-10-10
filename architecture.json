@@ -76,7 +76,7 @@
       "proof": {
         "file": "logs/proof.log",
         "line": 87,
-        "text": "POST /api/agent/step 200 2ms",
+        "text": "POST /api/agent/step 200 3ms",
         "mode": "server"
       }
     },

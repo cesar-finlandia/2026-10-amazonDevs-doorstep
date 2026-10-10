@@ -1,0 +1,40 @@
+{
+  "kit": "showcase-replay",
+  "version": "1.0.0",
+  "variant": "react",
+  "installed_at": "2026-10-10T12:10:44.951Z",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "2cf190c8e55f7b15b909e290ca0c263eba02e695a47b4f055bfdee0f54576469"
+    },
+    {
+      "path": "README.md",
+      "sha256": "2543e3335e378baaf0dff86c5de9d6085807de328fd9720a29cca5191d832821"
+    },
+    {
+      "path": "UPSTREAM-NOTICE.md",
+      "sha256": "347b5d04d88a702217aeff68776139c6a77a4f0a1c3c95016ef3c1edeb9ca84b"
+    },
+    {
+      "path": "src/react/ReplayControl.tsx",
+      "sha256": "88b9978179fa76efad7b0e752f11bb0d02db4455afea1263c5199761cdb428d7"
+    },
+    {
+      "path": "src/react/index.ts",
+      "sha256": "098c557d43aba851a39c43b4956a424e94b03bb7954f5247e4e5bb3ac382211f"
+    },
+    {
+      "path": "src/replay/plan.ts",
+      "sha256": "9aae1e9fed8def31cb509c5ca1da0ff7b6d1b727ed98d0a7925503708b7f4113"
+    },
+    {
+      "path": "src/replay/player.ts",
+      "sha256": "decd17524444c40fa121ef33c4d4a96db41a96bf3177d98fa0bb10d0fbbfa31e"
+    },
+    {
+      "path": "src/replay/types.ts",
+      "sha256": "d2c3d38f43d7bb6b0dd8cc4c6345913d93bbfb29e09df83841e4277e6e116b24"
+    }
+  ]
+}

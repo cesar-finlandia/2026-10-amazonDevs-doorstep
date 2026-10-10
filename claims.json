@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-10-10T11:53:10.455Z",
+  "surfaces": [
+    "README.md",
+    "JUDGES.md",
+    "design_documents/submission_description.md",
+    "shots/showcase/captions.json",
+    "src/copy/**/*"
+  ],
+  "claims": [
+    {
+      "id": "C-01",
+      "match": "20 actions",
+      "text": "The product registers 20 actions in six groups, plus the kit's capability listing.",
+      "kind": "number",
+      "source": {
+        "type": "artifact",
+        "path": "design_documents/showcase-facts.json",
+        "pointer": "/actions",
+        "format": "{v} actions"
+      },
+      "ceiling": "Counts the typed actions this product registers; the capability listing the kit adds is not counted.",
+      "status": "verified",
+      "verified_at": "2026-10-10T11:54:40.133Z"
+    },
+    {
+      "id": "C-02",
+      "match": "60 tests",
+      "text": "The entry defines 60 tests across the browser suite.",
+      "kind": "number",
+      "source": {
+        "type": "artifact",
+        "path": "design_documents/showcase-facts.json",
+        "pointer": "/e2eTests",
+        "format": "{v} tests"
+      },
+      "ceiling": "Counts the browser tests that are defined; one is skipped in a run that has no Amazon Bedrock route.",
+      "status": "verified",
+      "verified_at": "2026-10-10T11:54:40.134Z"
+    }
+  ]
+}

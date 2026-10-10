@@ -1,12 +1,11 @@
-// src/ui/pages/Watch.tsx — replay shell (replaced by DP-SHOWCASE; default export name kept).
-// Requirement IDs: FR-19
+// src/ui/pages/Watch.tsx — Requirement IDs: FR-22
+import { SessionProvider } from "src/ui/state/SessionProvider";
+import { ReplayView, newReplaySessionId } from "src/ui/showcase/ReplayView";
+/** The route "/watch": a second, isolated session (its own random session id; the server keeps bundle sessions apart) replays public/replay/run-trace.json. */
 export default function WatchPage(): React.JSX.Element {
   return (
-    <div className="page">
-      <div data-demo-focus="replay">
-        <h1>Watch the recorded run</h1>
-        <p>A replay of the saved review, paused at its end.</p>
-      </div>
-    </div>
+    <SessionProvider sessionIdOverride={newReplaySessionId()}>
+      <ReplayView />
+    </SessionProvider>
   );
 }

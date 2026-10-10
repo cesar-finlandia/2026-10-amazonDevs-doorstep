@@ -66,8 +66,29 @@ const cfg = JSON.parse(readFileSync(join("config", "architecture-proofs.json"), 
   const sponsors = (arch.nodes ?? []).filter((n) => n.sponsor).map((n) => n.id).sort();
   check.ok(JSON.stringify(sponsors) === JSON.stringify(["bedrock", "ring"]), "3 sponsors");
 }
-// 4
-check.ok((arch.edges ?? []).every((e) => e.proof === undefined), "4 no proofs shipped");
+// 4 — RECONCILIATION R-15 (blueprint §6): the skeleton ships no proofs, but
+// DP-E2E-BROWSER-TESTING WU-11 harvests proof lines INTO architecture.json
+// (blueprint §3.7), so after E2E the file legitimately carries harvested
+// proofs. The contract is therefore: every proof present must be a harvested
+// one — { file: logs/proof.log } whose text is on its own log line (the same
+// assertion as e2e-11 check 8). Hand-written proofs still fail.
+{
+  let lines: string[] = [];
+  try {
+    lines = readFileSync("logs/proof.log", "utf8").split("\n");
+  } catch {
+    lines = [];
+  }
+  const withProof = (arch.edges ?? []).filter((e) => e.proof !== undefined) as {
+    proof?: { file?: string; line?: number; text?: string };
+  }[];
+  const harvested = withProof.every((e) => {
+    const p = e.proof ?? {};
+    if (p.file !== "logs/proof.log" || typeof p.line !== "number" || typeof p.text !== "string") return false;
+    return (lines[p.line - 1] ?? "").includes(p.text);
+  });
+  check.ok(harvested, "4 only harvested proofs shipped");
+}
 // 5
 {
   const edgeIds = new Set((arch.edges ?? []).map((e) => e.id));

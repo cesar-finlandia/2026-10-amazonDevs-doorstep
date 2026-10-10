@@ -1,0 +1,41 @@
+{
+  "$comment": "Requirement IDs: FR-24, NFR-02, K-9, K-10 | DP-DEPLOY §3.1. LOW-COST DEVIATION from the plan literal: run.minInstances 0 (plan: 1) so the service scales to zero and costs nothing when idle; run.memory 512Mi (plan: 1Gi), the smallest workable for node+vite-node+python sidecar. Everything else is the §3.1 literal.",
+  "version": "1.0.0",
+  "service": "doorstep-rhythm",
+  "defaultProject": "hacka-2026-09-agentic-cinema1",
+  "projectEnv": "GOOGLE_CLOUD_PROJECT",
+  "defaultRegion": "us-central1",
+  "regionEnv": "GOOGLE_CLOUD_LOCATION",
+  "repository": "doorstep",
+  "image": "doorstep-rhythm",
+  "serviceAccount": "doorstep-run",
+  "serviceAccountRoles": ["roles/aiplatform.user", "roles/secretmanager.secretAccessor"],
+  "services": ["run.googleapis.com", "artifactregistry.googleapis.com", "secretmanager.googleapis.com", "aiplatform.googleapis.com"],
+  "run": {
+    "port": 8080,
+    "memory": "512Mi",
+    "cpu": 1,
+    "concurrency": 40,
+    "timeoutSec": 900,
+    "minInstances": 0,
+    "maxInstances": 1,
+    "sessionAffinity": true,
+    "allowUnauthenticated": true
+  },
+  "env": {
+    "NODE_ENV": "production",
+    "AGENT_ALLOW_FALLBACK": "1",
+    "ALLOW_SIMULATE": "1",
+    "GOOGLE_GENAI_USE_VERTEXAI": "true"
+  },
+  "envFromOperator": ["AWS_REGION", "BEDROCK_MODEL_ID", "GOOGLE_CLOUD_LOCATION"],
+  "secrets": {
+    "RING_WEBHOOK_SECRET": { "id": "doorstep-ring-webhook-secret", "generateIfMissing": true },
+    "RING_HMAC_KEY": { "id": "doorstep-ring-hmac-key", "generateIfMissing": true },
+    "AWS_BEARER_TOKEN_BEDROCK": { "id": "doorstep-bedrock-token", "generateIfMissing": false },
+    "RING_CLIENT_ID": { "id": "doorstep-ring-client-id", "generateIfMissing": false },
+    "RING_CLIENT_SECRET": { "id": "doorstep-ring-client-secret", "generateIfMissing": false },
+    "RING_REFRESH_TOKEN": { "id": "doorstep-ring-refresh-token", "generateIfMissing": false }
+  },
+  "record": { "dirEnv": "PROJECT_SYNC_DIR", "defaultDir": "../../hackathons/hackathon-projects/2026-10-amazonDevs", "file": "deploy-record.json" }
+}

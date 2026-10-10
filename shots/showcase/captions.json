@@ -1,0 +1,93 @@
+[
+  {
+    "file": "gallery-week.png",
+    "caption": "Seven days of Rosa's front door drawn as a paper calendar with every visit marked.",
+    "alt": "The week as a paper calendar",
+    "claim_id": null,
+    "size": "gallery"
+  },
+  {
+    "file": "readme-week.png",
+    "caption": "Seven days of Rosa's front door drawn as a paper calendar with every visit marked.",
+    "alt": "The week as a paper calendar",
+    "claim_id": null,
+    "size": "readme"
+  },
+  {
+    "file": "gallery-agent.png",
+    "caption": "The agent reads the week and checks each day while every step is listed as it happens.",
+    "alt": "The agent panel mid-review",
+    "claim_id": null,
+    "size": "gallery"
+  },
+  {
+    "file": "readme-agent.png",
+    "caption": "The agent reads the week and checks each day while every step is listed as it happens.",
+    "alt": "The agent panel mid-review",
+    "claim_id": null,
+    "size": "readme"
+  },
+  {
+    "file": "gallery-approval.png",
+    "caption": "Before anything reaches Marta the review waits for a person to press Approve or Reject.",
+    "alt": "The approval request",
+    "claim_id": null,
+    "size": "gallery"
+  },
+  {
+    "file": "readme-approval.png",
+    "caption": "Before anything reaches Marta the review waits for a person to press Approve or Reject.",
+    "alt": "The approval request",
+    "claim_id": null,
+    "size": "readme"
+  },
+  {
+    "file": "gallery-circle.png",
+    "caption": "The one moment that did not fit the routine is circled in pencil on its day.",
+    "alt": "The circled moment",
+    "claim_id": null,
+    "size": "gallery"
+  },
+  {
+    "file": "readme-circle.png",
+    "caption": "The one moment that did not fit the routine is circled in pencil on its day.",
+    "alt": "The circled moment",
+    "claim_id": null,
+    "size": "readme"
+  },
+  {
+    "file": "gallery-stage.png",
+    "caption": "The same week stands up in three dimensions with the circled moment framed.",
+    "alt": "The 3D view focused on the moment",
+    "claim_id": null,
+    "size": "gallery"
+  },
+  {
+    "file": "readme-stage.png",
+    "caption": "The same week stands up in three dimensions with the circled moment framed.",
+    "alt": "The 3D view focused on the moment",
+    "claim_id": null,
+    "size": "readme"
+  },
+  {
+    "file": "gallery-dusk.png",
+    "caption": "The page has a calmer second look for the evening, switched with one control.",
+    "alt": "The page in the evening look",
+    "claim_id": null,
+    "size": "gallery"
+  },
+  {
+    "file": "readme-dusk.png",
+    "caption": "The page has a calmer second look for the evening, switched with one control.",
+    "alt": "The page in the evening look",
+    "claim_id": null,
+    "size": "readme"
+  },
+  {
+    "file": "hero.gif",
+    "caption": "A recorded run of the product doing its job.",
+    "alt": "Recorded run of the product",
+    "claim_id": null,
+    "size": "hero"
+  }
+]

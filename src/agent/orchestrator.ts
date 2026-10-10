@@ -163,15 +163,30 @@ export async function runWeekReview(deps: ReviewDeps): Promise<ReviewSummary> {
     const before = session.store.snapshot();
     const r = session.store.dispatch(name, args, source);
     const after = session.store.snapshot();
+    // RECONCILIATION R-16 (blueprint §6): keep replayable args on the entry,
+    // mirroring the registry convention (kit trace types: args kept so a trace
+    // can be replayed, omitted when the JSON is longer than 2000 characters).
+    // Without this, the orchestrator's perceive ingests record argless entries
+    // and the showcase replay stops at the first one.
+    let argsJson = "";
+    try {
+      argsJson = JSON.stringify(args);
+    } catch {
+      argsJson = "";
+    }
+    const keepArgs =
+      argsJson !== "" && argsJson.length <= 2000 && typeof args === "object" && args !== null;
     if (!r.ok) {
       session.trace.record({
         round, kind: "action", name, source, input_ref: null, output_ref: r.error, ok: false, latency_ms: 0,
+        ...(keepArgs ? { args: args as Record<string, unknown> } : {}),
       });
       return false;
     }
     session.trace.record({
       round, kind: "action", name, source, input_ref: null, output_ref: r.summary, ok: true, latency_ms: 0,
       state_change: { revision_before: before.revision, revision_after: after.revision, entity_ids: r.entityIds },
+      ...(keepArgs ? { args: args as Record<string, unknown> } : {}),
     });
     return true;
   }
@@ -255,7 +270,13 @@ export async function runWeekReview(deps: ReviewDeps): Promise<ReviewSummary> {
       }
     }
     const before = session.store.getState().events.length;
-    dispatchTraced("ingest_events", { events }, 1, "agent");
+    // RECONCILIATION R-16 (blueprint §6), second half: the perceive ingest is
+    // deterministic orchestrator plumbing, not an agent decision — source it
+    // "system" like set_devices and the background merges. The showcase replay
+    // replays agent/human registry calls and skips system effects; sourced
+    // "agent", this store-level dispatch (which no registry action implements)
+    // would either stop the replay (argless form) or diverge it.
+    dispatchTraced("ingest_events", { events }, 1, "system");
     eventsIngested += session.store.getState().events.length - before;
     return { corrected, filled };
   };
@@ -406,12 +427,17 @@ export async function runWeekReview(deps: ReviewDeps): Promise<ReviewSummary> {
         break;
       }
       const issues = session.checkNow().issues.filter((i) => i.severity === "error" && i.fix);
+      // RECONCILIATION R-16 (blueprint §6), third half: this deterministic tail
+      // is part of the agent workflow, so it is sourced "agent" like the loop
+      // passes. Sourced "system", its ~90 merge calls are skipped by the
+      // showcase replay (which replays agent/human registry calls) and the
+      // replayed week can never converge to the recorded end state.
       for (const [index, issue] of issues.entries()) {
         const fix = (issue.fix as { action: string; args: Record<string, unknown> });
-        await session.call(fix.action, fix.args, { source: "system", round: 4 });
+        await session.call(fix.action, fix.args, { source: "agent", round: 4 });
       }
       if (issues.length > 0) {
-        await session.call("check_week_model", {}, { source: "system", round: 4 });
+        await session.call("check_week_model", {}, { source: "agent", round: 4 });
         repairDetail = "repaired by the system after the agent stopped";
       }
       errors = session.checkNow().counts.errors;
