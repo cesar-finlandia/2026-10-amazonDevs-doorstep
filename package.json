@@ -18,6 +18,8 @@
     "showcase:facts": "vite-node scripts/gen-showcase-facts.ts",
     "showcase:stills": "vite-node scripts/make-stills.ts",
     "verify:showcase": "vite-node scripts/verify/sc-01-claims.ts && vite-node scripts/verify/sc-02-scenario.ts && vite-node scripts/verify/sc-03-watch.ts && vite-node scripts/verify/sc-04-stills.ts && vite-node scripts/verify/sc-05-readme.ts && vite-node scripts/verify/sc-06-judges.ts && vite-node scripts/verify/sc-07-operator.ts",
+    "verify:submission": "vite-node scripts/verify/sb-01-licence.ts",
+    "submission:chassis": "vite-node scripts/chassis-tool.ts",
     "lint:contracts": "node scripts/lint-contracts.ts",
     "test": "pnpm -F resilience run test",
     "test:offline": "pnpm -F resilience run test:offline",

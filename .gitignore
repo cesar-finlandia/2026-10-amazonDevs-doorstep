@@ -89,3 +89,18 @@ logs/*
 .tmp/
 run_state.json.*
 evals/iterations/
+
+# DP-SUBMISSION: judge-facing documents are part of the public repository
+!/design_documents/showcase.json
+!/design_documents/showcase-facts.json
+!/design_documents/demo-scenario.json
+!/design_documents/operator-final-checks.md
+!/design_documents/submission_description.md
+!/design_documents/friction-log.md
+!/design_documents/winning_project_plan.md
+!/design_documents/hackathon_brief.md
+!/design_documents/master_blueprint_entry.md
+!/design_documents/visual_identity_plan.md
+!/design_documents/design_plans/
+!/design_documents/e2e-testing/
+!/design_documents/submission/

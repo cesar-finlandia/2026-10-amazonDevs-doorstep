@@ -1,0 +1,90 @@
+{
+  "version": "1.0.0",
+  "entry": "2026-10-amazonDevs",
+  "generatedAt": "2026-10-10T13:33:50.034Z",
+  "chassis": {
+    "version": "d77a05f4d60d8f70b244f92686fc102ec41eac1b",
+    "includedComponents": [
+      "context",
+      "cost",
+      "ideation",
+      "pgm",
+      "platform",
+      "profile",
+      "provenance",
+      "resilience"
+    ],
+    "excludedComponents": [
+      "assembly-advisory",
+      "data",
+      "dev-tooling",
+      "media"
+    ]
+  },
+  "windowStartsOn": "2026-08-31",
+  "authoredInWindow": [
+    "e2e",
+    "scripts",
+    "src/3d",
+    "src/agent",
+    "src/domain",
+    "src/kits",
+    "src/llm",
+    "src/prompts",
+    "src/ring",
+    "src/server",
+    "src/ui"
+  ],
+  "aiTools": [
+    {
+      "tool": "Claude Code",
+      "scope": "wrote the design plans and implemented the engine, the interface, the tests and the deployment scripts from them"
+    },
+    {
+      "tool": "Ring Appstore MCP",
+      "scope": "looked up Ring API shapes and the Developer Playground token flow while the Ring port was written"
+    },
+    {
+      "tool": "Gemini on Vertex AI",
+      "scope": "generated the three text-free pitch pictures, the Q&A sheet draft and its rehearsal feedback, and served as the labelled fallback model of the product"
+    },
+    {
+      "tool": "Amazon Bedrock",
+      "scope": "is the product's runtime model route (the agent's extractor, planner, actor and narrator calls)"
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "express",
+      "version": "5.2.1"
+    },
+    {
+      "name": "react",
+      "version": "^19.2.8"
+    },
+    {
+      "name": "three",
+      "version": "0.186.1"
+    },
+    {
+      "name": "@strands-agents/sdk",
+      "version": "1.19.0"
+    },
+    {
+      "name": "@aws-sdk/client-bedrock-runtime",
+      "version": "3.1146.0"
+    },
+    {
+      "name": "@playwright/test",
+      "version": "1.62.1"
+    }
+  ],
+  "models": [
+    {
+      "role": "recorded-run",
+      "id": "synthetic-deterministic",
+      "region": "us-east-1",
+      "source": "vertex"
+    }
+  ]
+}

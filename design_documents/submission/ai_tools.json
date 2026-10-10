@@ -1,0 +1,6 @@
+[
+  { "tool": "Claude Code", "scope": "wrote the design plans and implemented the engine, the interface, the tests and the deployment scripts from them" },
+  { "tool": "Ring Appstore MCP", "scope": "looked up Ring API shapes and the Developer Playground token flow while the Ring port was written" },
+  { "tool": "Gemini on Vertex AI", "scope": "generated the three text-free pitch pictures, the Q&A sheet draft and its rehearsal feedback, and served as the labelled fallback model of the product" },
+  { "tool": "Amazon Bedrock", "scope": "is the product's runtime model route (the agent's extractor, planner, actor and narrator calls)" }
+]
