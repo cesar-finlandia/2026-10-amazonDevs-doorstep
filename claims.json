@@ -22,7 +22,7 @@
       },
       "ceiling": "Counts the typed actions this product registers; the capability listing the kit adds is not counted.",
       "status": "verified",
-      "verified_at": "2026-10-10T11:54:40.133Z"
+      "verified_at": "2026-10-10T13:26:38.115Z"
     },
     {
       "id": "C-02",
@@ -37,7 +37,81 @@
       },
       "ceiling": "Counts the browser tests that are defined; one is skipped in a run that has no Amazon Bedrock route.",
       "status": "verified",
-      "verified_at": "2026-10-10T11:54:40.134Z"
+      "verified_at": "2026-10-10T13:26:38.116Z"
+    },
+    {
+      "id": "C-03",
+      "match": "34.2 s",
+      "text": "Treatment runs cost 34.2 s per try.",
+      "kind": "number",
+      "source": {
+        "type": "artifact",
+        "path": "evals/report.json",
+        "pointer": "/treatment/wall_s_per_run",
+        "format": "{v:1} s"
+      },
+      "ceiling": "Measured on the frozen evaluation tasks with the recorded model; per-try wall time on those tasks only.",
+      "status": "verified",
+      "verified_at": "2026-10-10T13:26:38.117Z"
+    },
+    {
+      "id": "C-04",
+      "match": "35.0%",
+      "text": "Control runs succeed 35.0% of the time.",
+      "kind": "number",
+      "source": {
+        "type": "artifact",
+        "path": "evals/report.json",
+        "pointer": "/control/pass_rate",
+        "format": "{v:1}%"
+      },
+      "ceiling": "Measured on the frozen evaluation tasks with the recorded model; control-arm success on those tasks only.",
+      "status": "verified",
+      "verified_at": "2026-10-10T13:26:38.117Z"
+    },
+    {
+      "id": "C-05",
+      "match": "44527.3 tokens",
+      "text": "Treatment runs spend 44527.3 tokens per try.",
+      "kind": "number",
+      "source": {
+        "type": "artifact",
+        "path": "evals/report.json",
+        "pointer": "/treatment/tokens_per_run",
+        "format": "{v:1} tokens"
+      },
+      "ceiling": "Measured on the frozen evaluation tasks with the recorded model; token spend on those tasks only.",
+      "status": "verified",
+      "verified_at": "2026-10-10T13:26:38.117Z"
+    },
+    {
+      "id": "C-06",
+      "match": "95.0%",
+      "text": "Treatment runs succeed 95.0% of the time.",
+      "kind": "number",
+      "source": {
+        "type": "artifact",
+        "path": "evals/report.json",
+        "pointer": "/treatment/pass_rate",
+        "format": "{v:1}%"
+      },
+      "ceiling": "Measured on the frozen evaluation tasks with the recorded model; treatment-arm success on those tasks only.",
+      "status": "verified",
+      "verified_at": "2026-10-10T13:26:38.118Z"
+    },
+    {
+      "id": "C-07",
+      "match": "only",
+      "text": "this shows success on those tasks only",
+      "kind": "superlative",
+      "source": {
+        "type": "artifact",
+        "path": "evals/report.json",
+        "contains": "those tasks only"
+      },
+      "ceiling": "Quotes the measured block's own scope sentence from the evaluation report.",
+      "status": "verified",
+      "verified_at": "2026-10-10T13:26:38.118Z"
     }
   ]
 }
