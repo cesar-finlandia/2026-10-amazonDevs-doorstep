@@ -74,11 +74,10 @@ function triageRewrite(text: string): { text: string; replaced: { from: string; 
   const out = text.replace(/\btriag(\w*)/gi, (m, tail: string) => {
     const t = (tail as string).toLowerCase();
     let to: string;
-    if (t === "") to = "sort";
-    else if (t === "s") to = "sorts";
-    else if (t === "d" || t === "ed") to = "sorted";
+    if (t === "" || t === "e") to = "sort";
+    else if (t === "es" || t === "s") to = "sorts";
+    else if (t === "ed" || t === "d") to = "sorted";
     else if (t === "ing") to = "sorting";
-    else if (t === "es") to = "sorts";
     else return m;
     const rep = preserveCase(m, to);
     replaced.push({ from: m, to: rep });

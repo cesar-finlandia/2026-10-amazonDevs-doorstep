@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" role="img">
+  <style> text{font-family:Inter,system-ui}</style>
+  <text x="12" y="22" font-size="13" font-weight="700" fill="#F2F2F2">Revenue model — winning_project_plan.md</text>
+  <g id="slices">
+    <rect x="12" y="42" width="280" height="72" rx="12" fill="#6AE3FF"/><text x="32" y="86" font-size="15" font-weight="700" fill="#0F1115">B2C per-household monthly subscription plus B2B per-door licensing to small assisted-living</text>
+    <rect x="308" y="42" width="280" height="72" rx="12" fill="#FF6A88"/><text x="328" y="86" font-size="15" font-weight="700" fill="#0F1115">property-management operators.</text>
+  </g>
+  <text x="12" y="140" font-size="11" fill="#8A8F98">Source: winning_project_plan.md — never invented</text>
+</svg>

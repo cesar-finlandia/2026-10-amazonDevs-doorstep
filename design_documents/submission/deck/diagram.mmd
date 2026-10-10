@@ -1,0 +1,29 @@
+graph TD
+  CONTEXT["CONTEXT<br/>Provider-agnostic message buffer + pluggable token counter (`CTX-*`)."]
+  COST["COST<br/>Token/request metering + budget warnings (`COST-*`), reuses `CTX-02` counter."]
+  IDEATION["IDEATION<br/>PIT deck skeleton, IDEA worksheet, RETRO template + 4 Hour 48–72 auto-populators `ideation/deckgen/script/demodrive/faqdef`. OPENAI_API_KEY required by deckgen/script/faqdef; demodrive optionally needs PLAYWRIGHT."]
+  PGM["PGM<br/>Reddit-grounded `winning_project_plan.md` producer (`PGM-*`, 4 stages). Optional REDDIT_CLIENT_ID for live tiers."]
+  PLATFORM["PLATFORM<br/>One-command deploy (`DEP`), typed streaming bus (`TRN`), 3 distinct UI themes (`UI`). requires_env applies when platform/deploy included; provider swappable via DEPLOY_PROVIDER config."]
+  PROFILE["PROFILE<br/>One-pass brief → `event_profile.json` (`PROFILE-*`)."]
+  PROVENANCE["PROVENANCE<br/>Disclosure generator (`prov`) + submission formatter + repo hygiene guard (`submit`)."]
+  RESILIENCE["RESILIENCE<br/>Generic `withResilience` wrapper + `DegradedResult` + golden cache (`RES-*`)."]
+  RESILIENCE --> CONTEXT
+  CONTEXT --> COST
+  RESILIENCE --> IDEATION
+  PROVENANCE --> IDEATION
+  PROFILE --> IDEATION
+  RESILIENCE --> PGM
+  RESILIENCE --> PLATFORM
+  CONTEXT --> PLATFORM
+  RESILIENCE --> PROFILE
+  RESILIENCE --> PROVENANCE
+  PLATFORM --> PROVENANCE
+  RESILIENCE -.->|EventEnvelope TRN-01| PLATFORM
+
+  classDef chassis fill:#6AE3FF,stroke:#F2F2F2,color:#0F1115;
+  class CONTEXT,COST,IDEATION,PGM,PLATFORM,PROFILE,PROVENANCE,RESILIENCE chassis
+
+  subgraph Legend
+    direction LR
+    L1["Manifest 1.0.0<br/>chassis d77a05f<br/>generated 2026-10-05"]
+  end
