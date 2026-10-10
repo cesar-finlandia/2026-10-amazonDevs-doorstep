@@ -1,0 +1,75 @@
+{
+  "$comment": "Requirement IDs: DEMODRIVE-02, XCUT-08 | Owned by M14 (DP-D2b §3.2) | Click-sequence runtime config — steps, selectors, actions; domain-free, any theme. Validated via RES-04 before any capture run.",
+  "$id": "https://chassis/contracts/demodrive-script.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DemodriveScript",
+  "description": "DEMODRIVE-02 click-sequence runtime config — steps, selectors, actions; domain-free, any theme.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "base_url", "steps"],
+  "properties": {
+    "version": { "type": "string", "const": "1.0.0", "description": "Schema version; additive optional = MINOR." },
+    "base_url": { "type": "string", "format": "uri", "description": "Running UI instance URL, e.g. http://localhost:5173" },
+    "viewport": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "width": { "type": "integer", "minimum": 320, "maximum": 3840, "default": 1280 },
+        "height": { "type": "integer", "minimum": 240, "maximum": 2160, "default": 720 },
+        "device_scale_factor": { "type": "number", "minimum": 1, "maximum": 3, "default": 2 }
+      }
+    },
+    "video": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": { "type": "boolean", "default": true },
+        "codec": { "type": "string", "enum": ["vp9", "vp8", "h264"], "default": "vp9" },
+        "size": { "type": "object", "properties": { "width": { "type": "integer" }, "height": { "type": "integer" } } }
+      }
+    },
+    "layout": { "type": "string", "enum": ["single-focus", "dashboard"], "default": "single-focus", "description": "DEMODRIVE-04 single-focus default unless configured otherwise." },
+    "theme": { "type": ["string","null"], "description": "Optional theme override THEME=minimal|editorial|operator; null = current UI theme" },
+    "data_source": {
+      "type": "object",
+      "required": ["kind"],
+      "properties": {
+        "kind": { "type": "string", "enum": ["mock", "cache"] },
+        "mock_script": { "type": ["string","null"], "description": "Path to MOCK script when kind=mock, e.g. examples/dummy-fixtures/mock/acme-widget-flow.json" },
+        "cache_key": { "type": ["string","null"], "description": "Explicit RES-05 cache key when kind=cache" }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 50,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "actions"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "description": "kebab-case step name, e.g. marketplace-list, widget-detail; used for folder naming (DEMODRIVE-05)." },
+          "description": { "type": "string", "maxLength": 300, "description": "Human-readable step intent; optional, for README traceability." },
+          "actions": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 20,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["action"],
+              "properties": {
+                "action": { "type": "string", "enum": ["navigate", "click", "fill", "wait_for", "screenshot", "wait_ms"] },
+                "selector": { "type": ["string","null"], "description": "Playwright selector: role, testId, css. Example: getByRole('button', {name: 'Open detail'}) or [data-testid='widget-detail']" },
+                "value": { "type": ["string","null"], "description": "Fill text / navigate URL / wait_ms duration" },
+                "timeout_ms": { "type": "integer", "minimum": 100, "maximum": 30000, "default": 5000 },
+                "assert_visible": { "type": "boolean", "default": true }
+              }
+            }
+          },
+          "wait_after_ms": { "type": "integer", "minimum": 0, "maximum": 10000, "default": 300 }
+        }
+      }
+    }
+  }
+}

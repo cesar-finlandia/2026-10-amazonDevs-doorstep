@@ -1,0 +1,180 @@
+{
+  "version": "1.0.0",
+  "base_url": "http://127.0.0.1:44301",
+  "viewport": {
+    "width": 640,
+    "height": 360,
+    "device_scale_factor": 1
+  },
+  "video": {
+    "enabled": true,
+    "codec": "h264",
+    "size": {
+      "width": 640,
+      "height": 360
+    }
+  },
+  "layout": "single-focus",
+  "data_source": {
+    "kind": "cache",
+    "cache_key": "doorstep-meta",
+    "mock_script": null
+  },
+  "steps": [
+    {
+      "id": "open",
+      "actions": [
+        {
+          "action": "navigate",
+          "value": "http://127.0.0.1:44301/"
+        },
+        {
+          "action": "wait_for",
+          "selector": ":text-is(\"Load the sample week\")"
+        }
+      ]
+    },
+    {
+      "id": "week",
+      "actions": [
+        {
+          "action": "wait_for",
+          "selector": "getByRole('button', {name: 'Load the sample week'})",
+          "timeout_ms": 30000
+        },
+        {
+          "action": "click",
+          "selector": "getByRole('button', {name: 'Load the sample week'})"
+        },
+        {
+          "action": "wait_ms",
+          "value": "12000"
+        },
+        {
+          "action": "wait_for",
+          "selector": ":text-is(\"Sample week\")"
+        },
+        {
+          "action": "wait_ms",
+          "value": "45000"
+        }
+      ]
+    },
+    {
+      "id": "review",
+      "actions": [
+        {
+          "action": "wait_for",
+          "selector": "getByRole('button', {name: 'Review the week'})",
+          "timeout_ms": 30000
+        },
+        {
+          "action": "click",
+          "selector": "getByRole('button', {name: 'Review the week'})"
+        },
+        {
+          "action": "wait_ms",
+          "value": "60000"
+        },
+        {
+          "action": "wait_ms",
+          "value": "60000"
+        },
+        {
+          "action": "wait_ms",
+          "value": "60000"
+        },
+        {
+          "action": "wait_for",
+          "selector": "[data-result-region=\"approval-bar\"] >> :text-is(\"Approve\")",
+          "timeout_ms": 30000
+        }
+      ]
+    },
+    {
+      "id": "approve",
+      "actions": [
+        {
+          "action": "wait_for",
+          "selector": "[data-result-region=\"approval-bar\"] >> :text-is(\"Approve\")",
+          "timeout_ms": 30000
+        },
+        {
+          "action": "click",
+          "selector": "[data-result-region=\"approval-bar\"] >> :text-is(\"Approve\")"
+        },
+        {
+          "action": "wait_ms",
+          "value": "8000"
+        }
+      ]
+    },
+    {
+      "id": "circle",
+      "actions": [
+        {
+          "action": "wait_for",
+          "selector": ":nth-match(button[aria-label^=\"Open incident\"], 1)",
+          "timeout_ms": 30000
+        },
+        {
+          "action": "click",
+          "selector": ":nth-match(button[aria-label^=\"Open incident\"], 1)"
+        },
+        {
+          "action": "wait_ms",
+          "value": "800"
+        }
+      ]
+    },
+    {
+      "id": "walk",
+      "actions": [
+        {
+          "action": "wait_ms",
+          "value": "1500"
+        },
+        {
+          "action": "wait_ms",
+          "value": "1500"
+        }
+      ]
+    },
+    {
+      "id": "focus",
+      "actions": [
+        {
+          "action": "wait_for",
+          "selector": "getByRole('button', {name: 'Focus'})",
+          "timeout_ms": 30000
+        },
+        {
+          "action": "click",
+          "selector": "getByRole('button', {name: 'Focus'})"
+        },
+        {
+          "action": "wait_ms",
+          "value": "1500"
+        }
+      ]
+    },
+    {
+      "id": "dusk",
+      "actions": [
+        {
+          "action": "wait_for",
+          "selector": "getByRole('radio', {name: 'Dusk'})",
+          "timeout_ms": 30000
+        },
+        {
+          "action": "click",
+          "selector": "getByRole('radio', {name: 'Dusk'})"
+        },
+        {
+          "action": "wait_ms",
+          "value": "600"
+        }
+      ]
+    }
+  ]
+}

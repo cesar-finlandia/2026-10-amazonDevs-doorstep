@@ -22,7 +22,10 @@ for (const f of files) {
   else if ((parts[0] === "scripts" || parts[0] === "e2e") && parts.length > 1) dirs.add(parts[0] as string);
 }
 const CHASSIS_DIRS = new Set(["src/context", "src/cost", "src/ideation", "src/pgm", "src/platform", "src/profile", "src/provenance", "src/resilience"]);
-const authoredInWindow = [...dirs].filter((d) => !CHASSIS_DIRS.has(d)).sort();
+// src/dev/mock holds byte-identical chassis dev-tooling files vendored only so
+// the demodrive feeder import resolves (DP-SUBMISSION WU-08); not authored here.
+const VENDORED_SHIMS = new Set(["src/dev"]);
+const authoredInWindow = [...dirs].filter((d) => !CHASSIS_DIRS.has(d) && !VENDORED_SHIMS.has(d)).sort();
 
 const pkg = JSON.parse(readFileSync("package.json", "utf8")) as { dependencies?: Record<string, string>; devDependencies?: Record<string, string> };
 const allDeps = { ...(pkg.dependencies ?? {}), ...(pkg.devDependencies ?? {}) };

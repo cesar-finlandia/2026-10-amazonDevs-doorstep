@@ -1,0 +1,20 @@
+{
+  "base": "http://127.0.0.1:44301",
+  "dir": "run/2026-10-10T15-49-31-895Z/20261010-154938",
+  "steps": [
+    "open",
+    "week",
+    "review",
+    "approve",
+    "circle",
+    "walk",
+    "focus",
+    "dusk"
+  ],
+  "videoKept": true,
+  "videoBytes": 3187795,
+  "agentKind": "golden",
+  "ringMode": "bundle",
+  "expectedWarning": true,
+  "notes": []
+}

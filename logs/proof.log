@@ -85,3 +85,1436 @@
 2026-10-10T11:50:17.198Z proof edge=api-cache mode=golden replayed step from the recorded run
 2026-10-10T11:50:17.199Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
 2026-10-10T11:50:17.200Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:32:47.445Z proof edge=api-ring mode=bundle listDevices ok 4ms
+2026-10-10T14:32:47.447Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 7ms
+2026-10-10T14:34:13.004Z proof edge=api-ring mode=bundle listDevices ok 1ms
+2026-10-10T14:34:13.006Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 3ms
+2026-10-10T14:34:36.767Z proof edge=api-ring mode=bundle listDevices ok 1ms
+2026-10-10T14:34:36.769Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 4ms
+2026-10-10T14:34:40.337Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T14:34:40.339Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T14:34:41.920Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:34:41.922Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:34:42.019Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:34:42.020Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:35:25.721Z proof edge=api-ring mode=bundle listDevices ok 2ms
+2026-10-10T14:35:25.722Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 3ms
+2026-10-10T14:35:29.577Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T14:35:29.579Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T14:35:29.798Z proof edge=api-ring mode=bundle getEventHistory ok 1ms
+2026-10-10T14:35:29.799Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:35:31.312Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:35:31.314Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:35:31.325Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:35:31.326Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:35:31.330Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:35:31.331Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:35:31.436Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:35:31.437Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:35:32.788Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:35:32.790Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:35:42.072Z proof edge=api-ring mode=bundle listDevices ok 0ms
+2026-10-10T14:35:42.073Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 1ms
+2026-10-10T14:35:42.203Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T14:35:42.204Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 1ms
+2026-10-10T14:35:43.707Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:35:43.708Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:35:43.923Z proof edge=api-cache mode=golden replayed extractor from the recorded run
+2026-10-10T14:35:43.923Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:35:43.925Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 149ms
+2026-10-10T14:35:44.047Z proof edge=api-cache mode=golden replayed planner from the recorded run
+2026-10-10T14:35:44.048Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:35:44.049Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 7ms
+2026-10-10T14:35:45.517Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:35:45.518Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:35:45.519Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:35:45.565Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:35:45.565Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:35:45.566Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T14:35:45.585Z proof edge=api-ring mode=bundle getEventHistory ok 1ms
+2026-10-10T14:35:45.586Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:35:45.712Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:35:45.713Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:35:47.288Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:35:47.288Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:35:47.290Z proof edge=ui-api mode=server POST /api/agent/step 200 6ms
+2026-10-10T14:35:48.831Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:35:48.831Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:35:48.833Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:35:48.967Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T14:35:48.968Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T14:35:52.028Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T14:35:52.029Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T14:35:58.138Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:35:58.139Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:35:58.140Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:36:04.735Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:36:04.736Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:36:04.738Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:36:08.096Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:36:08.097Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:36:08.098Z proof edge=ui-api mode=server POST /api/agent/step 200 5ms
+2026-10-10T14:36:09.729Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:36:09.730Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:36:09.732Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:36:09.919Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:36:09.920Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:36:09.921Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:36:11.551Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:36:11.552Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:36:11.553Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:37:34.498Z proof edge=api-ring mode=bundle listDevices ok 1ms
+2026-10-10T14:37:34.499Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 2ms
+2026-10-10T14:37:38.516Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T14:37:38.518Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T14:37:40.172Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:37:40.173Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:37:40.239Z proof edge=api-ring mode=bundle getEventHistory ok 1ms
+2026-10-10T14:37:40.240Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:37:40.244Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:37:40.245Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:37:40.250Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:37:40.251Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:37:40.377Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:37:40.379Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:37:41.691Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:37:41.692Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:37:51.002Z proof edge=api-ring mode=bundle listDevices ok 0ms
+2026-10-10T14:37:51.004Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 2ms
+2026-10-10T14:37:51.121Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T14:37:51.123Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T14:37:52.549Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:37:52.552Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 3ms
+2026-10-10T14:37:52.738Z proof edge=api-cache mode=golden replayed extractor from the recorded run
+2026-10-10T14:37:52.738Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:37:52.740Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 148ms
+2026-10-10T14:37:52.860Z proof edge=api-cache mode=golden replayed planner from the recorded run
+2026-10-10T14:37:52.860Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:37:52.861Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 4ms
+2026-10-10T14:37:54.358Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:37:54.358Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:37:54.360Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:37:54.411Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:37:54.411Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:37:54.412Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T14:37:54.432Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:37:54.433Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:37:54.570Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:37:54.571Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:37:56.096Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:37:56.097Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:37:56.098Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:37:57.665Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:37:57.665Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:37:57.666Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:37:57.785Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T14:37:57.786Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 2ms
+2026-10-10T14:38:00.894Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T14:38:00.895Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T14:38:06.910Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:38:06.911Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:38:06.912Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:38:13.885Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:38:13.886Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:38:13.887Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:38:17.321Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:38:17.322Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:38:17.324Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:38:18.995Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:38:18.996Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:38:18.998Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:38:19.193Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:38:19.194Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:38:19.195Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:38:20.878Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:38:20.879Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:38:20.880Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:39:27.655Z proof edge=api-ring mode=bundle listDevices ok 1ms
+2026-10-10T14:39:27.657Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 3ms
+2026-10-10T14:39:31.713Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T14:39:31.716Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 3ms
+2026-10-10T14:39:31.933Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:39:31.934Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:39:33.477Z proof edge=api-ring mode=bundle getEventHistory ok 1ms
+2026-10-10T14:39:33.478Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:39:33.484Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:39:33.485Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:39:33.490Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:39:33.491Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:39:33.600Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:39:33.601Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:39:34.912Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:39:34.913Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:39:44.220Z proof edge=api-ring mode=bundle listDevices ok 0ms
+2026-10-10T14:39:44.221Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 1ms
+2026-10-10T14:39:44.332Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T14:39:44.333Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 1ms
+2026-10-10T14:39:45.821Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:39:45.823Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:39:46.051Z proof edge=api-cache mode=golden replayed extractor from the recorded run
+2026-10-10T14:39:46.052Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:39:46.053Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 162ms
+2026-10-10T14:39:46.174Z proof edge=api-cache mode=golden replayed planner from the recorded run
+2026-10-10T14:39:46.175Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:39:46.176Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 5ms
+2026-10-10T14:39:47.701Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:39:47.701Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:39:47.702Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:39:47.744Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:39:47.745Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:39:47.746Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:39:47.775Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:39:47.776Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:39:47.899Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:39:47.901Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:39:49.434Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:39:49.435Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:39:49.436Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:39:50.979Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:39:50.979Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:39:50.980Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T14:39:51.105Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T14:39:51.106Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T14:39:54.298Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T14:39:54.299Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T14:40:00.685Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:40:00.685Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:40:00.687Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:40:07.680Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:40:07.681Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:40:07.683Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:40:11.096Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:40:11.097Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:40:11.098Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:40:12.748Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:40:12.748Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:40:12.750Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:40:12.928Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:40:12.929Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:40:12.930Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:41:25.374Z proof edge=api-ring mode=bundle listDevices ok 1ms
+2026-10-10T14:41:25.375Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 3ms
+2026-10-10T14:41:29.307Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T14:41:29.308Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T14:41:29.530Z proof edge=api-ring mode=bundle getEventHistory ok 1ms
+2026-10-10T14:41:29.531Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:41:30.968Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:41:30.970Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:41:30.974Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:41:30.975Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:41:30.980Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:41:30.981Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:41:31.088Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:41:31.089Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:41:32.421Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:41:32.423Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:41:56.813Z proof edge=api-ring mode=bundle listDevices ok 0ms
+2026-10-10T14:41:56.814Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 1ms
+2026-10-10T14:41:56.921Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T14:41:56.922Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 1ms
+2026-10-10T14:41:58.414Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:41:58.415Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:41:58.562Z proof edge=api-cache mode=golden replayed extractor from the recorded run
+2026-10-10T14:41:58.563Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:41:58.565Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 142ms
+2026-10-10T14:41:58.682Z proof edge=api-cache mode=golden replayed planner from the recorded run
+2026-10-10T14:41:58.682Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:41:58.684Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 5ms
+2026-10-10T14:42:00.089Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:42:00.090Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:42:00.091Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:42:00.141Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:42:00.141Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:42:00.142Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T14:42:00.167Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:42:00.168Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:42:00.302Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:42:00.304Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:42:01.855Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:42:01.856Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:42:01.857Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:42:03.483Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:42:03.484Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:42:03.485Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:42:03.628Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T14:42:03.630Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 2ms
+2026-10-10T14:42:06.822Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T14:42:06.824Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 2ms
+2026-10-10T14:42:12.970Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:42:12.971Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:42:12.972Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:42:19.099Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:42:19.100Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:42:19.101Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:42:22.130Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:42:22.130Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:42:22.131Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:42:23.648Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:42:23.649Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:42:23.651Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:42:23.828Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:42:23.829Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:42:23.830Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:42:25.505Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:42:25.506Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:42:25.507Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:42:56.258Z proof edge=api-ring mode=bundle listDevices ok 0ms
+2026-10-10T14:42:56.260Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 3ms
+2026-10-10T14:42:59.821Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T14:42:59.822Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 1ms
+2026-10-10T14:43:01.443Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:43:01.444Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:43:01.542Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:43:01.543Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:43:01.546Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:43:01.546Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 0ms
+2026-10-10T14:43:01.550Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:43:01.551Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:43:02.911Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:43:02.912Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:43:02.923Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:43:02.924Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:44:55.245Z proof edge=api-ring mode=bundle listDevices ok 2ms
+2026-10-10T14:44:55.246Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 4ms
+2026-10-10T14:44:59.267Z proof edge=api-ring mode=bundle drainWebhookInbox ok 1ms
+2026-10-10T14:44:59.269Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 3ms
+2026-10-10T14:45:00.966Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:45:00.968Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:45:00.975Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:45:00.976Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:45:00.980Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:45:00.981Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:45:00.985Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:45:00.986Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:45:01.095Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:45:01.096Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:45:02.434Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:45:02.435Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:45:26.789Z proof edge=api-ring mode=bundle listDevices ok 0ms
+2026-10-10T14:45:26.790Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 1ms
+2026-10-10T14:45:26.899Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T14:45:26.901Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T14:45:28.297Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:45:28.299Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:45:28.522Z proof edge=api-cache mode=golden replayed extractor from the recorded run
+2026-10-10T14:45:28.522Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:45:28.524Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 155ms
+2026-10-10T14:45:28.645Z proof edge=api-cache mode=golden replayed planner from the recorded run
+2026-10-10T14:45:28.645Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:45:28.647Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 5ms
+2026-10-10T14:45:30.061Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:45:30.062Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:45:30.063Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:45:30.130Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:45:30.131Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:45:30.132Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:45:30.152Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:45:30.154Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:45:30.286Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:45:30.288Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:45:31.854Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:45:31.855Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:45:31.857Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:45:33.459Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:45:33.460Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:45:33.461Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:45:33.616Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T14:45:33.617Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T14:45:36.692Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T14:45:36.694Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 2ms
+2026-10-10T14:45:42.747Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:45:42.748Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:45:42.749Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:45:48.845Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:45:48.846Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:45:48.847Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:45:51.847Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:45:51.847Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:45:51.849Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:45:53.325Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:45:53.326Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:45:53.327Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:45:53.502Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:45:53.503Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:45:53.504Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:45:55.115Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:45:55.116Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:45:55.117Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:47:21.477Z proof edge=api-ring mode=bundle listDevices ok 2ms
+2026-10-10T14:47:21.478Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 3ms
+2026-10-10T14:47:25.489Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T14:47:25.491Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T14:47:25.708Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:47:25.709Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:47:27.176Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:47:27.178Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:47:27.184Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:47:27.185Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:47:27.190Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:47:27.191Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:47:27.289Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:47:27.291Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:47:28.613Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:47:28.614Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:47:53.001Z proof edge=api-ring mode=bundle listDevices ok 0ms
+2026-10-10T14:47:53.002Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 1ms
+2026-10-10T14:47:53.117Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T14:47:53.118Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 1ms
+2026-10-10T14:47:54.542Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:47:54.543Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:47:54.750Z proof edge=api-cache mode=golden replayed extractor from the recorded run
+2026-10-10T14:47:54.750Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:47:54.752Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 146ms
+2026-10-10T14:47:54.873Z proof edge=api-cache mode=golden replayed planner from the recorded run
+2026-10-10T14:47:54.874Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:47:54.875Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 4ms
+2026-10-10T14:47:56.290Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:47:56.291Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:47:56.292Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:47:56.355Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:47:56.356Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:47:56.357Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:47:56.379Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:47:56.380Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:47:56.521Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:47:56.522Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:47:58.133Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:47:58.134Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:47:58.135Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:47:59.720Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:47:59.721Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:47:59.722Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:47:59.875Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T14:47:59.876Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T14:48:03.062Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T14:48:03.064Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 2ms
+2026-10-10T14:48:09.154Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:48:09.154Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:48:09.156Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:48:15.510Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:48:15.510Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:48:15.512Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T14:48:18.579Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:48:18.580Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:48:18.581Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:48:20.048Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:48:20.049Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:48:20.050Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:48:20.219Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:48:20.219Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:48:20.221Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:48:21.875Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:48:21.875Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:48:21.877Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:49:30.174Z proof edge=api-ring mode=bundle listDevices ok 1ms
+2026-10-10T14:49:30.175Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 3ms
+2026-10-10T14:49:34.058Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T14:49:34.060Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T14:49:35.690Z proof edge=api-ring mode=bundle getEventHistory ok 1ms
+2026-10-10T14:49:35.691Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:49:35.750Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:49:35.752Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:49:35.757Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:49:35.758Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:49:35.763Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:49:35.764Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:49:35.868Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:49:35.869Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:49:37.164Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:49:37.165Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:50:01.555Z proof edge=api-ring mode=bundle listDevices ok 0ms
+2026-10-10T14:50:01.556Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 1ms
+2026-10-10T14:50:01.661Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T14:50:01.662Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 1ms
+2026-10-10T14:50:03.035Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:50:03.037Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:50:03.207Z proof edge=api-cache mode=golden replayed extractor from the recorded run
+2026-10-10T14:50:03.208Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:50:03.211Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 138ms
+2026-10-10T14:50:03.318Z proof edge=api-cache mode=golden replayed planner from the recorded run
+2026-10-10T14:50:03.319Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:50:03.320Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 4ms
+2026-10-10T14:50:04.648Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:50:04.649Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:50:04.650Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:50:04.713Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:50:04.713Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:50:04.714Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T14:50:04.736Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:50:04.737Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:50:04.856Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:50:04.857Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:50:07.606Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:50:07.607Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:50:07.608Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:50:07.741Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:50:07.741Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:50:07.742Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T14:50:07.852Z proof edge=api-ring mode=bundle getSnapshot ok 1ms
+2026-10-10T14:50:07.853Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 2ms
+2026-10-10T14:50:10.791Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T14:50:10.793Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 2ms
+2026-10-10T14:50:16.639Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:50:16.640Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:50:16.641Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:50:22.713Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:50:22.715Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:50:22.717Z proof edge=ui-api mode=server POST /api/agent/step 200 6ms
+2026-10-10T14:50:25.651Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:50:25.652Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:50:25.653Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:50:27.079Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:50:27.080Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:50:27.081Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:50:27.258Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:50:27.259Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:50:27.260Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T14:50:28.731Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:50:28.732Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:50:28.733Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:51:55.806Z proof edge=api-ring mode=bundle listDevices ok 1ms
+2026-10-10T14:51:55.807Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 3ms
+2026-10-10T14:51:59.765Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T14:51:59.767Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T14:51:59.968Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:51:59.969Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:52:01.510Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:52:01.511Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:52:01.515Z proof edge=api-ring mode=bundle getEventHistory ok 1ms
+2026-10-10T14:52:01.516Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:52:01.519Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:52:01.520Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:52:01.628Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:52:01.629Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:52:02.960Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:52:02.961Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:52:27.266Z proof edge=api-ring mode=bundle listDevices ok 0ms
+2026-10-10T14:52:27.267Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 1ms
+2026-10-10T14:52:27.383Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T14:52:27.384Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 1ms
+2026-10-10T14:52:27.399Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:52:27.401Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:52:28.885Z proof edge=api-cache mode=golden replayed extractor from the recorded run
+2026-10-10T14:52:28.885Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:52:28.887Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 136ms
+2026-10-10T14:52:28.995Z proof edge=api-cache mode=golden replayed planner from the recorded run
+2026-10-10T14:52:28.995Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:52:28.996Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 4ms
+2026-10-10T14:52:30.350Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:52:30.351Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:52:30.352Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:52:30.413Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:52:30.413Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:52:30.415Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:52:30.437Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:52:30.438Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:52:30.558Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:52:30.559Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:52:32.045Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:52:32.046Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:52:32.047Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:52:33.518Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:52:33.519Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:52:33.520Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:52:33.640Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T14:52:33.641Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T14:52:36.638Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T14:52:36.639Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T14:52:42.673Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:52:42.674Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:52:42.675Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:52:48.737Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:52:48.738Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:52:48.739Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:52:51.733Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:52:51.734Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:52:51.736Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:52:53.158Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:52:53.159Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:52:53.160Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:52:53.296Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:52:53.296Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:52:53.298Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T14:52:54.714Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:52:54.715Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:52:54.716Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:57:04.814Z proof edge=api-ring mode=bundle listDevices ok 1ms
+2026-10-10T14:57:04.815Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 3ms
+2026-10-10T14:57:08.825Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T14:57:08.828Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 3ms
+2026-10-10T14:57:09.040Z proof edge=api-ring mode=bundle getEventHistory ok 1ms
+2026-10-10T14:57:09.041Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:57:10.554Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:57:10.556Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:57:10.560Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:57:10.561Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:57:10.565Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:57:10.566Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:57:10.666Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:57:10.667Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:57:11.997Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:57:11.999Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:57:36.338Z proof edge=api-ring mode=bundle listDevices ok 0ms
+2026-10-10T14:57:36.339Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 1ms
+2026-10-10T14:57:36.453Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T14:57:36.454Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 1ms
+2026-10-10T14:57:36.469Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:57:36.471Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T14:57:37.964Z proof edge=api-cache mode=golden replayed extractor from the recorded run
+2026-10-10T14:57:37.964Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:57:37.966Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 140ms
+2026-10-10T14:57:38.074Z proof edge=api-cache mode=golden replayed planner from the recorded run
+2026-10-10T14:57:38.075Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:57:38.076Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 4ms
+2026-10-10T14:57:39.427Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:57:39.428Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:57:39.429Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:57:39.494Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:57:39.494Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:57:39.495Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T14:57:39.516Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:57:39.517Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:57:39.640Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T14:57:39.641Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T14:57:42.435Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:57:42.435Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:57:42.437Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:57:42.565Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:57:42.565Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:57:42.566Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T14:57:42.677Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T14:57:42.678Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T14:57:45.633Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T14:57:45.635Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 2ms
+2026-10-10T14:57:51.432Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:57:51.433Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:57:51.434Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:57:57.401Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:57:57.402Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:57:57.404Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:58:00.320Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:58:00.320Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:58:00.322Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T14:58:01.720Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:58:01.720Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:58:01.721Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T14:58:01.860Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:58:01.861Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:58:01.862Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T14:58:03.307Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T14:58:03.307Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T14:58:03.309Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:00:33.943Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:00:33.944Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:00:33.946Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 6ms
+2026-10-10T15:00:34.054Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:00:34.055Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:00:34.056Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 3ms
+2026-10-10T15:00:37.255Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:00:37.256Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:00:37.257Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 3ms
+2026-10-10T15:00:39.030Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:00:39.031Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:00:39.032Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:00:42.243Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:00:42.244Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:00:42.245Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:01:38.984Z proof edge=api-ring mode=bundle listDevices ok 1ms
+2026-10-10T15:01:38.986Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 3ms
+2026-10-10T15:01:43.020Z proof edge=api-ring mode=bundle drainWebhookInbox ok 1ms
+2026-10-10T15:01:43.022Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 3ms
+2026-10-10T15:01:43.207Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:01:43.208Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:01:44.719Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:01:44.720Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:01:44.725Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:01:44.726Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:01:44.731Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:01:44.731Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:01:44.829Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:01:44.830Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:01:46.136Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:01:46.137Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:02:10.526Z proof edge=api-ring mode=bundle listDevices ok 0ms
+2026-10-10T15:02:10.527Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 1ms
+2026-10-10T15:02:10.657Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T15:02:10.659Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T15:02:10.673Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:02:10.675Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:02:12.185Z proof edge=api-cache mode=golden replayed extractor from the recorded run
+2026-10-10T15:02:12.185Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:02:12.187Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 130ms
+2026-10-10T15:02:12.296Z proof edge=api-cache mode=golden replayed planner from the recorded run
+2026-10-10T15:02:12.296Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:02:12.298Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 5ms
+2026-10-10T15:02:13.648Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:02:13.649Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:02:13.650Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:02:13.723Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:02:13.723Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:02:13.724Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:02:13.745Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:02:13.746Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:02:13.874Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:02:13.875Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:02:15.379Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:02:15.379Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:02:15.381Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:02:16.859Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:02:16.860Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:02:16.861Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:02:16.982Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T15:02:16.983Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T15:02:20.004Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T15:02:20.006Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 2ms
+2026-10-10T15:02:25.955Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:02:25.955Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:02:25.956Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T15:02:32.012Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:02:32.013Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:02:32.014Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T15:02:34.961Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:02:34.961Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:02:34.963Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:02:36.416Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:02:36.417Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:02:36.418Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:02:36.590Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:02:36.591Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:02:36.592Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T15:02:38.056Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:02:38.056Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:02:38.057Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T15:05:07.215Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:05:07.216Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:05:07.217Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 4ms
+2026-10-10T15:05:08.805Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:05:08.806Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:05:08.807Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 3ms
+2026-10-10T15:05:12.058Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:05:12.058Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:05:12.059Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 2ms
+2026-10-10T15:05:13.826Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:05:13.827Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:05:13.828Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:05:16.924Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:05:16.925Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:05:16.926Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:05:21.984Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:05:21.985Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:05:21.986Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:05:22.008Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:05:22.009Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:05:22.011Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:06:25.294Z proof edge=api-ring mode=bundle listDevices ok 1ms
+2026-10-10T15:06:25.296Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 3ms
+2026-10-10T15:06:29.302Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T15:06:29.304Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 1ms
+2026-10-10T15:06:29.513Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:06:29.514Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:06:31.057Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:06:31.058Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:06:31.063Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:06:31.065Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:06:31.069Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:06:31.070Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:06:31.167Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:06:31.168Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:06:32.577Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:06:32.579Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:06:56.816Z proof edge=api-ring mode=bundle listDevices ok 0ms
+2026-10-10T15:06:56.817Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 1ms
+2026-10-10T15:06:56.933Z proof edge=api-ring mode=bundle drainWebhookInbox ok 1ms
+2026-10-10T15:06:56.934Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T15:06:56.946Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:06:56.948Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:06:58.491Z proof edge=api-cache mode=golden replayed extractor from the recorded run
+2026-10-10T15:06:58.491Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:06:58.493Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 135ms
+2026-10-10T15:06:58.606Z proof edge=api-cache mode=golden replayed planner from the recorded run
+2026-10-10T15:06:58.606Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:06:58.607Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 4ms
+2026-10-10T15:07:00.064Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:07:00.065Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:07:00.067Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:07:00.124Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:07:00.125Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:07:00.126Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T15:07:00.148Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:07:00.149Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:07:00.278Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:07:00.279Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:07:01.911Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:07:01.912Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:07:01.913Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:07:03.648Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:07:03.649Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:07:03.650Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:07:03.848Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T15:07:03.849Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T15:07:07.297Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T15:07:07.298Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T15:07:13.628Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:07:13.629Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:07:13.630Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:07:19.928Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:07:19.929Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:07:19.930Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:07:22.983Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:07:22.984Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:07:22.985Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:07:24.468Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:07:24.468Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:07:24.470Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T15:07:24.628Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:07:24.629Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:07:24.630Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:07:26.116Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:07:26.116Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:07:26.117Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T15:09:59.815Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:09:59.816Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:09:59.818Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 5ms
+2026-10-10T15:10:01.583Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:10:01.584Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:10:01.585Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 3ms
+2026-10-10T15:10:03.329Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:10:03.330Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:10:03.331Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 3ms
+2026-10-10T15:10:05.190Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:10:05.191Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:10:05.192Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:10:08.639Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:10:08.640Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:10:08.641Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:10:14.720Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:10:14.721Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:10:14.722Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:10:14.798Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:10:14.799Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:10:14.800Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:11:29.924Z proof edge=api-ring mode=bundle listDevices ok 2ms
+2026-10-10T15:11:29.926Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 4ms
+2026-10-10T15:11:34.615Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T15:11:34.616Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 1ms
+2026-10-10T15:11:34.740Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:11:34.742Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:11:36.550Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:11:36.552Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:11:36.561Z proof edge=api-ring mode=bundle getEventHistory ok 1ms
+2026-10-10T15:11:36.562Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:11:36.565Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:11:36.566Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:11:36.688Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:11:36.690Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:11:38.274Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:11:38.275Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:12:02.052Z proof edge=api-ring mode=bundle listDevices ok 0ms
+2026-10-10T15:12:02.054Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 2ms
+2026-10-10T15:12:02.182Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T15:12:02.184Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T15:12:03.829Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:12:03.830Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:12:04.050Z proof edge=api-cache mode=golden replayed extractor from the recorded run
+2026-10-10T15:12:04.050Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:12:04.051Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 152ms
+2026-10-10T15:12:04.171Z proof edge=api-cache mode=golden replayed planner from the recorded run
+2026-10-10T15:12:04.171Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:12:04.173Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 6ms
+2026-10-10T15:12:05.764Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:12:05.765Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:12:05.766Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:12:05.825Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:12:05.826Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:12:05.827Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:12:05.849Z proof edge=api-ring mode=bundle getEventHistory ok 1ms
+2026-10-10T15:12:05.850Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:12:05.983Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:12:05.984Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:12:07.652Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:12:07.652Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:12:07.653Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T15:12:09.399Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:12:09.400Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:12:09.401Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:12:09.530Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T15:12:09.531Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T15:12:12.989Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T15:12:12.991Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T15:12:19.859Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:12:19.860Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:12:19.862Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:12:26.943Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:12:26.943Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:12:26.945Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:12:30.355Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:12:30.355Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:12:30.357Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:12:31.917Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:12:31.918Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:12:31.919Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:12:32.086Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:12:32.086Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:12:32.088Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:12:33.752Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:12:33.753Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:12:33.755Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:15:06.274Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:15:06.275Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:15:06.276Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 3ms
+2026-10-10T15:15:09.679Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:15:09.680Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:15:09.682Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 4ms
+2026-10-10T15:15:11.403Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:15:11.404Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:15:11.406Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 4ms
+2026-10-10T15:15:13.268Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:15:13.269Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:15:13.271Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:15:16.521Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:15:16.522Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:15:16.525Z proof edge=ui-api mode=server POST /api/agent/step 200 5ms
+2026-10-10T15:15:22.023Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:15:22.023Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:15:22.025Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:15:22.089Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:15:22.090Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:15:22.091Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:16:38.429Z proof edge=api-ring mode=bundle listDevices ok 2ms
+2026-10-10T15:16:38.430Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 3ms
+2026-10-10T15:16:43.179Z proof edge=api-ring mode=bundle drainWebhookInbox ok 1ms
+2026-10-10T15:16:43.181Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 3ms
+2026-10-10T15:16:43.431Z proof edge=api-ring mode=bundle getEventHistory ok 1ms
+2026-10-10T15:16:43.432Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:16:45.358Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:16:45.359Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:16:45.362Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:16:45.363Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:16:45.367Z proof edge=api-ring mode=bundle getEventHistory ok 1ms
+2026-10-10T15:16:45.367Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:16:45.484Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:16:45.485Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:16:47.040Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:16:47.041Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:16:57.322Z proof edge=api-ring mode=bundle listDevices ok 0ms
+2026-10-10T15:16:57.323Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 1ms
+2026-10-10T15:16:57.327Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T15:16:57.328Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 1ms
+2026-10-10T15:16:57.436Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:16:57.437Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:16:59.119Z proof edge=api-cache mode=golden replayed extractor from the recorded run
+2026-10-10T15:16:59.119Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:16:59.121Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 137ms
+2026-10-10T15:16:59.134Z proof edge=api-cache mode=golden replayed planner from the recorded run
+2026-10-10T15:16:59.135Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:16:59.136Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 4ms
+2026-10-10T15:17:00.796Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:17:00.797Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:17:00.798Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:17:00.850Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:17:00.851Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:17:00.852Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:17:00.870Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:17:00.874Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 4ms
+2026-10-10T15:17:01.011Z proof edge=api-ring mode=bundle getEventHistory ok 1ms
+2026-10-10T15:17:01.012Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:17:02.647Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:17:02.648Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:17:02.649Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:17:04.331Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:17:04.331Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:17:04.332Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:17:04.355Z proof edge=api-ring mode=bundle getSnapshot ok 1ms
+2026-10-10T15:17:04.356Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 2ms
+2026-10-10T15:17:06.206Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T15:17:06.207Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T15:17:12.831Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:17:12.832Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:17:12.833Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:17:19.460Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:17:19.460Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:17:19.461Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T15:17:22.800Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:17:22.801Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:17:22.802Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:17:24.347Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:17:24.348Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:17:24.349Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:17:24.505Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:17:24.506Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:17:24.508Z proof edge=ui-api mode=server POST /api/agent/step 200 5ms
+2026-10-10T15:17:26.159Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:17:26.160Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:17:26.161Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:19:51.922Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:19:51.923Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:19:51.925Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 5ms
+2026-10-10T15:19:53.467Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:19:53.468Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:19:53.469Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 2ms
+2026-10-10T15:19:55.084Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:19:55.085Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:19:55.086Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 3ms
+2026-10-10T15:19:56.755Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:19:56.755Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:19:56.756Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T15:19:59.910Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:19:59.911Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:19:59.912Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:20:06.565Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:20:06.565Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:20:06.566Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T15:20:06.586Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:20:06.587Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:20:06.588Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:21:10.632Z proof edge=api-ring mode=bundle listDevices ok 1ms
+2026-10-10T15:21:10.634Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 2ms
+2026-10-10T15:21:15.125Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T15:21:15.128Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 3ms
+2026-10-10T15:21:15.260Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:21:15.261Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:21:17.090Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:21:17.091Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:21:17.095Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:21:17.097Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:21:17.101Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:21:17.103Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:21:17.213Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:21:17.214Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:21:18.733Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:21:18.734Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:22:12.646Z proof edge=api-ring mode=bundle listDevices ok 0ms
+2026-10-10T15:22:12.648Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 2ms
+2026-10-10T15:22:12.758Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T15:22:12.760Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T15:22:12.773Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:22:12.774Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:22:14.478Z proof edge=api-cache mode=golden replayed extractor from the recorded run
+2026-10-10T15:22:14.479Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:22:14.480Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 152ms
+2026-10-10T15:22:14.621Z proof edge=api-cache mode=golden replayed planner from the recorded run
+2026-10-10T15:22:14.621Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:22:14.623Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 5ms
+2026-10-10T15:22:16.203Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:22:16.204Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:22:16.205Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:22:16.274Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:22:16.275Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:22:16.277Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:22:16.296Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:22:16.297Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:22:16.424Z proof edge=api-ring mode=bundle getEventHistory ok 1ms
+2026-10-10T15:22:16.425Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:22:18.031Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:22:18.032Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:22:18.033Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:22:19.762Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:22:19.763Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:22:19.764Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:22:19.886Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T15:22:19.887Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 2ms
+2026-10-10T15:22:23.288Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T15:22:23.289Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T15:22:29.713Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:22:29.714Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:22:29.716Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:22:36.403Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:22:36.403Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:22:36.405Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:22:39.712Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:22:39.713Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:22:39.714Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:22:41.280Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:22:41.280Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:22:41.282Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:22:41.436Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:22:41.437Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:22:41.438Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T15:22:43.021Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:22:43.021Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:22:43.022Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T15:25:16.963Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:25:16.964Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:25:16.965Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 4ms
+2026-10-10T15:25:20.232Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:25:20.233Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:25:20.235Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 4ms
+2026-10-10T15:25:21.936Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:25:21.936Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:25:21.938Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 3ms
+2026-10-10T15:25:23.724Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:25:23.725Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:25:23.726Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:25:26.978Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:25:26.979Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:25:26.980Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:25:32.809Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:25:32.811Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:25:32.812Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:25:32.888Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:25:32.888Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:25:32.890Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:27:23.481Z proof edge=api-ring mode=bundle listDevices ok 2ms
+2026-10-10T15:27:23.482Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 4ms
+2026-10-10T15:27:27.284Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T15:27:27.286Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T15:27:29.060Z proof edge=api-ring mode=bundle getEventHistory ok 1ms
+2026-10-10T15:27:29.061Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:27:29.130Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:27:29.132Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:27:29.174Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:27:29.176Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:27:29.182Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:27:29.183Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:27:30.727Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:27:30.728Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:27:30.738Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:27:30.739Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:28:24.445Z proof edge=api-ring mode=bundle listDevices ok 0ms
+2026-10-10T15:28:24.447Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 2ms
+2026-10-10T15:28:24.451Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T15:28:24.453Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T15:28:24.576Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:28:24.578Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:28:26.176Z proof edge=api-cache mode=golden replayed extractor from the recorded run
+2026-10-10T15:28:26.176Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:28:26.178Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 180ms
+2026-10-10T15:28:26.197Z proof edge=api-cache mode=golden replayed planner from the recorded run
+2026-10-10T15:28:26.198Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:28:26.199Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 6ms
+2026-10-10T15:28:26.330Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:28:26.331Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:28:26.332Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:28:27.806Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:28:27.807Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:28:27.808Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:28:27.835Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:28:27.836Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:28:27.970Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:28:27.971Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:28:29.422Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:28:29.423Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:28:29.424Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:28:30.910Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:28:30.911Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:28:30.912Z proof edge=ui-api mode=server POST /api/agent/step 200 7ms
+2026-10-10T15:28:30.938Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T15:28:30.939Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T15:28:32.586Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T15:28:32.587Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T15:28:38.670Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:28:38.671Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:28:38.672Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:28:44.799Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:28:44.799Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:28:44.801Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:28:47.830Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:28:47.831Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:28:47.832Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:28:49.323Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:28:49.324Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:28:49.326Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:28:49.484Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:28:49.484Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:28:49.485Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:28:50.997Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:28:50.998Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:28:50.999Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:31:14.467Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:31:14.468Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:31:14.469Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 5ms
+2026-10-10T15:31:16.126Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:31:16.127Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:31:16.128Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 4ms
+2026-10-10T15:31:19.365Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:31:19.366Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:31:19.368Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 5ms
+2026-10-10T15:31:21.156Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:31:21.156Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:31:21.158Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:31:22.731Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:31:22.731Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:31:22.732Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:31:29.072Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:31:29.073Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:31:29.075Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:31:29.150Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:31:29.151Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:31:29.152Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:35:31.962Z proof edge=api-ring mode=bundle listDevices ok 1ms
+2026-10-10T15:35:31.964Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 3ms
+2026-10-10T15:35:36.202Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T15:35:36.204Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T15:35:36.395Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:35:36.396Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:35:37.946Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:35:37.948Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:35:37.954Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:35:37.955Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:35:37.959Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:35:37.960Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:35:38.090Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:35:38.091Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:35:39.607Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:35:39.608Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:36:33.661Z proof edge=api-ring mode=bundle listDevices ok 0ms
+2026-10-10T15:36:33.662Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 1ms
+2026-10-10T15:36:33.773Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T15:36:33.775Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T15:36:35.226Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:36:35.227Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:36:35.379Z proof edge=api-cache mode=golden replayed extractor from the recorded run
+2026-10-10T15:36:35.380Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:36:35.381Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 149ms
+2026-10-10T15:36:35.498Z proof edge=api-cache mode=golden replayed planner from the recorded run
+2026-10-10T15:36:35.498Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:36:35.499Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 5ms
+2026-10-10T15:36:36.929Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:36:36.930Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:36:36.931Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:36:36.998Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:36:36.999Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:36:37.000Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:36:37.021Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:36:37.022Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:36:37.149Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:36:37.150Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:36:38.620Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:36:38.621Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:36:38.622Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:36:40.112Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:36:40.113Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:36:40.114Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:36:40.231Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T15:36:40.232Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T15:36:43.143Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T15:36:43.145Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 2ms
+2026-10-10T15:36:49.176Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:36:49.177Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:36:49.178Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:36:55.153Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:36:55.153Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:36:55.155Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:36:58.071Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:36:58.072Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:36:58.073Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:36:59.492Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:36:59.493Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:36:59.495Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:36:59.665Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:36:59.666Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:36:59.667Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:37:01.101Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:37:01.101Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:37:01.103Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:39:26.816Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:39:26.817Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:39:26.819Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 5ms
+2026-10-10T15:39:26.907Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:39:26.908Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:39:26.909Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 3ms
+2026-10-10T15:39:30.042Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:39:30.043Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:39:30.045Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 4ms
+2026-10-10T15:39:31.691Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:39:31.692Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:39:31.693Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:39:35.084Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:39:35.085Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:39:35.089Z proof edge=ui-api mode=server POST /api/agent/step 200 6ms
+2026-10-10T15:39:38.792Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:39:38.792Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:39:38.794Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T15:39:38.850Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:39:38.850Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:39:38.852Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:41:26.290Z proof edge=api-ring mode=bundle listDevices ok 2ms
+2026-10-10T15:41:26.291Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 3ms
+2026-10-10T15:41:26.463Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T15:41:26.465Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T15:41:26.543Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:41:26.544Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:41:26.551Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:41:26.552Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:41:26.559Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:41:26.560Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:41:26.562Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:41:26.563Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:41:26.657Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:41:26.659Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:41:28.772Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:41:28.773Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:43:23.090Z proof edge=api-ring mode=bundle listDevices ok 1ms
+2026-10-10T15:43:23.092Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 4ms
+2026-10-10T15:43:27.095Z proof edge=api-ring mode=bundle drainWebhookInbox ok 1ms
+2026-10-10T15:43:27.096Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T15:43:27.276Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:43:27.277Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:43:28.885Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:43:28.886Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:43:28.891Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:43:28.892Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:43:28.895Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:43:28.896Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:43:29.007Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:43:29.008Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:43:30.361Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:43:30.363Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:44:24.576Z proof edge=api-ring mode=bundle listDevices ok 0ms
+2026-10-10T15:44:24.578Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 2ms
+2026-10-10T15:44:24.696Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T15:44:24.697Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 1ms
+2026-10-10T15:44:26.127Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:44:26.129Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:44:26.279Z proof edge=api-cache mode=golden replayed extractor from the recorded run
+2026-10-10T15:44:26.280Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:44:26.281Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 148ms
+2026-10-10T15:44:26.409Z proof edge=api-cache mode=golden replayed planner from the recorded run
+2026-10-10T15:44:26.409Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:44:26.410Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 5ms
+2026-10-10T15:44:27.800Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:44:27.801Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:44:27.802Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:44:27.862Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:44:27.862Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:44:27.863Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T15:44:27.886Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:44:27.887Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:44:28.019Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:44:28.020Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:44:29.634Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:44:29.635Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:44:29.637Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:44:31.230Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:44:31.231Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:44:31.232Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:44:31.375Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T15:44:31.376Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T15:44:34.539Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T15:44:34.540Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 2ms
+2026-10-10T15:44:40.849Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:44:40.849Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:44:40.851Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:44:47.033Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:44:47.033Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:44:47.035Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:44:50.139Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:44:50.140Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:44:50.141Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:44:51.627Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:44:51.628Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:44:51.629Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:44:51.797Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:44:51.797Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:44:51.798Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:44:53.310Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:44:53.310Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:44:53.311Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T15:47:22.808Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:47:22.809Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:47:22.810Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 4ms
+2026-10-10T15:47:24.400Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:47:24.400Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:47:24.402Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 3ms
+2026-10-10T15:47:26.077Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:47:26.078Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:47:26.079Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 3ms
+2026-10-10T15:47:27.745Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:47:27.746Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:47:27.748Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:47:30.869Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:47:30.870Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:47:30.872Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:47:36.859Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:47:36.860Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:47:36.862Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:47:36.928Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:47:36.928Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:47:36.930Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:49:38.613Z proof edge=api-ring mode=bundle listDevices ok 1ms
+2026-10-10T15:49:38.614Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 2ms
+2026-10-10T15:49:42.694Z proof edge=api-ring mode=bundle drainWebhookInbox ok 1ms
+2026-10-10T15:49:42.695Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 2ms
+2026-10-10T15:49:42.894Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:49:42.895Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:49:44.645Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:49:44.646Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:49:44.650Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:49:44.651Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:49:44.654Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:49:44.655Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:49:44.779Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:49:44.780Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:49:46.332Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:49:46.333Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:50:40.178Z proof edge=api-ring mode=bundle listDevices ok 1ms
+2026-10-10T15:50:40.179Z proof edge=ui-api mode=server POST /api/ring/listDevices 200 2ms
+2026-10-10T15:50:40.287Z proof edge=api-ring mode=bundle drainWebhookInbox ok 0ms
+2026-10-10T15:50:40.288Z proof edge=ui-api mode=server POST /api/ring/drainWebhookInbox 200 1ms
+2026-10-10T15:50:41.676Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:50:41.677Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:50:41.824Z proof edge=api-cache mode=golden replayed extractor from the recorded run
+2026-10-10T15:50:41.825Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:50:41.827Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 146ms
+2026-10-10T15:50:41.947Z proof edge=api-cache mode=golden replayed planner from the recorded run
+2026-10-10T15:50:41.948Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:50:41.949Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 5ms
+2026-10-10T15:50:43.303Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:50:43.304Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:50:43.305Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:50:43.362Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:50:43.362Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:50:43.363Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:50:43.386Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:50:43.387Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 1ms
+2026-10-10T15:50:43.506Z proof edge=api-ring mode=bundle getEventHistory ok 0ms
+2026-10-10T15:50:43.508Z proof edge=ui-api mode=server POST /api/ring/getEventHistory 200 2ms
+2026-10-10T15:50:44.920Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:50:44.921Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:50:44.922Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:50:46.358Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:50:46.359Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:50:46.360Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:50:46.485Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T15:50:46.486Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 1ms
+2026-10-10T15:50:49.364Z proof edge=api-ring mode=bundle getSnapshot ok 0ms
+2026-10-10T15:50:49.366Z proof edge=ui-api mode=server POST /api/ring/getSnapshot 200 2ms
+2026-10-10T15:50:55.127Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:50:55.127Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:50:55.129Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:51:00.968Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:51:00.968Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:51:00.970Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:51:03.788Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:51:03.789Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:51:03.790Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:51:05.203Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:51:05.203Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:51:05.204Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:51:05.348Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:51:05.348Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:51:05.349Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:51:06.732Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:51:06.733Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:51:06.734Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-10T15:53:31.327Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:53:31.328Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:53:31.330Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 5ms
+2026-10-10T15:53:32.884Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:53:32.885Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:53:32.886Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 3ms
+2026-10-10T15:53:34.476Z proof edge=api-cache mode=golden replayed narrator from the recorded run
+2026-10-10T15:53:34.476Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:53:34.478Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 3ms
+2026-10-10T15:53:36.173Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:53:36.174Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:53:36.175Z proof edge=ui-api mode=server POST /api/agent/step 200 3ms
+2026-10-10T15:53:39.320Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:53:39.321Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:53:39.322Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:53:42.700Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:53:42.701Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:53:42.703Z proof edge=ui-api mode=server POST /api/agent/step 200 4ms
+2026-10-10T15:53:42.757Z proof edge=api-cache mode=golden replayed step from the recorded run
+2026-10-10T15:53:42.758Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
+2026-10-10T15:53:42.758Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
