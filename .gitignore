@@ -89,6 +89,8 @@ logs/*
 .tmp/
 run_state.json.*
 evals/iterations/
+# Session handoff notes stay local (operator scratch, never committed)
+HANDOFF-*.md
 
 # DP-SUBMISSION: judge-facing documents are part of the public repository
 !/design_documents/showcase.json

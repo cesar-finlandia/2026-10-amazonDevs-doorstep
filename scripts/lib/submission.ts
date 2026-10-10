@@ -56,6 +56,37 @@ export function scanBanned(files: string[]): BannedHit[] {
   return hits;
 }
 
+// Machine-specific path scan shared by public-readiness.ts and sb-09.
+// (The plan houses these patterns in public-readiness.ts; they live here so
+// both gates use byte-identical logic.) Segments require user/host-like tails
+// so API routes (/v1/.../sessions) and regex escapes (\d, \n) do not trip it,
+// and illustrative "..." examples are exempt. Drive paths require a known
+// root folder for the same reason.
+const ABS_PATTERNS: RegExp[] = [
+  /\/home\/[A-Za-z0-9_~.-]+/,
+  /\/Users\/[A-Za-z0-9_~.-]+/,
+  /[A-Za-z]:[\\/](Users|home|tmp|Temp|Program Files|Windows|Documents|data|mnt)[\\/]/,
+  /\/tmp\/[A-Za-z0-9_~-]{4,}/,
+  /\/mnt\/data/,
+  /\/private\/tmp/,
+  /\/sessions\/[A-Za-z0-9-]{8,}/,
+];
+
+export function absolutePathHits(text: string): string[] {
+  const hits: string[] = [];
+  for (const line of text.split("\n")) {
+    if (line.includes("...")) continue;
+    for (const re of ABS_PATTERNS) {
+      const m = re.exec(line);
+      if (m) {
+        hits.push(m[0]);
+        break;
+      }
+    }
+  }
+  return hits;
+}
+
 export interface BannedRewrite { label: string; apply(text: string): { text: string; replaced: { from: string; to: string }[]; needsHuman: { line: number; match: string }[] } }
 
 // BANNED_REWRITES (§5.5): derived from ../../hackathons/templates/banned-words.json

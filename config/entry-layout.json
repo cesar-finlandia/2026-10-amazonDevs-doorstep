@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "allowedFiles": [
+    ".dockerignore", ".gitignore", ".nvmrc", ".python-version", "Dockerfile", "JUDGES.md", "LICENSE", "README.md",
+    "actions.manifest.json", "architecture.json", "assembly.manifest.json", "cinematic-tokens.json", "claims.json",
+    "disclosure.md", "index.html", "models.json", "package-lock.json", "package.json", "playwright.config.ts",
+    "playwright.showcase.config.ts", "pyproject.toml", "run_sweep.sh", "tsconfig.json", "vite.config.ts"
+  ],
+  "allowedDirs": [
+    ".claude", "brand", "config", "contracts", "data", "design_documents", "docs", "e2e", "engine", "evals", "hee", "logs",
+    "public", "scripts", "shots", "src"
+  ],
+  "ignoredButPresent": ["node_modules", "dist", "test-results", "playwright-report", ".git"]
+}
