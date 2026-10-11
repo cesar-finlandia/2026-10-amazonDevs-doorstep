@@ -6,7 +6,7 @@
 import { execSync } from "node:child_process";
 
 const NAMES = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY", "AWS_REGION",
-  "AWS_BEARER_TOKEN_BEDROCK", "APPLIO_DIR", "APPLIO_PTH", "APPLIO_INDEX"];
+  "AWS_BEARER_TOKEN_BEDROCK", "BEDROCK_MODEL_ID", "APPLIO_DIR", "APPLIO_PTH", "APPLIO_INDEX"];
 
 export function rehydrateEnv(names: string[] = NAMES): void {
   for (const k of names) {
