@@ -1518,3 +1518,207 @@
 2026-10-10T15:53:42.757Z proof edge=api-cache mode=golden replayed step from the recorded run
 2026-10-10T15:53:42.758Z proof edge=api-cost mode=sidecar used 0% of the token budget (0 tokens)
 2026-10-10T15:53:42.758Z proof edge=ui-api mode=server POST /api/agent/step 200 2ms
+2026-10-11T19:07:33.029Z proof edge=api-bedrock mode=bedrock extractor global.anthropic.claude-sonnet-4-6 16118ms 6977 tokens
+2026-10-11T19:07:33.029Z proof edge=api-cost mode=sidecar used 1.2% of the token budget (6977 tokens)
+2026-10-11T19:07:33.031Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 16390ms
+2026-10-11T19:07:43.759Z proof edge=api-bedrock mode=bedrock extractor global.anthropic.claude-sonnet-4-6 10676ms 4906 tokens
+2026-10-11T19:07:43.759Z proof edge=api-cost mode=sidecar used 2% of the token budget (11883 tokens)
+2026-10-11T19:07:43.760Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 10679ms
+2026-10-11T19:07:56.444Z proof edge=api-bedrock mode=bedrock planner global.anthropic.claude-sonnet-4-6 12672ms 2903 tokens
+2026-10-11T19:07:56.445Z proof edge=api-cost mode=sidecar used 2.5% of the token budget (14786 tokens)
+2026-10-11T19:07:56.446Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 12675ms
+2026-10-11T19:07:58.431Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 1974ms 6326 tokens
+2026-10-11T19:07:58.432Z proof edge=api-cost mode=sidecar used 3.5% of the token budget (21112 tokens)
+2026-10-11T19:07:58.433Z proof edge=ui-api mode=server POST /api/agent/step 200 1980ms
+2026-10-11T19:08:00.853Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 2360ms 7350 tokens
+2026-10-11T19:08:00.853Z proof edge=api-cost mode=sidecar used 4.7% of the token budget (28462 tokens)
+2026-10-11T19:08:00.855Z proof edge=ui-api mode=server POST /api/agent/step 200 2365ms
+2026-10-11T19:08:04.150Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 3232ms 8408 tokens
+2026-10-11T19:08:04.150Z proof edge=api-cost mode=sidecar used 6.1% of the token budget (36870 tokens)
+2026-10-11T19:08:04.151Z proof edge=ui-api mode=server POST /api/agent/step 200 3236ms
+2026-10-11T19:08:09.274Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 5018ms 11657 tokens
+2026-10-11T19:08:09.275Z proof edge=api-cost mode=sidecar used 8.1% of the token budget (48527 tokens)
+2026-10-11T19:08:09.276Z proof edge=ui-api mode=server POST /api/agent/step 200 5023ms
+2026-10-11T19:08:13.922Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 4583ms 12997 tokens
+2026-10-11T19:08:13.923Z proof edge=api-cost mode=sidecar used 10.3% of the token budget (61524 tokens)
+2026-10-11T19:08:13.924Z proof edge=ui-api mode=server POST /api/agent/step 200 4586ms
+2026-10-11T19:08:17.584Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 3602ms 14995 tokens
+2026-10-11T19:08:17.585Z proof edge=api-cost mode=sidecar used 12.8% of the token budget (76519 tokens)
+2026-10-11T19:08:17.586Z proof edge=ui-api mode=server POST /api/agent/step 200 3607ms
+2026-10-11T19:08:21.579Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 3959ms 16145 tokens
+2026-10-11T19:08:21.580Z proof edge=api-cost mode=sidecar used 15.4% of the token budget (92664 tokens)
+2026-10-11T19:08:21.581Z proof edge=ui-api mode=server POST /api/agent/step 200 3963ms
+2026-10-11T19:08:23.355Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 1744ms 16541 tokens
+2026-10-11T19:08:23.356Z proof edge=api-cost mode=sidecar used 18.2% of the token budget (109205 tokens)
+2026-10-11T19:08:23.357Z proof edge=ui-api mode=server POST /api/agent/step 200 1747ms
+2026-10-11T19:10:34.102Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 10721ms 17536 tokens
+2026-10-11T19:10:34.102Z proof edge=api-cost mode=sidecar used 21.1% of the token budget (126741 tokens)
+2026-10-11T19:10:34.103Z proof edge=ui-api mode=server POST /api/agent/step 200 10725ms
+2026-10-11T19:10:36.879Z proof edge=api-bedrock mode=bedrock narrator global.anthropic.claude-sonnet-4-6 2738ms 1431 tokens
+2026-10-11T19:10:36.879Z proof edge=api-cost mode=sidecar used 21.4% of the token budget (128172 tokens)
+2026-10-11T19:10:36.880Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 2743ms
+2026-10-11T19:10:39.662Z proof edge=api-bedrock mode=bedrock narrator global.anthropic.claude-sonnet-4-6 2758ms 1439 tokens
+2026-10-11T19:10:39.663Z proof edge=api-cost mode=sidecar used 21.6% of the token budget (129611 tokens)
+2026-10-11T19:10:39.663Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 2760ms
+2026-10-11T19:10:42.292Z proof edge=api-bedrock mode=bedrock narrator global.anthropic.claude-sonnet-4-6 2606ms 1429 tokens
+2026-10-11T19:10:42.292Z proof edge=api-cost mode=sidecar used 21.8% of the token budget (131040 tokens)
+2026-10-11T19:10:42.293Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 2609ms
+2026-10-11T19:10:45.019Z proof edge=api-bedrock mode=bedrock narrator global.anthropic.claude-sonnet-4-6 2705ms 1443 tokens
+2026-10-11T19:10:45.020Z proof edge=api-cost mode=sidecar used 22.1% of the token budget (132483 tokens)
+2026-10-11T19:10:45.020Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 2707ms
+2026-10-11T19:10:46.421Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 1373ms 5662 tokens
+2026-10-11T19:10:46.421Z proof edge=api-cost mode=sidecar used 23% of the token budget (138145 tokens)
+2026-10-11T19:10:46.422Z proof edge=ui-api mode=server POST /api/agent/step 200 1376ms
+2026-10-11T19:10:48.379Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 1935ms 6523 tokens
+2026-10-11T19:10:48.380Z proof edge=api-cost mode=sidecar used 24.1% of the token budget (144668 tokens)
+2026-10-11T19:10:48.381Z proof edge=ui-api mode=server POST /api/agent/step 200 1940ms
+2026-10-11T19:10:51.543Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 3129ms 7602 tokens
+2026-10-11T19:10:51.543Z proof edge=api-cost mode=sidecar used 25.4% of the token budget (152270 tokens)
+2026-10-11T19:10:51.544Z proof edge=ui-api mode=server POST /api/agent/step 200 3133ms
+2026-10-11T19:10:54.390Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 2763ms 9252 tokens
+2026-10-11T19:10:54.391Z proof edge=api-cost mode=sidecar used 26.9% of the token budget (161522 tokens)
+2026-10-11T19:10:54.391Z proof edge=ui-api mode=server POST /api/agent/step 200 2766ms
+2026-10-11T19:10:56.076Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 1662ms 9620 tokens
+2026-10-11T19:10:56.077Z proof edge=api-cost mode=sidecar used 28.5% of the token budget (171142 tokens)
+2026-10-11T19:10:56.078Z proof edge=ui-api mode=server POST /api/agent/step 200 1666ms
+2026-10-11T19:10:58.300Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 2200ms 9889 tokens
+2026-10-11T19:10:58.301Z proof edge=api-cost mode=sidecar used 30.2% of the token budget (181031 tokens)
+2026-10-11T19:10:58.302Z proof edge=ui-api mode=server POST /api/agent/step 200 2204ms
+2026-10-11T19:11:01.702Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 3390ms 10173 tokens
+2026-10-11T19:11:01.704Z proof edge=api-cost mode=sidecar used 31.9% of the token budget (191204 tokens)
+2026-10-11T19:11:01.707Z proof edge=ui-api mode=server POST /api/agent/step 200 3399ms
+2026-10-11T19:13:28.158Z proof edge=api-bedrock mode=bedrock extractor global.anthropic.claude-sonnet-4-6 11924ms 6970 tokens
+2026-10-11T19:13:28.158Z proof edge=api-cost mode=sidecar used 1.2% of the token budget (6970 tokens)
+2026-10-11T19:13:28.160Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 12083ms
+2026-10-11T19:13:36.977Z proof edge=api-bedrock mode=bedrock extractor global.anthropic.claude-sonnet-4-6 8763ms 4251 tokens
+2026-10-11T19:13:36.977Z proof edge=api-cost mode=sidecar used 1.9% of the token budget (11221 tokens)
+2026-10-11T19:13:36.979Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 8767ms
+2026-10-11T19:13:54.739Z proof edge=api-bedrock mode=bedrock planner global.anthropic.claude-sonnet-4-6 17747ms 6810 tokens
+2026-10-11T19:13:54.740Z proof edge=api-cost mode=sidecar used 3% of the token budget (18031 tokens)
+2026-10-11T19:13:54.741Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 17751ms
+2026-10-11T19:13:56.369Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 1617ms 6344 tokens
+2026-10-11T19:13:56.369Z proof edge=api-cost mode=sidecar used 4.1% of the token budget (24375 tokens)
+2026-10-11T19:13:56.371Z proof edge=ui-api mode=server POST /api/agent/step 200 1623ms
+2026-10-11T19:13:58.707Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 2288ms 7157 tokens
+2026-10-11T19:13:58.708Z proof edge=api-cost mode=sidecar used 5.3% of the token budget (31532 tokens)
+2026-10-11T19:13:58.709Z proof edge=ui-api mode=server POST /api/agent/step 200 2292ms
+2026-10-11T19:14:01.579Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 2823ms 7845 tokens
+2026-10-11T19:14:01.579Z proof edge=api-cost mode=sidecar used 6.6% of the token budget (39377 tokens)
+2026-10-11T19:14:01.580Z proof edge=ui-api mode=server POST /api/agent/step 200 2826ms
+2026-10-11T19:14:06.846Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 5168ms 10455 tokens
+2026-10-11T19:14:06.847Z proof edge=api-cost mode=sidecar used 8.3% of the token budget (49832 tokens)
+2026-10-11T19:14:06.848Z proof edge=ui-api mode=server POST /api/agent/step 200 5173ms
+2026-10-11T19:14:11.623Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 4699ms 11859 tokens
+2026-10-11T19:14:11.623Z proof edge=api-cost mode=sidecar used 10.3% of the token budget (61691 tokens)
+2026-10-11T19:14:11.625Z proof edge=ui-api mode=server POST /api/agent/step 200 4703ms
+2026-10-11T19:14:15.005Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 3318ms 13871 tokens
+2026-10-11T19:14:15.005Z proof edge=api-cost mode=sidecar used 12.6% of the token budget (75562 tokens)
+2026-10-11T19:14:15.007Z proof edge=ui-api mode=server POST /api/agent/step 200 3324ms
+2026-10-11T19:14:17.446Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 2402ms 15030 tokens
+2026-10-11T19:14:17.447Z proof edge=api-cost mode=sidecar used 15.1% of the token budget (90592 tokens)
+2026-10-11T19:14:17.448Z proof edge=ui-api mode=server POST /api/agent/step 200 2406ms
+2026-10-11T19:14:20.412Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 2943ms 15350 tokens
+2026-10-11T19:14:20.412Z proof edge=api-cost mode=sidecar used 17.7% of the token budget (105942 tokens)
+2026-10-11T19:14:20.413Z proof edge=ui-api mode=server POST /api/agent/step 200 2947ms
+2026-10-11T19:14:28.136Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 7691ms 16791 tokens
+2026-10-11T19:14:28.136Z proof edge=api-cost mode=sidecar used 20.5% of the token budget (122733 tokens)
+2026-10-11T19:14:28.138Z proof edge=ui-api mode=server POST /api/agent/step 200 7696ms
+2026-10-11T19:14:31.014Z proof edge=api-bedrock mode=bedrock narrator global.anthropic.claude-sonnet-4-6 2853ms 1429 tokens
+2026-10-11T19:14:31.014Z proof edge=api-cost mode=sidecar used 20.7% of the token budget (124162 tokens)
+2026-10-11T19:14:31.015Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 2857ms
+2026-10-11T19:14:33.863Z proof edge=api-bedrock mode=bedrock narrator global.anthropic.claude-sonnet-4-6 2826ms 1427 tokens
+2026-10-11T19:14:33.864Z proof edge=api-cost mode=sidecar used 20.9% of the token budget (125589 tokens)
+2026-10-11T19:14:33.865Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 2830ms
+2026-10-11T19:14:36.750Z proof edge=api-bedrock mode=bedrock narrator global.anthropic.claude-sonnet-4-6 2860ms 1431 tokens
+2026-10-11T19:14:36.750Z proof edge=api-cost mode=sidecar used 21.2% of the token budget (127020 tokens)
+2026-10-11T19:14:36.751Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 2863ms
+2026-10-11T19:14:39.306Z proof edge=api-bedrock mode=bedrock narrator global.anthropic.claude-sonnet-4-6 2535ms 1436 tokens
+2026-10-11T19:14:39.307Z proof edge=api-cost mode=sidecar used 21.4% of the token budget (128456 tokens)
+2026-10-11T19:14:39.308Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 2539ms
+2026-10-11T19:14:40.670Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 1343ms 5662 tokens
+2026-10-11T19:14:40.671Z proof edge=api-cost mode=sidecar used 22.4% of the token budget (134118 tokens)
+2026-10-11T19:14:40.672Z proof edge=ui-api mode=server POST /api/agent/step 200 1348ms
+2026-10-11T19:14:42.514Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 1822ms 6523 tokens
+2026-10-11T19:14:42.514Z proof edge=api-cost mode=sidecar used 23.4% of the token budget (140641 tokens)
+2026-10-11T19:14:42.515Z proof edge=ui-api mode=server POST /api/agent/step 200 1825ms
+2026-10-11T19:14:45.791Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 3247ms 7602 tokens
+2026-10-11T19:14:45.792Z proof edge=api-cost mode=sidecar used 24.7% of the token budget (148243 tokens)
+2026-10-11T19:14:45.793Z proof edge=ui-api mode=server POST /api/agent/step 200 3251ms
+2026-10-11T19:14:48.697Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 2829ms 9252 tokens
+2026-10-11T19:14:48.698Z proof edge=api-cost mode=sidecar used 26.2% of the token budget (157495 tokens)
+2026-10-11T19:14:48.699Z proof edge=ui-api mode=server POST /api/agent/step 200 2834ms
+2026-10-11T19:14:50.413Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 1693ms 9620 tokens
+2026-10-11T19:14:50.414Z proof edge=api-cost mode=sidecar used 27.9% of the token budget (167115 tokens)
+2026-10-11T19:14:50.415Z proof edge=ui-api mode=server POST /api/agent/step 200 1696ms
+2026-10-11T19:14:52.685Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 2252ms 9889 tokens
+2026-10-11T19:14:52.685Z proof edge=api-cost mode=sidecar used 29.5% of the token budget (177004 tokens)
+2026-10-11T19:14:52.686Z proof edge=ui-api mode=server POST /api/agent/step 200 2255ms
+2026-10-11T19:15:00.276Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 4160ms 10161 tokens
+2026-10-11T19:15:00.277Z proof edge=api-cost mode=sidecar used 31.2% of the token budget (187165 tokens)
+2026-10-11T19:15:00.277Z proof edge=ui-api mode=server POST /api/agent/step 200 7584ms
+2026-10-11T19:16:16.116Z proof edge=api-bedrock mode=bedrock extractor global.anthropic.claude-sonnet-4-6 11768ms 6970 tokens
+2026-10-11T19:16:16.117Z proof edge=api-cost mode=sidecar used 1.2% of the token budget (6970 tokens)
+2026-10-11T19:16:16.118Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 11924ms
+2026-10-11T19:16:24.551Z proof edge=api-bedrock mode=bedrock extractor global.anthropic.claude-sonnet-4-6 8380ms 4230 tokens
+2026-10-11T19:16:24.551Z proof edge=api-cost mode=sidecar used 1.9% of the token budget (11200 tokens)
+2026-10-11T19:16:24.553Z proof edge=ui-api mode=server POST /api/agent/role/extractor 200 8384ms
+2026-10-11T19:16:37.552Z proof edge=api-bedrock mode=bedrock planner global.anthropic.claude-sonnet-4-6 12986ms 2910 tokens
+2026-10-11T19:16:37.553Z proof edge=api-cost mode=sidecar used 2.4% of the token budget (14110 tokens)
+2026-10-11T19:16:37.554Z proof edge=ui-api mode=server POST /api/agent/role/planner 200 12990ms
+2026-10-11T19:16:39.248Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 1683ms 6360 tokens
+2026-10-11T19:16:39.248Z proof edge=api-cost mode=sidecar used 3.4% of the token budget (20470 tokens)
+2026-10-11T19:16:39.249Z proof edge=ui-api mode=server POST /api/agent/step 200 1689ms
+2026-10-11T19:16:41.684Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 2386ms 7197 tokens
+2026-10-11T19:16:41.685Z proof edge=api-cost mode=sidecar used 4.6% of the token budget (27667 tokens)
+2026-10-11T19:16:41.686Z proof edge=ui-api mode=server POST /api/agent/step 200 2390ms
+2026-10-11T19:16:44.745Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 3019ms 7906 tokens
+2026-10-11T19:16:44.746Z proof edge=api-cost mode=sidecar used 5.9% of the token budget (35573 tokens)
+2026-10-11T19:16:44.747Z proof edge=ui-api mode=server POST /api/agent/step 200 3024ms
+2026-10-11T19:16:50.186Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 5345ms 10484 tokens
+2026-10-11T19:16:50.187Z proof edge=api-cost mode=sidecar used 7.7% of the token budget (46057 tokens)
+2026-10-11T19:16:50.188Z proof edge=ui-api mode=server POST /api/agent/step 200 5349ms
+2026-10-11T19:16:54.385Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 4138ms 11630 tokens
+2026-10-11T19:16:54.385Z proof edge=api-cost mode=sidecar used 9.6% of the token budget (57687 tokens)
+2026-10-11T19:16:54.386Z proof edge=ui-api mode=server POST /api/agent/step 200 4141ms
+2026-10-11T19:16:55.977Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 1538ms 12174 tokens
+2026-10-11T19:16:55.978Z proof edge=api-cost mode=sidecar used 11.6% of the token budget (69861 tokens)
+2026-10-11T19:16:55.980Z proof edge=ui-api mode=server POST /api/agent/step 200 1544ms
+2026-10-11T19:16:58.656Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 2652ms 13053 tokens
+2026-10-11T19:16:58.657Z proof edge=api-cost mode=sidecar used 13.8% of the token budget (82914 tokens)
+2026-10-11T19:16:58.658Z proof edge=ui-api mode=server POST /api/agent/step 200 2656ms
+2026-10-11T19:17:00.232Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 1553ms 13256 tokens
+2026-10-11T19:17:00.232Z proof edge=api-cost mode=sidecar used 16% of the token budget (96170 tokens)
+2026-10-11T19:17:00.233Z proof edge=ui-api mode=server POST /api/agent/step 200 1556ms
+2026-10-11T19:17:08.074Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 7820ms 14320 tokens
+2026-10-11T19:17:08.075Z proof edge=api-cost mode=sidecar used 18.4% of the token budget (110490 tokens)
+2026-10-11T19:17:08.076Z proof edge=ui-api mode=server POST /api/agent/step 200 7824ms
+2026-10-11T19:17:10.645Z proof edge=api-bedrock mode=bedrock narrator global.anthropic.claude-sonnet-4-6 2559ms 1431 tokens
+2026-10-11T19:17:10.645Z proof edge=api-cost mode=sidecar used 18.7% of the token budget (111921 tokens)
+2026-10-11T19:17:10.646Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 2563ms
+2026-10-11T19:17:13.493Z proof edge=api-bedrock mode=bedrock narrator global.anthropic.claude-sonnet-4-6 2826ms 1436 tokens
+2026-10-11T19:17:13.493Z proof edge=api-cost mode=sidecar used 18.9% of the token budget (113357 tokens)
+2026-10-11T19:17:13.495Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 2830ms
+2026-10-11T19:17:16.271Z proof edge=api-bedrock mode=bedrock narrator global.anthropic.claude-sonnet-4-6 2757ms 1445 tokens
+2026-10-11T19:17:16.272Z proof edge=api-cost mode=sidecar used 19.1% of the token budget (114802 tokens)
+2026-10-11T19:17:16.272Z proof edge=ui-api mode=server POST /api/agent/role/narrator 200 2759ms
+2026-10-11T19:17:17.662Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 1368ms 5662 tokens
+2026-10-11T19:17:17.662Z proof edge=api-cost mode=sidecar used 20.1% of the token budget (120464 tokens)
+2026-10-11T19:17:17.663Z proof edge=ui-api mode=server POST /api/agent/step 200 1372ms
+2026-10-11T19:17:19.500Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 1817ms 6523 tokens
+2026-10-11T19:17:19.501Z proof edge=api-cost mode=sidecar used 21.2% of the token budget (126987 tokens)
+2026-10-11T19:17:19.502Z proof edge=ui-api mode=server POST /api/agent/step 200 1821ms
+2026-10-11T19:17:22.597Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 3065ms 7597 tokens
+2026-10-11T19:17:22.598Z proof edge=api-cost mode=sidecar used 22.4% of the token budget (134584 tokens)
+2026-10-11T19:17:22.599Z proof edge=ui-api mode=server POST /api/agent/step 200 3069ms
+2026-10-11T19:17:25.442Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 2747ms 9004 tokens
+2026-10-11T19:17:25.442Z proof edge=api-cost mode=sidecar used 23.9% of the token budget (143588 tokens)
+2026-10-11T19:17:25.444Z proof edge=ui-api mode=server POST /api/agent/step 200 2752ms
+2026-10-11T19:17:27.096Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 1629ms 9367 tokens
+2026-10-11T19:17:27.097Z proof edge=api-cost mode=sidecar used 25.5% of the token budget (152955 tokens)
+2026-10-11T19:17:27.098Z proof edge=ui-api mode=server POST /api/agent/step 200 1634ms
+2026-10-11T19:17:29.143Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 2019ms 9629 tokens
+2026-10-11T19:17:29.144Z proof edge=api-cost mode=sidecar used 27.1% of the token budget (162584 tokens)
+2026-10-11T19:17:29.145Z proof edge=ui-api mode=server POST /api/agent/step 200 2024ms
+2026-10-11T19:17:34.994Z proof edge=api-bedrock mode=bedrock step global.anthropic.claude-sonnet-4-6 2933ms 9892 tokens
+2026-10-11T19:17:34.994Z proof edge=api-cost mode=sidecar used 28.7% of the token budget (172476 tokens)
+2026-10-11T19:17:34.995Z proof edge=ui-api mode=server POST /api/agent/step 200 5846ms

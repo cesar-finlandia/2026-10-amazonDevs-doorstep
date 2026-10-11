@@ -75,8 +75,8 @@
       "label": "HTTPS",
       "proof": {
         "file": "logs/proof.log",
-        "line": 1520,
-        "text": "POST /api/agent/step 200 2ms",
+        "line": 1724,
+        "text": "POST /api/agent/step 200 5846ms",
         "mode": "server"
       }
     },
@@ -99,7 +99,13 @@
       "from": "api",
       "to": "bedrock",
       "kind": "infer",
-      "label": "Converse"
+      "label": "Converse",
+      "proof": {
+        "file": "logs/proof.log",
+        "line": 1722,
+        "text": "step global.anthropic.claude-sonnet-4-6 2933ms 9892 tokens",
+        "mode": "bedrock"
+      }
     },
     {
       "id": "api-cache",
@@ -122,8 +128,8 @@
       "label": "tokens",
       "proof": {
         "file": "logs/proof.log",
-        "line": 1519,
-        "text": "used 0% of the token budget (0 tokens)",
+        "line": 1723,
+        "text": "used 28.7% of the token budget (172476 tokens)",
         "mode": "sidecar"
       }
     }
