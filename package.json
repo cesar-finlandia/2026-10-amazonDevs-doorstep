@@ -20,7 +20,7 @@
     "verify:showcase": "vite-node scripts/verify/sc-01-claims.ts && vite-node scripts/verify/sc-02-scenario.ts && vite-node scripts/verify/sc-03-watch.ts && vite-node scripts/verify/sc-04-stills.ts && vite-node scripts/verify/sc-05-readme.ts && vite-node scripts/verify/sc-06-judges.ts && vite-node scripts/verify/sc-07-operator.ts",
     "verify:submission": "vite-node scripts/verify/sb-01-licence.ts && vite-node scripts/verify/sb-02-fields.ts && vite-node scripts/verify/sb-03-feedback.ts && vite-node scripts/verify/sb-04-friction.ts && vite-node scripts/verify/sb-05-delta.ts && vite-node scripts/verify/sb-06-deck.ts && vite-node scripts/verify/sb-07-qa.ts && vite-node scripts/verify/sb-08-capture.ts && vite-node scripts/verify/sb-09-hygiene.ts",
     "verify:script": "vite-node scripts/verify/sk-01-harvest.ts && vite-node scripts/verify/sk-02-ledger.ts && vite-node scripts/verify/sk-03-script.ts && vite-node scripts/verify/sk-04-segments.ts && vite-node scripts/verify/sk-05-beats.ts && vite-node scripts/verify/sk-06-figures.ts && vite-node scripts/verify/sk-07-cover.ts && vite-node scripts/verify/sk-08-slides.ts && vite-node scripts/verify/sk-09-pitch.ts && vite-node scripts/verify/sk-10-acceptance.ts && echo verify:script: 108 checks OK",
-    "verify:live": "vite-node scripts/verify/lv-01-gate.ts && vite-node scripts/verify/lv-02-proofs.ts && vite-node scripts/verify/lv-03-pause.ts",
+    "verify:live": "vite-node scripts/verify/lv-01-gate.ts && vite-node scripts/verify/lv-02-proofs.ts && vite-node scripts/verify/lv-03-pause.ts && vite-node scripts/verify/lv-04-voice.ts",
     "submission:chassis": "vite-node scripts/chassis-tool.ts",
     "lint:contracts": "node scripts/lint-contracts.ts",
     "test": "pnpm -F resilience run test",

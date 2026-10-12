@@ -11,9 +11,15 @@ import { PROJECT, readJson, runNode } from "./lib.js";
 rehydrateEnv();
 const receiptPath = `${PROJECT}/video/pause-receipt.json`;
 if (existsSync(receiptPath)) {
-  const open = readJson(receiptPath) as { resumedAt?: string | null };
+  const open = readJson(receiptPath) as { resumedAt?: string | null; answer?: unknown };
   if (open.resumedAt === null || open.resumedAt === undefined) {
     console.log("pause: already waiting for the operator");
+    process.exit(0);
+  }
+  // Answered and resumed: the pause is history. Re-firing here would open a
+  // second pause (pauses: 2, new stops); refuse instead, change nothing.
+  if (open.answer !== null && open.answer !== undefined) {
+    console.log("pause: already answered");
     process.exit(0);
   }
 }

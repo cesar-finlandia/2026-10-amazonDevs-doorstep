@@ -17,34 +17,58 @@ const t = (ok: boolean, label: string): void => {
 const absPath = (s: string): boolean => /[A-Za-z]:\\/.test(s) || /"\/[^"]/.test(s) || s.includes('"~/');
 const noSecrets = (s: string): boolean => !/AKIA|Bearer [A-Za-z0-9_\-]{16,}/.test(s);
 
-// 1. the gate is idempotent and green: exit 0 with a waiting line.
+// 1. the gate is idempotent and green: exit 0 without changes. Before the
+// answer it waits; after resume (answer recorded, WU-LIVE-04) it reports the
+// pause answered and still changes nothing (no second pause opens).
 {
   const repBefore = createHash("sha256").update(readFileSync(`${PROJECT}/video/pause-receipt.json`, "utf8")).digest("hex");
   const r = runNode(["scripts/video/pause.ts"]);
   const repAfter = createHash("sha256").update(readFileSync(`${PROJECT}/video/pause-receipt.json`, "utf8")).digest("hex");
   const lines = r.out.replace(/\r/g, "").trim().split("\n").map((l) => l.trim());
-  const waited = lines.some((l) => l === "pause: awaiting the operator" || l === "pause: already waiting for the operator");
-  t(r.code === 0 && waited && repBefore === repAfter, "pause exits 0, waiting line, receipt stable");
+  const settled = lines.some((l) => l === "pause: awaiting the operator" || l === "pause: already waiting for the operator" ||
+    l === "pause: already answered");
+  t(r.code === 0 && settled && repBefore === repAfter, "pause exits 0, settled line, receipt stable");
 }
 
-// 2. the receipt asks the three things and waits.
+// 2. the receipt asked the three things; after resume it carries the answer
+// (phase evolution WU-LIVE-04: open-pause assertions retire once answered).
 {
   const receipt = readJson(`${PROJECT}/video/pause-receipt.json`) as {
-    pauses?: number; asked?: string[]; resumedAt?: string | null; answer?: unknown;
+    pauses?: number; asked?: string[]; resumedAt?: string | null; pausedAt?: string; answer?: null | {
+      speech?: string; length?: string; assets?: string; approved_by?: string; regenerate?: string[];
+    };
   };
-  t(receipt.pauses === 1 && JSON.stringify(receipt.asked) === JSON.stringify(["speech", "length", "assets"]) &&
-    (receipt.resumedAt === null || receipt.resumedAt === undefined) && receipt.answer === null,
-    "receipt: 1 pause, 3 asks, awaiting answer");
+  const open = receipt.resumedAt === null || receipt.resumedAt === undefined;
+  const askedOk = receipt.pauses === 1 && JSON.stringify(receipt.asked) === JSON.stringify(["speech", "length", "assets"]);
+  const answeredOk = !open && receipt.answer !== null && receipt.answer !== undefined &&
+    typeof receipt.answer.speech === "string" && typeof receipt.answer.length === "string" &&
+    typeof receipt.answer.assets === "string" && typeof receipt.answer.approved_by === "string" &&
+    Array.isArray(receipt.answer.regenerate) &&
+    (receipt.resumedAt ?? "") > (receipt.pausedAt ?? "z");
+  t(askedOk && (open ? receipt.answer === null : answeredOk),
+    open ? "receipt: 1 pause, 3 asks, awaiting answer" : "receipt: 1 pause, 3 asks, answered with resumedAt");
 }
 
-// 3. nothing synthesized, nothing recorded.
+// 3. the pause fired before any synthesis or footage (phase evolution:
+// after resume, assert the pause PREDATES the voice by file time — the order
+// the gate certified, not an eternal absence of voice).
 {
-  let clean = !existsSync(`${PROJECT}/video/master-silent.mp4`) && !existsSync(`${PROJECT}/video/capture-geometry.json`);
+  const { statSync } = await import("node:fs") as typeof import("node:fs");
+  const rep = readJson(`${PROJECT}/video/pause-receipt.json`) as { pausedAt?: string };
+  const pausedAt = Date.parse(rep.pausedAt ?? "");
+  let wavs: string[] = [];
   try {
     const { readdirSync } = await import("node:fs") as typeof import("node:fs");
-    clean = clean && !readdirSync(`${PROJECT}/video/narration`).some((f) => /\.(wav|mp4|srt)$/.test(f));
-  } catch { /* narration/ absent counts as clean */ }
-  t(clean, "no voice, no footage yet");
+    wavs = readdirSync(`${PROJECT}/video/narration`).filter((f) => /\.(wav|mp4|srt)$/.test(f));
+  } catch { /* narration/ absent counts as pre-voice */ }
+  const clean = !existsSync(`${PROJECT}/video/master-silent.mp4`) && !existsSync(`${PROJECT}/video/capture-geometry.json`);
+  let orderOk = true;
+  for (const f of wavs) {
+    try {
+      if (statSync(`${PROJECT}/video/narration/${f}`).mtimeMs <= pausedAt) orderOk = false;
+    } catch { /* ignore */ }
+  }
+  t(clean && orderOk && Number.isFinite(pausedAt), wavs.length === 0 ? "no voice, no footage yet" : `pause predates ${wavs.length} narration files`);
 }
 
 // 4. the animatic exists, small, and carries no sound (the chassis muxes a
