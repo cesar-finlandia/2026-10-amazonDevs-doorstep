@@ -1,12 +1,12 @@
 # Product feedback
 
 <!-- live-check:start -->
-Observed on 2026-10-11
+Observed on 2026-10-12
 - probeBedrock: ok — balanced tier discovered in us-east-1 (evidence: logs/proof.log)
 - listDevices: not run: no Ring credentials in the environment (RING_ACCESS_TOKEN or the refresh trio absent) — Ring observations need a live account; the film uses the recorded sample week (evidence: video/live-observations.json)
 - getEventHistory: not run: no Ring credentials in the environment (RING_ACCESS_TOKEN or the refresh trio absent) — Ring observations need a live account; the film uses the recorded sample week (evidence: video/live-observations.json)
 - webhookDelivery: not run: no Ring credentials in the environment (RING_ACCESS_TOKEN or the refresh trio absent) — Ring observations need a live account; the film uses the recorded sample week (evidence: video/live-observations.json)
-- agentReview: ok — rung bedrock, 22 model calls, phases load>perceive>plan>act>verify>repair>explain>checkpoint>finish, review ok (evidence: logs/proof.log)
+- agentReview: ok — rung bedrock, 23 model calls, phases load>perceive>plan>act>verify>repair>explain>checkpoint>finish, review ok (evidence: logs/proof.log)
 <!-- live-check:end -->
 
 ## Ring REST API and OAuth

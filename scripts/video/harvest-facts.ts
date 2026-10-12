@@ -99,6 +99,7 @@ async function main(): Promise<void> {
   if (eq(roles1, roles2)) comparisons.push({ field: "model_roles", run1: roles1.length, run2: roles2.length, quote: "exact" });
   else comparisons.push({ field: "model_roles", run1: roles1.length, run2: roles2.length, quote: "range", range: [Math.min(roles1.length, roles2.length), Math.max(roles1.length, roles2.length)] });
   numRow("actions", summaries[0]?.actions ?? -1, summaries[1]?.actions ?? -2);
+  numRow("model_calls", summaries[0]?.model_calls ?? -1, summaries[1]?.model_calls ?? -2);
   numRow("rounds", summaries[0]?.rounds ?? -1, summaries[1]?.rounds ?? -2);
   numRow("verify_repair_rounds", summaries[0]?.verify_repair_rounds ?? -1, summaries[1]?.verify_repair_rounds ?? -2);
   numRow("human_checkpoints", summaries[0]?.human_checkpoints ?? -1, summaries[1]?.human_checkpoints ?? -2);
@@ -216,6 +217,7 @@ function writeLedger(): void {
     rows: [
       { id: "F-roles", claim: "Four model roles share the review", value: num("model_roles"), kind: "measured", quote: comp("model_roles").quote, ...(comp("model_roles").range !== undefined ? { range: comp("model_roles").range } : {}), source: { file: "video/facts/harvest.json", pointer: "/comparisons/model_roles" } },
       { id: "F-actions-called", claim: "The review calls over one hundred actions", value: num("actions"), kind: "measured", quote: comp("actions").quote, ...(comp("actions").range !== undefined ? { range: comp("actions").range } : {}), source: { file: "video/facts/harvest.json", pointer: "/comparisons/actions" } },
+      { id: "F-model-turns", claim: "The review takes nineteen model turns", value: num("model_calls"), kind: "measured", quote: comp("model_calls").quote, ...(comp("model_calls").range !== undefined ? { range: comp("model_calls").range } : {}), source: { file: "video/facts/harvest.json", pointer: "/comparisons/model_calls" } },
       { id: "F-verify-passes", claim: "The truth engine checks the week three times", value: num("verify_repair_rounds"), kind: "measured", quote: comp("verify_repair_rounds").quote, ...(comp("verify_repair_rounds").range !== undefined ? { range: comp("verify_repair_rounds").range } : {}), source: { file: "video/facts/harvest.json", pointer: "/comparisons/verify_repair_rounds" } },
       { id: "F-errors-first", claim: "The first check finds dozens of errors", value: truth.first ?? 0, kind: "measured", quote: "exact", source: { file: "video/facts/harvest.json", pointer: "/comparisons/truth_series" } },
       { id: "F-errors-last", claim: "The last check finds zero errors", value: truth.last ?? 0, kind: "measured", quote: "exact", source: { file: "video/facts/harvest.json", pointer: "/comparisons/truth_series" } },

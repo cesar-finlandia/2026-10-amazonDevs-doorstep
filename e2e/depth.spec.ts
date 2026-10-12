@@ -25,6 +25,8 @@ function issuesOf(res: unknown): Issue[] {
 }
 
 test("DEPTH-1 one run of the core demo meets the depth bar", async ({ page, guard }) => {
+  // Same rung-aware budget as SMOKE-3: a live bedrock review takes minutes.
+  test.setTimeout(600_000);
   await openHome(page);
   await loadSampleWeek(page);
   const before = issuesOf(await checkNow(page));

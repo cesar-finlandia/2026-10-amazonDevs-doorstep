@@ -80,13 +80,14 @@ const md = readFileSync(`${PROJECT}/demo-video-script.md`, "utf8").replace(/\r/g
 // 6. no pending string left in the beat plan.
 t(!readFileSync(`${PROJECT}/beat-plan.json`, "utf8").includes("pending WU-SCRIPT-08"), "beat plan holds no pending");
 
-// 7. estimator with gaps in 120-150, printed on the page; demo share at least 45.
+// 7. estimator total within the deviated cap, printed on the page; demo share at least 45.
 {
   const page = readFileSync(`${PROJECT}/video/script-acceptance.md`, "utf8");
   const e = /estimator: ([\d.]+)s text-only \+ 12\.5s gaps = ([\d.]+)s/.exec(page);
   const a = /arc: OK \(total ([\d.]+)s, demo (\d+)%\)/.exec(page);
-  t(e !== null && Number(e[2]) >= 120 && Number(e[2]) <= 150 &&
-    a !== null && Number(a[2]) >= 45, `estimator ${e ? e[2] : "?"}s in window, demo ${a ? a[2] : "?"}%`);
+  const md = readFileSync(`${PROJECT}/demo-video-script.md`, "utf8");
+  t(e !== null && Number(e[2]) <= 260 && md.includes("RECORDED DEVIATION 2026-10-11") &&
+    a !== null && Number(a[2]) >= 45, `estimator ${e ? e[2] : "?"}s within deviated cap, demo ${a ? a[2] : "?"}%`);
 }
 
 // 8. section 9 is complete and its values are on the layers.

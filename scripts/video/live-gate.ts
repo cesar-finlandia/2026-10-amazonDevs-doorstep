@@ -36,7 +36,14 @@ if (isLocal && allowLocal) {
     const p = `${PROJECT}/video/production-notes.md`;
     const notes = rf(p, "utf8");
     if (!notes.includes("- gate:")) {
-      wf(p, notes.replace("## Deviations\n\nNone.", `## Deviations\n\n- gate: footage of a local server, the operator asked for it.`));
+      const anchor = "## Deviations\n\nNone.";
+      if (notes.includes(anchor)) {
+        wf(p, notes.replace(anchor, `## Deviations\n\n- gate: footage of a local server, the operator asked for it.`));
+      } else {
+        // Deviations already holds bullets (models pin, pause clock, ...):
+        // append under the heading instead of replacing a gone placeholder.
+        wf(p, notes.replace("## Deviations\n", `## Deviations\n- gate: footage of a local server, the operator asked for it.\n`));
+      }
     }
   } catch { /* notes stay as they are */ }
 }

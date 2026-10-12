@@ -88,7 +88,9 @@ export async function settleSampleWeek(page: Page): Promise<void> {
 
 /** Presses the primary button of the Agent panel ("Review the sample week" or "Review the week"), approves every approval request that appears (button "Approve"), waits for body-level [data-run-status="done"] on the Agent panel's wrapper, and returns the number of approvals given. Settles the streaming ingest first: a review started mid-stream chases moving data (repair never converges while twins land), which is a fixture race, not product behavior (FIX-12). */
 export async function reviewTheWeek(page: Page, opts?: { timeoutMs?: number }): Promise<number> {
-  const timeoutMs = opts?.timeoutMs ?? 120000;
+  // Default ceiling covers the bedrock rung: a live review makes nineteen
+  // model turns (minutes). Golden/local runs finish far inside it.
+  const timeoutMs = opts?.timeoutMs ?? 600000;
   await settleSampleWeek(page);
   await page.getByRole("button", { name: /Review the (sample )?week/ }).first().click();
   let approvals = 0;

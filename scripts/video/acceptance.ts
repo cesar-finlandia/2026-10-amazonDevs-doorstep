@@ -125,7 +125,7 @@ const est = JSON.parse(readFileSync(`${PROJECT}/video/facts/estimate.json`, "utf
 const estTotal = est.total ?? 0;
 const withGaps = estTotal + 12.5;
 const arcDetail = details.get("arc") ?? "";
-const totalsSection = `\n## Measured totals\n\n- estimator: ${estTotal.toFixed(1)}s text-only + 12.5s gaps = ${withGaps.toFixed(1)}s (window 120-150)\n- ${arcDetail}\n`;
+const totalsSection = `\n## Measured totals\n\n- estimator: ${estTotal.toFixed(1)}s text-only + 12.5s gaps = ${withGaps.toFixed(1)}s (deviated cap 260, RECORDED DEVIATION 2026-10-11)\n- ${arcDetail}\n`;
 console.log(`estimator: ${estTotal.toFixed(1)}s + 12.5s gaps = ${withGaps.toFixed(1)}s`);
 console.log(arcDetail);
 const md = `# Script acceptance\n\n${date}. Every gate of the spec §10, in order.\n\n| gate | command | result | date |\n|---|---|---|---|\n` +

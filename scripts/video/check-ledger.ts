@@ -24,7 +24,7 @@ const depthLine = depth.out.split("\n").map((l) => l.trim()).find((l) => /^depth
 if (depthLine !== "depth: 1 passed, 0 failed, 0 skipped") blocked(`check-ledger: depth red (${depthLine || "no summary"})`);
 
 const trace = readJson("e2e/artifacts/run-trace.json") as {
-  summary?: { model_roles?: string[]; actions?: number; rounds?: number; verify_repair_rounds?: number; human_checkpoints?: number };
+  summary?: { model_calls?: number; model_roles?: string[]; actions?: number; rounds?: number; verify_repair_rounds?: number; human_checkpoints?: number };
   entries?: { kind?: string; name?: string; truth?: { errors?: number } }[];
 };
 const s = trace.summary ?? {};
@@ -32,6 +32,7 @@ const verify = (trace.entries ?? []).filter((e) => e.kind === "action" && e.name
 const now: Record<string, number> = {
   "F-roles": (s.model_roles ?? []).length,
   "F-actions-called": s.actions ?? -1,
+  "F-model-turns": s.model_calls ?? -1,
   "F-verify-passes": s.verify_repair_rounds ?? -1,
   "F-checkpoints": s.human_checkpoints ?? -1,
   "F-errors-first": verify.length > 0 ? (verify[0]?.truth?.errors ?? -1) : -1,

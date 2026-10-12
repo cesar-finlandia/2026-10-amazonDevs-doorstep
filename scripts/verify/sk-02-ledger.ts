@@ -33,11 +33,11 @@ const harvest = JSON.parse(readFileSync(`${PROJECT}/video/facts/harvest.json`, "
   );
 }
 
-// 2. Eleven ids unique.
+// 2. Twelve ids unique (F-model-turns added 2026-10-11 for the spoken nineteen).
 {
   const ids = (ledger.rows ?? []).map((r) => r.id);
-  const want = ["F-roles", "F-actions-called", "F-verify-passes", "F-errors-first", "F-errors-last", "F-checkpoints", "F-featured-hour", "F-actions-total", "F-bundle-days", "F-bundle-events", "F-rung"];
-  t(want.every((id) => ids.includes(id)) && new Set(ids).size === ids.length, "eleven unique ids");
+  const want = ["F-roles", "F-actions-called", "F-model-turns", "F-verify-passes", "F-errors-first", "F-errors-last", "F-checkpoints", "F-featured-hour", "F-actions-total", "F-bundle-days", "F-bundle-events", "F-rung"];
+  t(want.every((id) => ids.includes(id)) && new Set(ids).size === ids.length, "twelve unique ids");
 }
 
 // 3. Row shapes; sources exist.

@@ -39,6 +39,9 @@ test("SMOKE-2 the home page loads clean", async ({ page, guard }) => {
 });
 
 test("SMOKE-3 a week review runs to the end", async ({ page }) => {
+  // On the bedrock rung a review makes nineteen live model turns (minutes,
+  // not seconds); the assertions are unchanged, only the wait budget grows.
+  test.setTimeout(600_000);
   await openHome(page);
   await loadSampleWeek(page);
   await reviewTheWeek(page);

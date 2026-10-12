@@ -75,8 +75,8 @@
       "label": "HTTPS",
       "proof": {
         "file": "logs/proof.log",
-        "line": 1724,
-        "text": "POST /api/agent/step 200 5846ms",
+        "line": 1859,
+        "text": "POST /api/agent/step 200 4644ms",
         "mode": "server"
       }
     },
@@ -102,8 +102,8 @@
       "label": "Converse",
       "proof": {
         "file": "logs/proof.log",
-        "line": 1722,
-        "text": "step global.anthropic.claude-sonnet-4-6 2933ms 9892 tokens",
+        "line": 1857,
+        "text": "step global.anthropic.claude-sonnet-4-6 4640ms 9355 tokens",
         "mode": "bedrock"
       }
     },
@@ -128,8 +128,8 @@
       "label": "tokens",
       "proof": {
         "file": "logs/proof.log",
-        "line": 1723,
-        "text": "used 28.7% of the token budget (172476 tokens)",
+        "line": 1858,
+        "text": "used 33.3% of the token budget (199608 tokens)",
         "mode": "sidecar"
       }
     }
