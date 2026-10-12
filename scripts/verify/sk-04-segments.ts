@@ -28,17 +28,17 @@ const segs = JSON.parse(readFileSync(`${PROJECT}/narration-segments.json`, "utf8
   );
 }
 
-// 2. Thirteen ids s1..s12 in order. (The plan text says "twelve"; §5.3 and
-// §3.3 list thirteen ids including s3b, and the beat plan names all thirteen.)
+// 2. Fourteen ids s1..s12 in order. (Round 4, 2026-10-12, operator order:
+// bridge s8b covers the slow review; the beat plan owns it under W4b.)
 {
   const ids = (segs.segments ?? []).map((s) => s.id);
-  t(JSON.stringify(ids) === JSON.stringify(["s1", "s2", "s3", "s3b", "s4", "s5", "s6", "s7", "s8", "s9", "s10", "s11", "s12"]), `thirteen ids (${ids.length})`);
+  t(JSON.stringify(ids) === JSON.stringify(["s1", "s2", "s3", "s3b", "s4", "s5", "s6", "s7", "s8", "s8b", "s9", "s10", "s11", "s12"]), `fourteen ids (${ids.length})`);
 }
 
 // 3. Parity via the tool.
 {
   const r = runNode(["scripts/video/script-to-segments.ts", "--check"]);
-  t(r.code === 0 && /segments: 13 segments, \d+ words, parity yes/.test(r.out), "parity yes");
+  t(r.code === 0 && /segments: 14 segments, \d+ words, parity yes/.test(r.out), "parity yes");
 }
 
 // 4. TTS-ready character set.
@@ -103,7 +103,7 @@ const segs = JSON.parse(readFileSync(`${PROJECT}/narration-segments.json`, "utf8
   const lines = r2.out.split("\n").map((l) => l.trim());
   const per = lines.filter((l) => /^\S+ words=\d+ syllables=\d+ estimate=[\d.]+s$/.test(l));
   const total = lines.find((l) => l.startsWith("TOTAL"));
-  t(r2.code === 0 && per.length === 13 && total !== undefined, `estimator lines (${per.length}) + TOTAL`);
+  t(r2.code === 0 && per.length === 14 && total !== undefined, `estimator lines (${per.length}) + TOTAL`);
 }
 
 // 8. TOTAL within the raised cap, with the deviation recorded (the 120–150
@@ -152,15 +152,13 @@ const segs = JSON.parse(readFileSync(`${PROJECT}/narration-segments.json`, "utf8
   t(r.code === 0, "video banned scan exits 0");
 }
 
-// 12. s12 names repo + live in words; closing phrase conditional.
+// 12. s12 names the repo in words and names no live page (operator cost
+// order 2026-10-12: the live URL appears nowhere in the film).
 {
   const s12 = (segs.segments ?? []).find((s) => s.id === "s12")?.text ?? "";
-  const show = JSON.parse(readFileSync("design_documents/showcase.json", "utf8")) as { repo_url?: string; live_url?: string };
-  const ledger = JSON.parse(readFileSync(`${PROJECT}/fact-ledger.json`, "utf8")) as { rung?: string };
-  const hasRepo = /open source/i.test(s12);
-  const hasLive = /page is live/i.test(s12);
-  const phraseOk = !s12.includes("open source, live now") || ((show.repo_url ?? "") !== "" && (show.live_url ?? "") !== "" && ledger.rung !== "manual");
-  t(hasRepo && hasLive && phraseOk, "s12 close in words, conditional phrase");
+  const hasRepo = /open source/i.test(s12) && /github/i.test(s12);
+  const noLive = !/live now/i.test(s12) && !/page is live/i.test(s12) && !/run\.app/i.test(s12);
+  t(hasRepo && noLive, "s12 close names GitHub, no live claim");
 }
 
 done("sk-04-segments", n, failures);

@@ -68,8 +68,10 @@ gates.push({
   name: "ledger", command: "npx vite-node scripts/video/check-ledger.ts",
   run: () => sh("npx", ["vite-node", "scripts/video/check-ledger.ts"]),
 });
-// The closing-sentence test (WU-10 step 3): s12 claims open source + live now,
-// so all three must verify here or the sentence is rewritten.
+// The closing-sentence test (WU-10 step 3): if s12 still claims open source +
+// live now, all three must verify here or the sentence is rewritten. Since the
+// 2026-10-12 operator cost order s12 names GitHub and no live page, this gate
+// passes vacuously (the EndCard props carry the repository URL instead).
 gates.push({
   name: "closing", command: "LICENSE MIT + git ls-remote repo_url + GET live_url/health",
   run: () => {

@@ -1,7 +1,8 @@
 // scripts/video/lib.ts — DP-SCRIPT shared helpers (§3.6 literal).
 import { spawnSync } from "node:child_process";
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
-import { dirname } from "node:path";
+import { readFileSync, writeFileSync, mkdirSync, mkdtempSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { dirname, join } from "node:path";
 
 export const PROJECT = "../../hackathons/hackathon-projects/2026-10-amazonDevs";
 export const CHASSIS = "../../hackathons";
@@ -46,6 +47,20 @@ export function done(name: string, total: number, failures: string[]): never {
 }
 
 export function estimate(file: string): { perSegment: Record<string, number>; total: number; cold: boolean } {
+  // R-17: the batch estimator measures "<style>: <text>" per segment, but the
+  // render test proved the style directive is never spoken (26.65 s with it
+  // versus 3.47 s without, identical text). Gates use text-only durations:
+  // measure a temp copy with the style blanked (same tool, same rate).
+  // The full-file --estimate printout is still run wherever format is gated.
+  let tmp = "";
+  try {
+    const doc = JSON.parse(readFileSync(file, "utf8")) as { style?: string };
+    if (typeof doc.style === "string" && doc.style !== "") {
+      tmp = join(mkdtempSync(join(tmpdir(), "est-")), "segments.json");
+      writeJson(tmp, { ...doc, style: "" });
+      file = tmp;
+    }
+  } catch { /* fall through with the original file */ }
   const r = runPy([`${CHASSIS}/_useful/scripts/tts_vertex.py`, "--batch", file, "--estimate"]);
   const perSegment: Record<string, number> = {};
   let total = 0;

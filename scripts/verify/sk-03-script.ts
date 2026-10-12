@@ -37,13 +37,13 @@ const md = readFileSync(`${PROJECT}/demo-video-script.md`, "utf8").replace(/\r/g
     const [a, b] = s.split(":").map(Number);
     return (a as number) * 60 + (b as number);
   };
-  let consec = heads.length === 13 && heads[0]?.from === "0:00";
+  let consec = heads.length === 14 && heads[0]?.from === "0:00";
   for (let i = 1; i < heads.length; i++) {
     if (heads[i]?.from !== heads[i - 1]?.to) consec = false;
   }
   const markers = [...blocks.matchAll(/^\*\((\d+) words — (\d+:\d+)\)\*$/gm)];
   const visual = (blocks.match(/^\*\*\[Visual:/gm) ?? []).length;
-  let markersOk = markers.length === 13 && visual === 13;
+  let markersOk = markers.length === 14 && visual === 14;
   // N equals the spoken words of its block (visual/marker/seg lines excluded).
   const proseBlocks = blocks.split(/^<!-- seg: \S+ -->/m).slice(1);
   if (proseBlocks.length === markers.length) {

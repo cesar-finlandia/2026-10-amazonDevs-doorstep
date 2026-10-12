@@ -1,6 +1,6 @@
 ---
 version: "1.0.0"
-generated_at: "2026-10-10T16:48:53.809Z"
+generated_at: "2026-10-12T18:31:22.270Z"
 not_extracted_fields: []
 ---
 
@@ -59,10 +59,10 @@ _Generated at 2026-10-10T13:36:34.388Z from manifest hash 77e04710c2031011b04da0
 
 ### Secret scan — clean (0 hit(s))
 
-No secret-pattern hits across 933 scanned file(s) (69 ignored).
+No secret-pattern hits across 972 scanned file(s) (69 ignored).
 
-### Commit distribution — clean (26% in one 1h bucket)
+### Commit distribution — clean (15% in one 1h bucket)
 
-19 total commits; largest bucket `2026-10-10T13:00Z` holds 5 (26%, threshold 80%).
+33 total commits; largest bucket `2026-10-10T13:00Z` holds 5 (15%, threshold 80%).
 
 Overall: **clean**

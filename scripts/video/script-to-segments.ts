@@ -57,6 +57,7 @@ const FRAMES: Record<string, string> = {
   s6: "stage3d-2.json#wow",
   s7: "/",
   s8: "/",
+  s8b: "/",
   s9: "/",
   s10: "/",
   s11: "stage3d-3.json#wow",
@@ -64,7 +65,7 @@ const FRAMES: Record<string, string> = {
 };
 
 const EMPHASIS: Record<string, string[]> = {
-  s1: ["the hour that did not fit"],
+  s1: ["far more visits"],
   s10: ["Here is the request"],
   s12: ["Know her day without calling."],
 };
@@ -114,7 +115,7 @@ function spokenOf(block: string): string {
     .trim();
 }
 
-const ORDER = ["s1", "s2", "s3", "s3b", "s4", "s5", "s6", "s7", "s8", "s9", "s10", "s11", "s12"];
+const ORDER = ["s1", "s2", "s3", "s3b", "s4", "s5", "s6", "s7", "s8", "s8b", "s9", "s10", "s11", "s12"];
 const { ids, prose } = readScript();
 if (JSON.stringify(ids) !== JSON.stringify(ORDER)) blocked(`script-to-segments: seg markers are [${ids.join(",")}], want [${ORDER.join(",")}]`);
 
@@ -162,6 +163,48 @@ if (process.argv.includes("--check")) {
   }
   const words = norm(wantText).split(" ").filter((w) => w !== "").length;
   console.log(`segments: ${segments.length} segments, ${words} words, parity yes`);
+  // 2026-10-12: the review file feeds the microphone (apply_review folds it
+  // into the synthesis input), so its prose must equal the segments' words.
+  // A stale review block once re-recorded an older cut into the audio while
+  // every script-side gate stayed green. Never again.
+  const review = readFileSync(`${PROJECT}/narration-review.md`, "utf8").replace(/\r/g, "");
+  const blocks = new Map<string, string>();
+  {
+    let cur: string | null = null;
+    let buf: string[] = [];
+    const flush = (): void => {
+      if (cur !== null) blocks.set(cur, norm(buf.join(" ")));
+      cur = null;
+      buf = [];
+    };
+    for (const line of review.split("\n")) {
+      const m = /^## \[(\S+)\]/.exec(line.trim());
+      if (m) {
+        flush();
+        cur = m[1] as string;
+        continue;
+      }
+      if (cur !== null) {
+        const t = line.trim();
+        if (t !== "" && !t.startsWith("<!--") && t !== "---") buf.push(t);
+      }
+    }
+    flush();
+  }
+  const liveById = new Map((live.segments ?? []).map((s) => [s.id ?? "", norm(s.text ?? "")]));
+  let reviewOk = blocks.size === liveById.size;
+  const drifts: string[] = [];
+  for (const [id, text] of liveById) {
+    if (blocks.get(id) !== text) {
+      reviewOk = false;
+      drifts.push(id);
+    }
+  }
+  if (!reviewOk) {
+    console.log(`segments: REVIEW DRIFT in ${drifts.join(",") || "block count"} — narration-review.md prose differs from narration-segments.json; run render with --review to re-sync, then re-check`);
+    process.exit(1);
+  }
+  console.log(`review: ${blocks.size} blocks match the segments, drift none`);
 } else {
   writeJson(`${PROJECT}/narration-segments.json`, header);
   const words = segments.map((s) => s.text as string).join(" ").split(/\s+/).filter((w) => w !== "").length;

@@ -8,7 +8,6 @@ import { useModel, useStatus } from "../state/hooks.js";
 export function WebhookInboxPill(): React.JSX.Element {
   const model = useModel();
   const status = useStatus();
-  const loaded = model.events.length > 0;
   // The live server count, always: after ingest it drains to zero on its
   // own, and a new arrival (live or simulated) must read on the badge.
   const n = status.inboxDefault;
@@ -29,7 +28,7 @@ export function WebhookInboxPill(): React.JSX.Element {
     <Surface eyebrow="Webhooks">
       <Metric label="Webhook inbox" value={n} unit="waiting" size="md" />
       <p className="support">{`Webhook inbox · ${n} waiting`}</p>
-      {status.simulate ? <Button variant="ghost" onClick={press} disabled={!loaded}>Simulate a doorbell press</Button> : null}
+      {status.simulate ? <Button variant="ghost" onClick={press}>Simulate a doorbell press</Button> : null}
     </Surface>
   );
 }

@@ -138,6 +138,7 @@ One row per `controls[]` entry of `e2e/controls.json`.
 | ctl-033 | `/` | button "Open an incident" | controls-sweep | false |
 | ctl-034 | `/` | `button[aria-label^="Open incident"]` | UC03-1 | true |
 | ctl-035 | `/` | button "Cancel" | CTL-1 | false |
+| ctl-036 | `/` | button "Simulate a doorbell press" | CTL-1 | false |
 
 
 ## 4 Agent-surface evaluation
