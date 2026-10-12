@@ -18,6 +18,8 @@ secrets*.json
 /examples/
 # IDE
 .DS_Store
+# 2026-10-12 operator order: local node-version pin, not needed to run the app
+.nvmrc
 # --- run_sweep.sh engine-building harness (added 2026-08-25, DP-G amendment):
 # everything the sweep driver creates while implementing the engine ---
 .chat/
@@ -49,7 +51,6 @@ handout_active.md
 
 
 /design_documents/*
-!/design_documents/ui-screenshots/
 /templates/
 /private/
 /demo/
@@ -81,7 +82,6 @@ test-results/
 .run_step_records.txt
 supervisor.log
 logs/*
-!logs/proof.log
 # WU-E2E-06 hygiene: remaining sweep tokens + eval raw per-run folders
 # (evals/report.json, evals/scenarios.json, evals/adapter.ts, evals/config.json stay trackable)
 .lock/
@@ -92,17 +92,27 @@ evals/iterations/
 # Session handoff notes stay local (operator scratch, never committed)
 HANDOFF-*.md
 
-# DP-SUBMISSION: judge-facing documents are part of the public repository
-!/design_documents/showcase.json
-!/design_documents/showcase-facts.json
-!/design_documents/demo-scenario.json
-!/design_documents/operator-final-checks.md
-!/design_documents/submission_description.md
-!/design_documents/friction-log.md
-!/design_documents/winning_project_plan.md
-!/design_documents/hackathon_brief.md
-!/design_documents/master_blueprint_entry.md
-!/design_documents/visual_identity_plan.md
-!/design_documents/design_plans/
-!/design_documents/e2e-testing/
-!/design_documents/submission/
+# 2026-10-12 operator order: design_documents/ is fully private — no exceptions.
+# (History still contains previously pushed files; fresh clones will lack docs
+# that local gates read, e.g. design_documents/showcase.json.)
+
+# 2026-10-12 operator order: hackathon process artifacts are never committed.
+# (Tracked files stay tracked — README images and contracts/ are unaffected.)
+.claude/
+brand/
+docs/
+e2e/
+evals/
+hee/
+shots/
+.python-version
+pyproject.toml
+playwright.config.ts
+playwright.showcase.config.ts
+run_sweep.sh
+actions.manifest.json
+assembly.manifest.json
+cinematic-tokens.json
+claims.json
+models.json
+architecture.json
