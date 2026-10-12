@@ -9,13 +9,27 @@ export function WebhookInboxPill(): React.JSX.Element {
   const model = useModel();
   const status = useStatus();
   const loaded = model.events.length > 0;
-  const n = loaded ? 0 : status.inboxDefault;
-  const simulate = (status as unknown as { simulate?: unknown }).simulate === true;
+  // The live server count, always: after ingest it drains to zero on its
+  // own, and a new arrival (live or simulated) must read on the badge.
+  const n = status.inboxDefault;
+  // Delivers a signed simulated doorbell press through the production
+  // /api/dev/simulate-webhook path (same HMAC verifier as live), the way a
+  // live Ring delivery arrives: with no session affinity, into the default
+  // inbox the badge reads. The server enables the route exactly when
+  // status.simulate is true.
+  const press = (): void => {
+    const first = model.events.find((e) => typeof e.deviceId === "string" && e.deviceId !== "");
+    void fetch("/api/dev/simulate-webhook", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ type: "button_press", deviceId: first?.deviceId ?? "dev-door" }),
+    }).catch(() => undefined);
+  };
   return (
     <Surface eyebrow="Webhooks">
       <Metric label="Webhook inbox" value={n} unit="waiting" size="md" />
       <p className="support">{`Webhook inbox · ${n} waiting`}</p>
-      {simulate ? <Button variant="ghost">Simulate a doorbell press</Button> : null}
+      {status.simulate ? <Button variant="ghost" onClick={press} disabled={!loaded}>Simulate a doorbell press</Button> : null}
     </Surface>
   );
 }

@@ -658,6 +658,9 @@ function mountStatus(app: Express, deps: ServerDeps): void {  app.get("/api/stat
         cost: { usedPct: deps.cost.summary().usedPct },
         inbox: { default: deps.inbox.size("default") },
         build: deps.buildMarker,
+        // Mirrors the /api/dev/simulate-webhook gate below: the UI shows the
+        // simulate control exactly when the route would accept the delivery.
+        simulate: deps.env["NODE_ENV"] !== "production" || deps.env["ALLOW_SIMULATE"] === "1",
       });
     } catch (e) {
       next(e);

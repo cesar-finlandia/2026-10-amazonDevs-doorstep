@@ -32,6 +32,7 @@ export interface StatusSnapshot {
   usedPct: number;
   inboxDefault: number;
   build: string;
+  simulate: boolean;
   loaded: boolean;
 }
 
@@ -41,6 +42,7 @@ const EMPTY_STATUS: StatusSnapshot = {
   usedPct: 0,
   inboxDefault: 0,
   build: "",
+  simulate: false,
   loaded: false,
 };
 
@@ -129,6 +131,7 @@ export function useStatus(): StatusSnapshot {
         cost?: { usedPct?: number };
         inbox?: { default?: number };
         build?: string;
+        simulate?: boolean;
       };
       setSnap({
         ring: {
@@ -143,6 +146,7 @@ export function useStatus(): StatusSnapshot {
         usedPct: typeof json.cost?.usedPct === "number" ? json.cost.usedPct : 0,
         inboxDefault: typeof json.inbox?.default === "number" ? json.inbox.default : 0,
         build: typeof json.build === "string" ? json.build : "",
+        simulate: json.simulate === true,
       });
       setLoaded(true);
     } catch {
@@ -156,7 +160,7 @@ export function useStatus(): StatusSnapshot {
   }, [refresh]);
   useEffect(() => {
     const last = envelopes[envelopes.length - 1];
-    if (last && (last.step_id === "agent-rung" || last.step_id === "ring-mode")) void refresh();
+    if (last && (last.step_id === "agent-rung" || last.step_id === "ring-mode" || last.step_id === "ring-webhook")) void refresh();
   }, [envelopes, refresh]);
   if (!snap) return { ...EMPTY_STATUS, loaded };
   return { ...snap, loaded };
