@@ -1,3 +1,0 @@
-Install once in this repository:
-npm install -D ajv@^8.20.0 ajv-formats@^3.0.1 sharp@0.35.5 gifenc@1.0.3 @playwright/test@1.62.1
-Run tools with npx vite-node hee/<path> …
